@@ -88,7 +88,7 @@ namespace FormUI.OperationLayer
             {
                 Thread.Sleep(20);
                 i++;
-                if (i > 200)
+                if (i > 250)
                 {
                 Received = false;
                 throw new Exception("发送超时，请检查串口设备"); 
@@ -155,7 +155,7 @@ namespace FormUI.OperationLayer
                 port.ReceivedBytesThreshold = port.ReadBufferSize;
                 while (true)
                 {
-                    Thread.Sleep(100);
+                    //Thread.Sleep(100);
                     var message = port.ReadExisting();
                     if (string.Equals(message, string.Empty))
                     {

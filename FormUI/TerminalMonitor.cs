@@ -91,7 +91,7 @@ namespace FormUI
                 {
                     if (e.Filter.Context.Contains("本终端"))
                     {
-                        _order.TimeSet(e.Filter.Name, e.Filter.Phone,
+                        _order.TimeSet(e.Filter.Phone, e.Filter.Phone,
                                        DateTime.Now.ToString("yyyyMMddHHmmss").Substring(2));
                     }
                     if (e.Filter.Context.Contains("本地喊话")|| e.Filter.Context.Contains("播放"))
@@ -197,6 +197,7 @@ namespace FormUI
         
              try
              {
+               
                  cmd.SmsAnswer();
              }
                 catch
@@ -205,7 +206,7 @@ namespace FormUI
                 }
             if (port.IsOpen && port.Received)
             {
-                timer1.Interval = 3000;
+                timer1.Interval = 5000;
                 timer1.Enabled = true;
                 lbPortState.Text = port.SerialPort.PortName;
                 lbPortState.ForeColor = Color.Green;

@@ -85,7 +85,7 @@ namespace FormUI.Filters
                             });
 
                     }
-                    new AT().DeleteReadMes();
+                  //  new AT().DeleteReadMes();
                     Phone = phone;
                     Time = time;
                     Context = content;
