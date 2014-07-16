@@ -39,7 +39,7 @@ namespace FormUI.OperationLayer
         /// <summary>
         ///     短信不保存，直接发送到串口
         /// </summary>
-        private string SMS_ALERT = "AT+CNMI=1,2";
+        private string SMS_ALERT = "AT+CNMI=2,2,,1";
 
         /// <summary>
         ///     短信格式：中文
@@ -375,6 +375,7 @@ namespace FormUI.OperationLayer
                 .Send(SMS_CH)
                 .Send(CLIP_ON)
                 .Send(SMCRAD_MESSAGE);
+           
         }
 
         /// <summary>
@@ -427,7 +428,6 @@ namespace FormUI.OperationLayer
         /// </summary>
         public void GetMessage(string index)
         {
-            _port.Send("AT+CMGF=0");
            _port.Send(GetSMS(index));
         }
 
@@ -583,9 +583,6 @@ namespace FormUI.OperationLayer
                _port.Send(string.Format("AT+CMGD={0}", index));
         }
 
-        public void SendAt()
-        {
-            _port.Send(TEST);
-        }
+       
     }
 }

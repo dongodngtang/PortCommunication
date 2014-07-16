@@ -168,8 +168,6 @@ namespace FormUI
             LoadTerminals();
             NewPhone += RefreshListBox;
             ListBox1Listener += SendMesShow;
-           /* timer1.Interval = 2000;
-            timer1.Enabled = true;*/
             WindowState = FormWindowState.Maximized;
         }
 
@@ -198,15 +196,17 @@ namespace FormUI
         {
         
              try
-                {
-                    cmd.SendAt();
-                }
+             {
+                 cmd.SmsAnswer();
+             }
                 catch
                 {
-                    
+                    timer1.Enabled = false;
                 }
             if (port.IsOpen && port.Received)
             {
+                timer1.Interval = 3000;
+                timer1.Enabled = true;
                 lbPortState.Text = port.SerialPort.PortName;
                 lbPortState.ForeColor = Color.Green;
             }
@@ -659,7 +659,7 @@ namespace FormUI
 //                timer1.Stop();
 //                dou = -0.05;
 //            }
-           // ChangeState();
+            ChangeState();
         }
 
         private void btRainFull_Click(object sender, EventArgs e)

@@ -29,11 +29,11 @@ namespace FormUI.ManagerForms
         private void ChangeState(bool isOpen)
         {
            try
-                {
-                    cmd.SendAt();
-                }
-                catch
-                {
+           {
+               cmd.SmsAnswer();
+           }
+          catch
+               {
                 }
             if (isOpen && _port.Received )
             {

@@ -86,9 +86,9 @@ namespace FormUI.OperationLayer
             Received = true;
             while (!IsReceived)
             {
-                Thread.Sleep(30);
+                Thread.Sleep(20);
                 i++;
-                if (i > 300)
+                if (i > 200)
                 {
                 Received = false;
                 throw new Exception("发送超时，请检查串口设备"); 
