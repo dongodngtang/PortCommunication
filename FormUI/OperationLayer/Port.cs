@@ -179,10 +179,9 @@ namespace FormUI.OperationLayer
                     IsReceived = true;
                     return;
                 }
-
+               TerminalMonitor.CallLock = false;
                 var t = new ThreadStart(() =>
                     {
-                        TerminalMonitor.CallLock = false;
                         var filter = new FilterProcessor(content).Run();
                         if (filter == null) return;
                         Owner.Invoke(new Action<Filter>(Owner.Popup), filter);

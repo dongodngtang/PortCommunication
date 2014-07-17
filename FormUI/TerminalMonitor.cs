@@ -108,7 +108,7 @@ namespace FormUI
                     {
                         listView1.Items[i].ImageKey = TerminalState.Stoped.ToString();
                     }
-                    if (e.Filter.Context.Contains("告警"))
+                    if (e.Filter.Name.Contains("告警"))
                     {
                         listView1.Items[i].ImageKey = TerminalState.Red.ToString();
                     }
