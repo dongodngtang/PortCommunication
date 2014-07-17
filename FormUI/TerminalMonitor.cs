@@ -36,7 +36,7 @@ namespace FormUI
 
         public event MyEvent NewPhone;
         public static event Listener ListBox1Listener;
-   
+        public static bool CallLock = true;
        public void OnListBox1Listener(string phone,string context)
         {
             if (phone != string.Empty)
@@ -89,7 +89,7 @@ namespace FormUI
             {
                 if (listView1.Items[i].ToolTipText == e.Filter.Phone)
                 {
-                    if (e.Filter.Context.Contains("本终端"))
+                    if (e.Filter.Context.Contains("本终端已启动"))
                     {
                         _order.TimeSet(e.Filter.Phone, e.Filter.Phone,
                                        DateTime.Now.ToString("yyyyMMddHHmmss").Substring(2));
@@ -104,7 +104,7 @@ namespace FormUI
                     {
                         listView1.Items[i].ImageKey = TerminalState.Running.ToString();
                     }
-                    if (e.Filter.Context.Contains("已停播")||e.Filter .Context .Contains( "error"))
+                    if (e.Filter .Context .Contains( "error"))
                     {
                         listView1.Items[i].ImageKey = TerminalState.Stoped.ToString();
                     }
@@ -116,13 +116,20 @@ namespace FormUI
                     {
                         listView1.Items[i].ImageKey = TerminalState.Red.ToString();
                     }
+                    if (e.Filter.Name.Contains("来电"))
+                    {
+                        cmd.HangUp();
+                    }
+                   
                     str = listView1.Items[i].Text;
                     break;
                 }
             }
+         
             ControlListboxAmount();
             listBox1.Items.Add(new Item(e.Filter.Name + "于：" + str, e.Filter.Context, e.Filter.Time));
-           
+            CallLock = true;
+
         }
 
         private void TerminalMonitor_Load(object sender, EventArgs e)
@@ -206,7 +213,7 @@ namespace FormUI
                 }
             if (port.IsOpen && port.Received)
             {
-                timer1.Interval = 5000;
+                timer1.Interval = 3000;
                 timer1.Enabled = true;
                 lbPortState.Text = port.SerialPort.PortName;
                 lbPortState.ForeColor = Color.Green;
@@ -337,6 +344,7 @@ namespace FormUI
             try
             {
                 cmd.CallUp(items[0].ToolTipText);
+                CallLock = false;
                 listBox1.Items.Add(new Item("拨号至：" + listView1.FocusedItem.Text, null));
             }
             catch (Exception ex)
@@ -350,6 +358,7 @@ namespace FormUI
             try
             {
                 cmd.HangUp();
+                CallLock = true;
             }
             catch (Exception ex)
             {
@@ -660,7 +669,9 @@ namespace FormUI
 //                timer1.Stop();
 //                dou = -0.05;
 //            }
+            if(CallLock)
             ChangeState();
+            
         }
 
         private void btRainFull_Click(object sender, EventArgs e)

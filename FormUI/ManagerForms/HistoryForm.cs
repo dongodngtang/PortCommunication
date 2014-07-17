@@ -23,7 +23,8 @@ namespace FormUI.ManagerForms
             Printer.DataGridViewList = this.dataGridView1;
             bs.DataSource = _history.GetModelList("");
             GetHistoryList(bs);
-          
+            MyDataGridViewPrinter = new DataGridViewPrinter();
+
         } 
       
         private void GetHistoryList(BindingSource bs)
@@ -50,7 +51,7 @@ namespace FormUI.ManagerForms
         
         private void btPrint_Click(object sender, EventArgs e)
         {
-            Print();
+            MyDataGridViewPrinter.PrintView(dataGridView1);
         }
 
         private void btClear_Click(object sender, EventArgs e)
@@ -90,67 +91,9 @@ namespace FormUI.ManagerForms
                 btClear.Visible  = true;
             }
         }
-        private bool SetupThePrinting()
-        {
-            PrintDialog MyPrintDialog = new PrintDialog();
-            MyPrintDialog.AllowCurrentPage = false;
-            MyPrintDialog.AllowPrintToFile = false;
-            MyPrintDialog.AllowSelection = false;
-            MyPrintDialog.AllowSomePages = false;
-            MyPrintDialog.PrintToFile = false;
-            MyPrintDialog.ShowHelp = false;
-            MyPrintDialog.ShowNetwork = false;
-
-            if (MyPrintDialog.ShowDialog() != DialogResult.OK)
-                return false;
-
-            MyPrintDocument.DocumentName = "Customers Report";
-            MyPrintDocument.PrinterSettings = MyPrintDialog.PrinterSettings;
-            MyPrintDocument.DefaultPageSettings = MyPrintDialog.PrinterSettings.DefaultPageSettings;
-            MyPrintDocument.DefaultPageSettings.Margins = new Margins(20,20, 30, 30);
-
-           
-                MyDataGridViewPrinter = new DataGridViewPrinter(dataGridView1, MyPrintDocument, true, true, "通信记录", new Font("宋体", 10, FontStyle.Regular), Color.Black, true);
-          
-                //MyDataGridViewPrinter = new DataGridViewPrinter(dataGridView1, MyPrintDocument, false, true, "通信记录", new Font("Tahoma", 18, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true);
-
-            return true;
-        }
+      
         
-        private void MyPrintDocument_PrintPage(object sender, PrintPageEventArgs e)
-        {
-
-            bool more = MyDataGridViewPrinter.DrawDataGridView(e.Graphics);
-            if (more == true)
-                e.HasMorePages = true;
-          
-          
-        }
-        private void PrintView()
-        {
-            if (SetupThePrinting())
-            {
-                PrintPreviewDialog MyPrintPreviewDialog = new PrintPreviewDialog();
-                MyPrintPreviewDialog.Document = MyPrintDocument;
-                MyPrintPreviewDialog.ShowDialog();
-            }
-        }
-
-        private void Print()
-        {
-            try
-            {
-               if (SetupThePrinting())
-                MyPrintDocument.Print();
-            }
-            catch(Exception e )
-            {
-                throw new Exception(e.ToString());
-            }
-           
-        }
-    
-
+      
      
     }
 }

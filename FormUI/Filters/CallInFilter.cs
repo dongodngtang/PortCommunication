@@ -30,6 +30,7 @@ namespace FormUI.Filters
                 if (list.Length > 1)
                 {
                     Phone = list[1];
+                    Context = Name + Phone;
                     if (White.PhoneExists(Phone) || Terminal.PhoneExists(Phone))
                     {
                         if (PhoneNo != Phone || Times > 3)
@@ -37,7 +38,7 @@ namespace FormUI.Filters
                             new HistoryRecordService().Add(new HistoryRecord()
                                 {
                                     Handler = Name,
-                                    PhoneNo = PhoneNo,
+                                    PhoneNo = Phone,
                                     HandlerTime = Time,
                                 });
                             Times = 0;

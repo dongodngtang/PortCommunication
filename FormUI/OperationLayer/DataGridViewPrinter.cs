@@ -16,7 +16,7 @@ namespace FormUI.OperationLayer
         private Font TheTitleFont; // The font to be used with the title text (if IsWithTitle is set to true)
         private Color TheTitleColor; // The color to be used with the title text (if IsWithTitle is set to true)
         private bool IsWithPaging; // Determine if paging is used
- 
+        private PrintDocument MyDocument;
         static int CurrentRow; // A static parameter that keep track on which Row (in the DataGridView control) that should be printed
  
         static int PageNumber;
@@ -40,9 +40,71 @@ namespace FormUI.OperationLayer
         private List<int[]> mColumnPoints;
         private List<float> mColumnPointsWidth;
         private int mColumnPoint;
-        
+        private void MyPrintDocumetEvent(object sender, PrintPageEventArgs e)
+        {
+            bool more = DrawDataGridView(e.Graphics);
+            if (more == true)
+                e.HasMorePages = true;
+        }
+        public  bool SetupThePrinting(DataGridView dataGridView1)
+        {
+            PrintDialog MyPrintDialog = new PrintDialog();
+            MyPrintDialog.AllowCurrentPage = false;
+            MyPrintDialog.AllowPrintToFile = false;
+            MyPrintDialog.AllowSelection = false;
+            MyPrintDialog.AllowSomePages = false;
+            MyPrintDialog.PrintToFile = false;
+            MyPrintDialog.ShowHelp = false;
+            MyPrintDialog.ShowNetwork = false;
+
+            if (MyPrintDialog.ShowDialog() != DialogResult.OK)
+                return false;
+
+            MyDocument.DocumentName = "Customers Report";
+            MyDocument.PrinterSettings = MyPrintDialog.PrinterSettings;
+            MyDocument.DefaultPageSettings = MyPrintDialog.PrinterSettings.DefaultPageSettings;
+            MyDocument.DefaultPageSettings.Margins = new Margins(20, 20, 30, 30);
+
+
+            PrintData(dataGridView1, MyDocument, true, true, "通信记录", new Font("宋体", 9, FontStyle.Regular), Color.Black, true);
+
+            //MyDataGridViewPrinter = new DataGridViewPrinter(dataGridView1, MyPrintDocument, false, true, "通信记录", new Font("Tahoma", 18, FontStyle.Bold, GraphicsUnit.Point), Color.Black, true);
+
+            return true;
+        }
         // The class constructor
         public DataGridViewPrinter(DataGridView aDataGridView, PrintDocument aPrintDocument, bool CenterOnPage, bool WithTitle, string aTitleText, Font aTitleFont, Color aTitleColor, bool WithPaging)
+        {
+           // PrintData(aDataGridView, aPrintDocument, CenterOnPage, WithTitle, aTitleText, aTitleFont, aTitleColor, WithPaging);
+        }
+        public DataGridViewPrinter()
+        {
+            MyDocument = new PrintDocument();
+            MyDocument.PrintPage += MyPrintDocumetEvent;
+        }
+        public void PrintView(DataGridView dataGridView1)
+        {
+            if (SetupThePrinting(dataGridView1))
+            {
+                PrintPreviewDialog MyPrintPreviewDialog = new PrintPreviewDialog();
+                MyPrintPreviewDialog.Document = MyDocument;
+                MyPrintPreviewDialog.ShowDialog();
+            }
+        }
+        public void Print(DataGridView dataGridView1)
+        {
+            try
+            {
+                if (SetupThePrinting(dataGridView1))
+                    MyDocument.Print();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+        }
+        private void PrintData(DataGridView aDataGridView, PrintDocument aPrintDocument, bool CenterOnPage, bool WithTitle,
+                               string aTitleText, Font aTitleFont, Color aTitleColor, bool WithPaging)
         {
             TheDataGridView = aDataGridView;
             ThePrintDocument = aPrintDocument;
@@ -52,15 +114,15 @@ namespace FormUI.OperationLayer
             TheTitleFont = aTitleFont;
             TheTitleColor = aTitleColor;
             IsWithPaging = WithPaging;
- 
+
             PageNumber = 0;
- 
+
             RowsHeight = new List<float>();
             ColumnsWidth = new List<float>();
- 
+
             mColumnPoints = new List<int[]>();
             mColumnPointsWidth = new List<float>();
- 
+
             // Claculating the PageWidth and the PageHeight
             if (!ThePrintDocument.DefaultPageSettings.Landscape)
             {
@@ -72,17 +134,17 @@ namespace FormUI.OperationLayer
                 PageHeight = ThePrintDocument.DefaultPageSettings.PaperSize.Width;
                 PageWidth = ThePrintDocument.DefaultPageSettings.PaperSize.Height;
             }
- 
+
             // Claculating the page margins
             LeftMargin = ThePrintDocument.DefaultPageSettings.Margins.Left;
             TopMargin = ThePrintDocument.DefaultPageSettings.Margins.Top;
             RightMargin = ThePrintDocument.DefaultPageSettings.Margins.Right;
             BottomMargin = ThePrintDocument.DefaultPageSettings.Margins.Bottom;
- 
+
             // First, the current row to be printed is the first row in the DataGridView control
             CurrentRow = 0;
         }
- 
+
         // The function that calculate the height of each row (including the header row), the width of each column (according to the longest text in all its cells including the header cell), and the whole DataGridView width
         private void Calculate(Graphics g)
         {

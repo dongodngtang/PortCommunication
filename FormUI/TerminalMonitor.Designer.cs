@@ -242,7 +242,7 @@
             // 
             this.串口ToolStripMenuItem.Name = "串口ToolStripMenuItem";
             this.串口ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.串口ToolStripMenuItem.Text = "串口";
+            this.串口ToolStripMenuItem.Text = "端口";
             this.串口ToolStripMenuItem.Click += new System.EventHandler(this.串口ToolStripMenuItem_Click);
             // 
             // 历史记录ToolStripMenuItem

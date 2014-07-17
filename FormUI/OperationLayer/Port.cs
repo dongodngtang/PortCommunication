@@ -110,6 +110,7 @@ namespace FormUI.OperationLayer
         public Port SendNoResponse(string at)
         {
             SerialPort.WriteLine(at);
+            Thread.Sleep(3000);
             return this;
         }
 
@@ -181,6 +182,7 @@ namespace FormUI.OperationLayer
 
                 var t = new ThreadStart(() =>
                     {
+                        TerminalMonitor.CallLock = false;
                         var filter = new FilterProcessor(content).Run();
                         if (filter == null) return;
                         Owner.Invoke(new Action<Filter>(Owner.Popup), filter);

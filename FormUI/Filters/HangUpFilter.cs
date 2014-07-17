@@ -8,6 +8,7 @@ namespace FormUI.Filters
     {
         private const string name = "确定";
         public override string Phone { get; protected set; }
+
         public override DateTime Time {
             get { return DateTime.Now.ToLocalTime(); }
         }
@@ -24,6 +25,7 @@ namespace FormUI.Filters
         {
             if (Content.Length > 0 && Content[0].Contains("NO CARRIER"))
             {
+                Context = Phone + Name;
                 return this;
             }
             return base.Run();
