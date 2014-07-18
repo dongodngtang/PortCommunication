@@ -15,14 +15,15 @@ using TomorrowSoft.Model;
 
 namespace FormUI
 {
+    
     public partial  class TerminalMonitor : Form
     {
-        public  delegate void Listener( string phone,string context);
+        public  delegate void Listener(string phone,string context);
         public delegate void MyEvent(object sender, FilterEventArgs e);
         private readonly OrderDefinition _order = new OrderDefinition();
         private readonly TerminalService _service = new TerminalService();
-        private readonly AlarmClock _alarm = AlarmClock.Instance;
-        private readonly AT cmd = new AT();
+        private AlarmClock alarmClock;
+        private readonly AT cmd;
         private readonly Port port = Port.Instance;
         private Printer _printer = new Printer();
         private double dou = 0.05;
@@ -30,14 +31,15 @@ namespace FormUI
         public TerminalMonitor()
         {
            InitializeComponent();
-          
-        
+            cmd = new AT();
+            alarmClock = new AlarmClock();
+            AT.MyListView = this;
         }
 
         public event MyEvent NewPhone;
         public static event Listener ListBox1Listener;
         public static bool CallLock = true;
-       public void OnListBox1Listener(string phone,string context)
+       public  void OnListBox1Listener(string phone,string context)
         {
             if (phone != string.Empty)
             {
@@ -47,7 +49,7 @@ namespace FormUI
         }
 
     
-        private void SendMesShow( string phone, string context)
+        private void SendMesShow(string phone, string context)
         {   
             ControlListboxAmount();
             listBox1.Items.Add(new Item("发送至：" + phone, context));
@@ -108,14 +110,15 @@ namespace FormUI
                     {
                         listView1.Items[i].ImageKey = TerminalState.Stoped.ToString();
                     }
-                    if (e.Filter.Name.Contains("告警"))
+                    if (e.Filter.Name.Contains("告警") || e.Filter.IsQsDown)
                     {
                         listView1.Items[i].ImageKey = TerminalState.Red.ToString();
+                        MessageBox.Show(string.Format("{0}", e.Filter.Context));
                     }
-                    if (e.Filter.IsQsDown)
+                   /* if (e.Filter.IsQsDown)
                     {
                         listView1.Items[i].ImageKey = TerminalState.Red.ToString();
-                    }
+                    }*/
                     if (e.Filter.Name.Contains("来电"))
                     {
                         cmd.HangUp();
@@ -137,7 +140,7 @@ namespace FormUI
 //            Opacity = 0;
 
             port.Owner = this;
-            timer1.Start();
+                timer1.Start();
             try
             {
                 port.SetPortName(Settings.Default.PortName)
@@ -902,7 +905,6 @@ namespace FormUI
             ListViewItem item = listView1.FocusedItem;
             new OpenCTerminal(item).Show();
         }
-
        
 
       

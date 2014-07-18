@@ -9,6 +9,8 @@ namespace FormUI.Filters
          private static string _photovoltaic;
         private static string _battery;
         public static string content;
+        public static string[] Horn;
+    
          public static Condition FilterCondition(string phone,string context)
          {
              string[] result = context.Split(new[] { "光伏", "\r\n", "\n", "\r\t","电池",
@@ -27,7 +29,7 @@ namespace FormUI.Filters
                      HandlerTime = DateTime.Now.ToLocalTime()
                      
                  };
-   
+             Horn = result;
              _battery = result[0].Replace( "V",string.Empty);
              _photovoltaic = result[1].Replace("V", string.Empty);
 
@@ -37,6 +39,7 @@ namespace FormUI.Filters
         public static bool PhotovoltaicCompare()
         {
             var qs = new QsService().GetAll();
+            var isHors = false;
             if (qs.Rows.Count>0)
             {
                 if (double.Parse(_photovoltaic) < Convert.ToDouble(Settings.Default.RDS))
@@ -47,8 +50,16 @@ namespace FormUI.Filters
                 {
                     content += string.Format("告警：电池值：{0}低于{1}\r\n",_battery , Settings.Default.Battery);
                 }
-                return ((double.Parse(_photovoltaic) < Convert.ToDouble(Settings.Default.RDS)) &&
-                        double.Parse(_battery) < Convert.ToDouble(Settings.Default.Battery));
+                for(int a=2; a<=5;a++)
+                {
+                    if (Horn[a].Contains("0.0"))
+                    {
+                        content += string.Format("告警：{0}喇叭异常\r\n", a - 1);
+                        isHors = true;
+                    }
+                }
+                return (((double.Parse(_photovoltaic) < Convert.ToDouble(Settings.Default.RDS)) &&
+                        double.Parse(_battery) < Convert.ToDouble(Settings.Default.Battery))||isHors);
 
                 
             }

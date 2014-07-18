@@ -43,6 +43,8 @@ namespace FormUI.OperationLayer
 //3、书写命令短信不能空格，且格式必须紧凑。
 //4、“< >”表示命令参数，这二个符号本身不能输入。
 // 5、非命令短信，均作非法处理—回复短信：短信错误！。
+
+      
         /// <summary>
         ///     播放方式
         /// </summary>
@@ -286,7 +288,6 @@ namespace FormUI.OperationLayer
 
     public enum MusicNo : int
     {
-        语音0 = 0,
         语音1 = 1,
         语音2 = 2,
         语音3 = 3,

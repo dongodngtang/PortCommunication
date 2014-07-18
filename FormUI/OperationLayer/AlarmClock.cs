@@ -10,8 +10,7 @@ namespace FormUI.OperationLayer
 {
     public class AlarmClock
     {
-        private static volatile AlarmClock instance;
-        private static readonly object syncRoot = new Object();
+        
         private readonly OrderDefinition _order = new OrderDefinition();
         private readonly RegularPlayService _service = new RegularPlayService();
         public static string GroupName;
@@ -34,23 +33,7 @@ namespace FormUI.OperationLayer
         } 
         GroupMemoryPlayService memory = new GroupMemoryPlayService();
         
-        /// <summary>
-        ///     多线程单例模式
-        /// </summary>
-        /// <returns></returns>
-       public static AlarmClock Instance
-        {
-            get
-            {
-                if (instance != null) return instance;
-                lock (syncRoot)
-                {
-                    if (instance == null)
-                        instance = new AlarmClock();
-                }
-                return instance;
-            }
-        }
+       
         /// <summary>
         /// 光伏低值告警
         /// </summary>

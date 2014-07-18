@@ -90,6 +90,7 @@ namespace FormUI.Filters
                     Time = time;
                     Context = content;
                     IsQsDown = isQsDown;
+
                     if (isQsDown)
                     {
                         Context = ConditionFilter.content + content;

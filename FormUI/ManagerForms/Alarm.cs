@@ -19,7 +19,8 @@ namespace FormUI.ManagerForms
             InitializeComponent();
             Items = items;
             _order = new OrderDefinition();
-            
+            txtＭinute.KeyPress += Infrastructure.Handler.Nuber09;
+
         }
 
         private void btOk_Click(object sender, EventArgs e)
@@ -42,6 +43,8 @@ namespace FormUI.ManagerForms
                 }
             }
         }
+
+     
 
        
     }

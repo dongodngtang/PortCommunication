@@ -34,7 +34,7 @@ namespace FormUI.SettingForms
             OrderDefinition.SetMusicNo(cbMusicList);
             if (cbMusicList.Text == string.Empty)
             {
-                cbMusicList.Text = MusicNo.语音0 .ToString("D");
+                cbMusicList.Text = MusicNo.语音1 .ToString("D");
             }
             OrderDefinition.SetPlayStyle(cbPlayStyle);
             if (cbPlayStyle.Text == string.Empty)

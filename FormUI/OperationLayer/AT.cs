@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using Infrastructure;
 using TomorrowSoft.BLL;
@@ -438,8 +440,7 @@ namespace FormUI.OperationLayer
         {
             _port.Send(SMS_ANSWER);
         }
-
-        /// <summary>
+        public static TerminalMonitor MyListView { get; set; }
         ///     发送中文短信
         /// </summary>
         /// <param name="phoneNo"></param>
@@ -450,7 +451,7 @@ namespace FormUI.OperationLayer
             {
                 var hex = PDU8bitEncoder(context);
                 var length = (hex.Length/2).ToString("X2");
-
+                TerminalMonitor.CallLock = false;
                 string content = string.Format(CHINESE_SMS_TEMP,
                                                PhoneEncoder(phoneNo), length, hex);
                 _port.Send(CHAR_MODE)
@@ -459,7 +460,9 @@ namespace FormUI.OperationLayer
                      .SendNoWrap(content)
                      .Send(END_OF_SMS);
                 SaveHistoryRecord(phoneNo, "发信", DateTime.Now.ToLocalTime(), context);
-                new TerminalMonitor().OnListBox1Listener(terminal, context);
+                //TerminalMonitor.OnListBox1Listener(terminal, context);
+                MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
+                TerminalMonitor.CallLock = true;
             }
             catch(Exception ex)
             {

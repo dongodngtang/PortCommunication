@@ -71,7 +71,7 @@ namespace FormUI.OperationLayer
         [Operation]
         public Port Send(string at)
         {
-            Thread.Sleep(150);
+            
             SerialPort.WriteLine(at);
             Suspend();
             return this;

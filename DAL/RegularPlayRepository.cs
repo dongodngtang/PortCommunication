@@ -190,6 +190,10 @@ namespace TomorrowSoft.DAL
                 {
                     model.PlayTimes = row["PlayTimes"].ToString();
                 }
+                if (row["TerminalName"] != null)
+                {
+                    model.TerminalName = row["TerminalName"].ToString();
+                }
             }
             return model;
         }

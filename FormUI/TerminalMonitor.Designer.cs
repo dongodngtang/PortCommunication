@@ -241,7 +241,7 @@
             // 串口ToolStripMenuItem
             // 
             this.串口ToolStripMenuItem.Name = "串口ToolStripMenuItem";
-            this.串口ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.串口ToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.串口ToolStripMenuItem.Text = "端口";
             this.串口ToolStripMenuItem.Click += new System.EventHandler(this.串口ToolStripMenuItem_Click);
             // 
@@ -251,7 +251,7 @@
             this.历史查询ToolStripMenuItem,
             this.状态查询ToolStripMenuItem});
             this.历史记录ToolStripMenuItem.Name = "历史记录ToolStripMenuItem";
-            this.历史记录ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.历史记录ToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.历史记录ToolStripMenuItem.Text = "历史";
             // 
             // 历史查询ToolStripMenuItem
@@ -271,7 +271,7 @@
             // 白名单ToolStripMenuItem
             // 
             this.白名单ToolStripMenuItem.Name = "白名单ToolStripMenuItem";
-            this.白名单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.白名单ToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.白名单ToolStripMenuItem.Text = "白名单";
             this.白名单ToolStripMenuItem.Click += new System.EventHandler(this.白名单ToolStripMenuItem_Click);
             // 

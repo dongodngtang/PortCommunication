@@ -31,11 +31,12 @@
             this.btOk = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtＭinute = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btOk
             // 
-            this.btOk.Location = new System.Drawing.Point(85, 114);
+            this.btOk.Location = new System.Drawing.Point(106, 134);
             this.btOk.Name = "btOk";
             this.btOk.Size = new System.Drawing.Size(66, 31);
             this.btOk.TabIndex = 0;
@@ -46,7 +47,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 68);
+            this.label1.Location = new System.Drawing.Point(36, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 1;
@@ -54,16 +55,27 @@
             // 
             // txtＭinute
             // 
-            this.txtＭinute.Location = new System.Drawing.Point(85, 64);
+            this.txtＭinute.Location = new System.Drawing.Point(106, 84);
             this.txtＭinute.Name = "txtＭinute";
             this.txtＭinute.Size = new System.Drawing.Size(73, 21);
             this.txtＭinute.TabIndex = 2;
+            this.txtＭinute.Text = "03";
+            // 
+            // label2
+            // 
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(36, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 41);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "说明：参数××：2位数字，取值01~99，表示警报时间，以分钟为单位。";
             // 
             // Alarm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(229, 207);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtＭinute);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btOk);
@@ -79,5 +91,6 @@
         private System.Windows.Forms.Button btOk;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtＭinute;
+        private System.Windows.Forms.Label label2;
     }
 }
