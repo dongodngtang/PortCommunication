@@ -44,7 +44,7 @@ namespace FormUI.Filters
             {
                 if (double.Parse(_photovoltaic) < Convert.ToDouble(Settings.Default.RDS))
                 {
-                    content = string.Format("告警：光伏值：{0}低于{1}\r\n",_photovoltaic , Settings.Default.RDS);
+                    content = string.Format("告警：光伏值：{0}低于{1}  ",_photovoltaic , Settings.Default.RDS);
                 }
                 if (double.Parse(_battery) < Convert.ToDouble(Settings.Default.Battery))
                 {
@@ -57,6 +57,7 @@ namespace FormUI.Filters
                         content += string.Format("告警：{0}喇叭异常\r\n", a - 1);
                         isHors = true;
                     }
+                    
                 }
                 return (((double.Parse(_photovoltaic) < Convert.ToDouble(Settings.Default.RDS)) &&
                         double.Parse(_battery) < Convert.ToDouble(Settings.Default.Battery))||isHors);

@@ -20,7 +20,6 @@ namespace FormUI.ManagerForms
         {
             
             InitializeComponent();
-            Printer.DataGridViewList = this.dataGridView1;
             bs.DataSource = _history.GetModelList("");
             GetHistoryList(bs);
             MyDataGridViewPrinter = new DataGridViewPrinter();
@@ -34,7 +33,7 @@ namespace FormUI.ManagerForms
             bindingNavigator1.BindingSource = bs;
             dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridView1.AutoResizeColumn(4, DataGridViewAutoSizeColumnMode.AllCells);
-
+     
            
         }
         private void btQuery_Click(object sender, EventArgs e)

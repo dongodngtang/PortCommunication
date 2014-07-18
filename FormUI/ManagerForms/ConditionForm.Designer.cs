@@ -49,10 +49,6 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btPrint = new System.Windows.Forms.Button();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.btQuery = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +60,10 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btPrint = new System.Windows.Forms.Button();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.btQuery = new System.Windows.Forms.Button();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -74,7 +74,7 @@
             // 
             // dtpBegin
             // 
-            this.dtpBegin.Location = new System.Drawing.Point(312, 38);
+            this.dtpBegin.Location = new System.Drawing.Point(326, 38);
             this.dtpBegin.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtpBegin.Name = "dtpBegin";
             this.dtpBegin.Size = new System.Drawing.Size(135, 25);
@@ -84,7 +84,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(257, 44);
+            this.label2.Location = new System.Drawing.Point(271, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 14);
             this.label2.TabIndex = 0;
@@ -92,7 +92,7 @@
             // 
             // btClear
             // 
-            this.btClear.Location = new System.Drawing.Point(16, 26);
+            this.btClear.Location = new System.Drawing.Point(30, 26);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(86, 48);
             this.btClear.TabIndex = 15;
@@ -104,7 +104,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(454, 45);
+            this.label5.Location = new System.Drawing.Point(468, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(11, 12);
             this.label5.TabIndex = 11;
@@ -117,7 +117,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(780, 562);
+            this.panel6.Size = new System.Drawing.Size(772, 577);
             this.panel6.TabIndex = 6;
             // 
             // panel2
@@ -127,7 +127,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 96);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(780, 466);
+            this.panel2.Size = new System.Drawing.Size(772, 481);
             this.panel2.TabIndex = 18;
             // 
             // bindingNavigator1
@@ -154,7 +154,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(780, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(772, 25);
             this.bindingNavigator1.TabIndex = 17;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -260,56 +260,13 @@
             this.Column11,
             this.Column5});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 43);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(780, 438);
+            this.dataGridView1.Size = new System.Drawing.Size(772, 438);
             this.dataGridView1.TabIndex = 8;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dtpBegin);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.btClear);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.btPrint);
-            this.panel1.Controls.Add(this.dtpEnd);
-            this.panel1.Controls.Add(this.btQuery);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 96);
-            this.panel1.TabIndex = 16;
-            // 
-            // btPrint
-            // 
-            this.btPrint.Location = new System.Drawing.Point(135, 26);
-            this.btPrint.Name = "btPrint";
-            this.btPrint.Size = new System.Drawing.Size(86, 48);
-            this.btPrint.TabIndex = 14;
-            this.btPrint.Text = "打 印";
-            this.btPrint.UseVisualStyleBackColor = true;
-            this.btPrint.Click += new System.EventHandler(this.btPrint_Click);
-            // 
-            // dtpEnd
-            // 
-            this.dtpEnd.Location = new System.Drawing.Point(473, 38);
-            this.dtpEnd.MinimumSize = new System.Drawing.Size(4, 25);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(135, 25);
-            this.dtpEnd.TabIndex = 12;
-            // 
-            // btQuery
-            // 
-            this.btQuery.Location = new System.Drawing.Point(644, 26);
-            this.btQuery.Name = "btQuery";
-            this.btQuery.Size = new System.Drawing.Size(86, 48);
-            this.btQuery.TabIndex = 13;
-            this.btQuery.Text = "查 询";
-            this.btQuery.UseVisualStyleBackColor = true;
-            this.btQuery.Click += new System.EventHandler(this.btQuery_Click);
             // 
             // Column1
             // 
@@ -401,13 +358,55 @@
             this.Column5.ReadOnly = true;
             this.Column5.Width = 54;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dtpBegin);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btClear);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btPrint);
+            this.panel1.Controls.Add(this.dtpEnd);
+            this.panel1.Controls.Add(this.btQuery);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(772, 96);
+            this.panel1.TabIndex = 16;
+            // 
+            // btPrint
+            // 
+            this.btPrint.Location = new System.Drawing.Point(149, 26);
+            this.btPrint.Name = "btPrint";
+            this.btPrint.Size = new System.Drawing.Size(86, 48);
+            this.btPrint.TabIndex = 14;
+            this.btPrint.Text = "打 印";
+            this.btPrint.UseVisualStyleBackColor = true;
+            this.btPrint.Click += new System.EventHandler(this.btPrint_Click);
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Location = new System.Drawing.Point(487, 38);
+            this.dtpEnd.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(135, 25);
+            this.dtpEnd.TabIndex = 12;
+            // 
+            // btQuery
+            // 
+            this.btQuery.Location = new System.Drawing.Point(658, 26);
+            this.btQuery.Name = "btQuery";
+            this.btQuery.Size = new System.Drawing.Size(86, 48);
+            this.btQuery.TabIndex = 13;
+            this.btQuery.Text = "查 询";
+            this.btQuery.UseVisualStyleBackColor = true;
+            this.btQuery.Click += new System.EventHandler(this.btQuery_Click);
+            // 
             // ConditionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 562);
+            this.ClientSize = new System.Drawing.Size(772, 577);
             this.Controls.Add(this.panel6);
-            this.MaximizeBox = false;
             this.Name = "ConditionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "状态查询";

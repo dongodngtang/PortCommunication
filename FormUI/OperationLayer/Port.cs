@@ -179,7 +179,7 @@ namespace FormUI.OperationLayer
                     IsReceived = true;
                     return;
                 }
-               TerminalMonitor.CallLock = false;
+              
                 var t = new ThreadStart(() =>
                     {
                         var filter = new FilterProcessor(content).Run();

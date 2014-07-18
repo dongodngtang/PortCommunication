@@ -16,7 +16,6 @@ namespace FormUI.ManagerForms
         public ConditionForm()
         {
             InitializeComponent();
-            Printer.DataGridViewList = this.dataGridView1;
         } 
 
         private void ConditionForm_Load(object sender, EventArgs e)

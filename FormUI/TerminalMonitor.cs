@@ -859,13 +859,13 @@ namespace FormUI
         private void 终端防盗加锁ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _order.Lock(listView1.FocusedItem.Text, listView1.FocusedItem.ToolTipText);
-            MessageBox.Show(listView1.FocusedItem.Text + "：加锁");
+//            MessageBox.Show(listView1.FocusedItem.Text + "：加锁");
         }
 
         private void 终端防盗解锁ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _order.UnLock(listView1.FocusedItem.Text, listView1.FocusedItem.ToolTipText);
-            MessageBox.Show(listView1.FocusedItem.Text + "：解锁");
+//            MessageBox.Show(listView1.FocusedItem.Text + "：解锁");
         }
 
         private void btAlarm_Click(object sender, EventArgs e)

@@ -73,7 +73,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(784, 562);
+            this.panel6.Size = new System.Drawing.Size(797, 562);
             this.panel6.TabIndex = 5;
             // 
             // panel2
@@ -83,7 +83,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 96);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(784, 466);
+            this.panel2.Size = new System.Drawing.Size(797, 466);
             this.panel2.TabIndex = 18;
             // 
             // bindingNavigator1
@@ -110,7 +110,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(784, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(797, 25);
             this.bindingNavigator1.TabIndex = 17;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -216,7 +216,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 438);
+            this.dataGridView1.Size = new System.Drawing.Size(797, 438);
             this.dataGridView1.TabIndex = 8;
             // 
             // Column1
@@ -272,12 +272,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 96);
+            this.panel1.Size = new System.Drawing.Size(797, 96);
             this.panel1.TabIndex = 16;
             // 
             // dtpBegin
             // 
-            this.dtpBegin.Location = new System.Drawing.Point(332, 37);
+            this.dtpBegin.Location = new System.Drawing.Point(337, 37);
             this.dtpBegin.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtpBegin.Name = "dtpBegin";
             this.dtpBegin.Size = new System.Drawing.Size(135, 25);
@@ -287,7 +287,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(277, 43);
+            this.label2.Location = new System.Drawing.Point(282, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 14);
             this.label2.TabIndex = 0;
@@ -295,7 +295,7 @@
             // 
             // btClear
             // 
-            this.btClear.Location = new System.Drawing.Point(36, 25);
+            this.btClear.Location = new System.Drawing.Point(41, 25);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(86, 48);
             this.btClear.TabIndex = 15;
@@ -307,7 +307,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(474, 44);
+            this.label5.Location = new System.Drawing.Point(479, 44);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(11, 12);
             this.label5.TabIndex = 11;
@@ -315,7 +315,7 @@
             // 
             // btPrint
             // 
-            this.btPrint.Location = new System.Drawing.Point(155, 25);
+            this.btPrint.Location = new System.Drawing.Point(160, 25);
             this.btPrint.Name = "btPrint";
             this.btPrint.Size = new System.Drawing.Size(86, 48);
             this.btPrint.TabIndex = 14;
@@ -325,7 +325,7 @@
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Location = new System.Drawing.Point(493, 37);
+            this.dtpEnd.Location = new System.Drawing.Point(498, 37);
             this.dtpEnd.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(135, 25);
@@ -333,7 +333,7 @@
             // 
             // btQuery
             // 
-            this.btQuery.Location = new System.Drawing.Point(667, 25);
+            this.btQuery.Location = new System.Drawing.Point(672, 25);
             this.btQuery.Name = "btQuery";
             this.btQuery.Size = new System.Drawing.Size(86, 48);
             this.btQuery.TabIndex = 13;
@@ -345,9 +345,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(797, 562);
             this.Controls.Add(this.panel6);
-            this.MaximizeBox = false;
             this.Name = "HistoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "历史查询";

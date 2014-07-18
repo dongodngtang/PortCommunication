@@ -462,7 +462,6 @@ namespace FormUI.OperationLayer
                 SaveHistoryRecord(phoneNo, "发信", DateTime.Now.ToLocalTime(), context);
                 //TerminalMonitor.OnListBox1Listener(terminal, context);
                 MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
-                TerminalMonitor.CallLock = true;
             }
             catch(Exception ex)
             {

@@ -87,10 +87,10 @@
             this.tabMeetingNum.Controls.Add(this.MeetingNo_End);
             this.tabMeetingNum.Controls.Add(this.MeetingNo);
             this.tabMeetingNum.Controls.Add(this.label16);
-            this.tabMeetingNum.Location = new System.Drawing.Point(4, 28);
+            this.tabMeetingNum.Location = new System.Drawing.Point(4, 25);
             this.tabMeetingNum.Name = "tabMeetingNum";
             this.tabMeetingNum.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMeetingNum.Size = new System.Drawing.Size(748, 380);
+            this.tabMeetingNum.Size = new System.Drawing.Size(748, 383);
             this.tabMeetingNum.TabIndex = 4;
             this.tabMeetingNum.Text = "   会  议   ";
             this.tabMeetingNum.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@
             this.MeetingNo.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::FormUI.Properties.Settings.Default, "MeetingPhone", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.MeetingNo.Location = new System.Drawing.Point(372, 125);
             this.MeetingNo.Name = "MeetingNo";
-            this.MeetingNo.Size = new System.Drawing.Size(191, 29);
+            this.MeetingNo.Size = new System.Drawing.Size(191, 26);
             this.MeetingNo.TabIndex = 1;
             this.MeetingNo.Text = global::FormUI.Properties.Settings.Default.MeetingPhone;
             // 
@@ -139,11 +139,11 @@
             this.tabTimer.Controls.Add(this.label9);
             this.tabTimer.Controls.Add(this.label13);
             this.tabTimer.Controls.Add(this.label15);
-            this.tabTimer.Location = new System.Drawing.Point(4, 28);
+            this.tabTimer.Location = new System.Drawing.Point(4, 25);
             this.tabTimer.Margin = new System.Windows.Forms.Padding(5);
             this.tabTimer.Name = "tabTimer";
             this.tabTimer.Padding = new System.Windows.Forms.Padding(5);
-            this.tabTimer.Size = new System.Drawing.Size(748, 380);
+            this.tabTimer.Size = new System.Drawing.Size(748, 383);
             this.tabTimer.TabIndex = 3;
             this.tabTimer.Text = "   时  间   ";
             this.tabTimer.UseVisualStyleBackColor = true;
@@ -175,7 +175,7 @@
             this.Second.Location = new System.Drawing.Point(584, 134);
             this.Second.Margin = new System.Windows.Forms.Padding(5);
             this.Second.Name = "Second";
-            this.Second.Size = new System.Drawing.Size(47, 29);
+            this.Second.Size = new System.Drawing.Size(47, 26);
             this.Second.TabIndex = 27;
             // 
             // Minute
@@ -183,7 +183,7 @@
             this.Minute.Location = new System.Drawing.Point(488, 136);
             this.Minute.Margin = new System.Windows.Forms.Padding(5);
             this.Minute.Name = "Minute";
-            this.Minute.Size = new System.Drawing.Size(47, 29);
+            this.Minute.Size = new System.Drawing.Size(47, 26);
             this.Minute.TabIndex = 25;
             // 
             // Hour
@@ -191,7 +191,7 @@
             this.Hour.Location = new System.Drawing.Point(392, 133);
             this.Hour.Margin = new System.Windows.Forms.Padding(5);
             this.Hour.Name = "Hour";
-            this.Hour.Size = new System.Drawing.Size(47, 29);
+            this.Hour.Size = new System.Drawing.Size(47, 26);
             this.Hour.TabIndex = 23;
             // 
             // Day
@@ -199,7 +199,7 @@
             this.Day.Location = new System.Drawing.Point(296, 133);
             this.Day.Margin = new System.Windows.Forms.Padding(5);
             this.Day.Name = "Day";
-            this.Day.Size = new System.Drawing.Size(47, 29);
+            this.Day.Size = new System.Drawing.Size(47, 26);
             this.Day.TabIndex = 21;
             // 
             // Mouth
@@ -207,7 +207,7 @@
             this.Mouth.Location = new System.Drawing.Point(200, 133);
             this.Mouth.Margin = new System.Windows.Forms.Padding(5);
             this.Mouth.Name = "Mouth";
-            this.Mouth.Size = new System.Drawing.Size(47, 29);
+            this.Mouth.Size = new System.Drawing.Size(47, 26);
             this.Mouth.TabIndex = 20;
             // 
             // Year
@@ -215,7 +215,7 @@
             this.Year.Location = new System.Drawing.Point(104, 133);
             this.Year.Margin = new System.Windows.Forms.Padding(5);
             this.Year.Name = "Year";
-            this.Year.Size = new System.Drawing.Size(47, 29);
+            this.Year.Size = new System.Drawing.Size(47, 26);
             this.Year.TabIndex = 16;
             // 
             // label11
@@ -281,11 +281,11 @@
             this.tabList.Controls.Add(this.btDelete);
             this.tabList.Controls.Add(this.btTerminalAdd);
             this.tabList.Controls.Add(this.bindingNavigator2);
-            this.tabList.Location = new System.Drawing.Point(4, 28);
+            this.tabList.Location = new System.Drawing.Point(4, 25);
             this.tabList.Margin = new System.Windows.Forms.Padding(5);
             this.tabList.Name = "tabList";
             this.tabList.Padding = new System.Windows.Forms.Padding(5);
-            this.tabList.Size = new System.Drawing.Size(748, 380);
+            this.tabList.Size = new System.Drawing.Size(836, 514);
             this.tabList.TabIndex = 2;
             this.tabList.Text = "   清  单   ";
             // 
@@ -304,12 +304,12 @@
             this.Column1,
             this.Column3});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 57);
+            this.dataGridView1.Location = new System.Drawing.Point(5, 67);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(738, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(826, 417);
             this.dataGridView1.TabIndex = 5;
             // 
             // Id
@@ -319,7 +319,7 @@
             this.Id.HeaderText = "序号";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 72;
+            this.Id.Width = 65;
             // 
             // TernimalName
             // 
@@ -328,7 +328,7 @@
             this.TernimalName.HeaderText = "终端名称";
             this.TernimalName.Name = "TernimalName";
             this.TernimalName.ReadOnly = true;
-            this.TernimalName.Width = 110;
+            this.TernimalName.Width = 97;
             // 
             // Grouping
             // 
@@ -337,7 +337,7 @@
             this.Grouping.HeaderText = "组号";
             this.Grouping.Name = "Grouping";
             this.Grouping.ReadOnly = true;
-            this.Grouping.Width = 72;
+            this.Grouping.Width = 65;
             // 
             // Address
             // 
@@ -346,7 +346,7 @@
             this.Address.HeaderText = "终端地址";
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
-            this.Address.Width = 110;
+            this.Address.Width = 97;
             // 
             // Phone
             // 
@@ -355,7 +355,7 @@
             this.Phone.HeaderText = "号码";
             this.Phone.Name = "Phone";
             this.Phone.ReadOnly = true;
-            this.Phone.Width = 72;
+            this.Phone.Width = 65;
             // 
             // Column1
             // 
@@ -364,7 +364,7 @@
             this.Column1.HeaderText = "组绑定号码";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 129;
+            this.Column1.Width = 113;
             // 
             // Column3
             // 
@@ -373,10 +373,11 @@
             this.Column3.HeaderText = "齐绑定号码";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 129;
+            this.Column3.Width = 113;
             // 
             // btEdit
             // 
+            this.btEdit.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btEdit.Location = new System.Drawing.Point(216, 12);
             this.btEdit.Name = "btEdit";
             this.btEdit.Size = new System.Drawing.Size(96, 36);
@@ -387,6 +388,7 @@
             // 
             // btDelete
             // 
+            this.btDelete.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btDelete.Location = new System.Drawing.Point(343, 12);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(96, 36);
@@ -397,6 +399,7 @@
             // 
             // btTerminalAdd
             // 
+            this.btTerminalAdd.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btTerminalAdd.Location = new System.Drawing.Point(88, 12);
             this.btTerminalAdd.Name = "btTerminalAdd";
             this.btTerminalAdd.Size = new System.Drawing.Size(96, 36);
@@ -423,7 +426,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator2.Location = new System.Drawing.Point(5, 350);
+            this.bindingNavigator2.Location = new System.Drawing.Point(5, 484);
             this.bindingNavigator2.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator2.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator2.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -431,7 +434,7 @@
             this.bindingNavigator2.Name = "bindingNavigator2";
             this.bindingNavigator2.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.bindingNavigator2.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator2.Size = new System.Drawing.Size(738, 25);
+            this.bindingNavigator2.Size = new System.Drawing.Size(826, 25);
             this.bindingNavigator2.TabIndex = 1;
             this.bindingNavigator2.Text = "bindingNavigator2";
             // 
@@ -526,18 +529,19 @@
             this.TabControl.Controls.Add(this.tabTimer);
             this.TabControl.Controls.Add(this.tabMeetingNum);
             this.TabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControl.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TabControl.Location = new System.Drawing.Point(0, 0);
             this.TabControl.Margin = new System.Windows.Forms.Padding(5);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(756, 412);
+            this.TabControl.Size = new System.Drawing.Size(844, 543);
             this.TabControl.TabIndex = 0;
             // 
             // TerminalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 412);
+            this.ClientSize = new System.Drawing.Size(844, 543);
             this.Controls.Add(this.TabControl);
             this.Font = new System.Drawing.Font("宋体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(5);
