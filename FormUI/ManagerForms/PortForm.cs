@@ -23,18 +23,15 @@ namespace FormUI.ManagerForms
         private void MainFrom_Load(object sender, EventArgs e)
         {
             LoadOptions();
+            if (TerminalMonitor.CallLock)
+                cmd.SmsAnswer();
+         
             ChangeState(_port.IsOpen);
         }
 
         private void ChangeState(bool isOpen)
         {
-           try
-           {
-               cmd.SmsAnswer();
-           }
-          catch
-               {
-                }
+        
             if (isOpen && _port.Received )
             {
                 btnOpenClose.Text = "关闭串口";

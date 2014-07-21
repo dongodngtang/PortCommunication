@@ -212,7 +212,7 @@ namespace FormUI
              }
                 catch
                 {
-                    timer1.Enabled = false;
+                    CallLock = false;
                 }
             if (port.IsOpen && port.Received)
             {
