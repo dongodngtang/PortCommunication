@@ -95,7 +95,6 @@ namespace FormUI.OperationLayer
                 }
             }
             IsReceived = false;
-            TerminalMonitor.CallLock = true;
         }
 
    

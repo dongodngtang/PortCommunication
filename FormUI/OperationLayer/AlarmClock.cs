@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 using FormUI.SettingForms;
 using TomorrowSoft.BLL;
@@ -115,9 +116,11 @@ namespace FormUI.OperationLayer
                     if (DateTime.Now.ToString("HH:mm:ss").Equals(time) &&
                         Convert.ToInt32(DateTime.Now.ToString("dd")).Equals(Convert.ToInt32(type[1])))
                     {
+                      
                         _order.PlayMusic(item.TerminalName ,item.Phone, item.PlayType, item.Music, item.PlayTimes);
                         UpdatePlayTimes(item);
-                        new MessageBoxTimeOut().Show(6000, string.Format("{0}：正在进行定时广播！" ,item.TerminalName), "提示", MessageBoxButtons.OK);
+                        new MessageBoxTimeOut().Show(6000, string.Format("{0}：正在进行定时广播!" ,item.TerminalName), 
+                            "提示", MessageBoxButtons.OK);
                     }
                 }
                 if (type[0] == "每周")

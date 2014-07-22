@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using System.Threading;
@@ -449,6 +450,8 @@ namespace FormUI.OperationLayer
         {
             try
             {
+                //Stopwatch watch = new Stopwatch(); watch.Start();
+
                 var hex = PDU8bitEncoder(context);
                 var length = (hex.Length/2).ToString("X2");
                 TerminalMonitor.CallLock = false;
@@ -461,6 +464,10 @@ namespace FormUI.OperationLayer
                      .Send(END_OF_SMS);
                 SaveHistoryRecord(phoneNo, "发信", DateTime.Now.ToLocalTime(), context);
                 //TerminalMonitor.OnListBox1Listener(terminal, context);
+//                watch.Stop();//获取当前实例测量得出的总运行时间（以毫秒为单位）
+//                string time = watch.ElapsedMilliseconds.ToString();
+//                MessageBox.Show(time);
+                TerminalMonitor.CallLock = true;
                 MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
             }
             catch(Exception ex)
