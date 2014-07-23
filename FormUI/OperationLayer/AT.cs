@@ -12,6 +12,7 @@ using TomorrowSoft.Model;
 
 namespace FormUI.OperationLayer
 {
+    delegate void AsyncSend(string terminalName,string phone,string context); 
 
     public class AT
     {
@@ -442,16 +443,38 @@ namespace FormUI.OperationLayer
             _port.Send(SMS_ANSWER);
         }
         public static TerminalMonitor MyListView { get; set; }
+
+        private bool IsSend = false;
         ///     发送中文短信
         /// </summary>
         /// <param name="phoneNo"></param>
         /// <param name="context"></param>
-        public void SendChineseMessage(string terminal,string phoneNo, string context)
+        public  void SendChineseMessage(string terminal,string phoneNo, string context)
         {
             try
             {
-                //Stopwatch watch = new Stopwatch(); watch.Start();
-
+                TerminalMonitor.CallLock = false;
+               /* Mutex firstMutex = new Mutex(false);
+                firstMutex.WaitOne();
+                var t = new ThreadStart(() =>
+                    {
+                        var hex = PDU8bitEncoder(context);
+                        var length = (hex.Length/2).ToString("X2");
+                        TerminalMonitor.CallLock = false;
+                        string content = string.Format(CHINESE_SMS_TEMP,
+                                                       PhoneEncoder(phoneNo), length, hex);
+                        _port.Send(CHAR_MODE)
+                             .Send(SMS_CH)
+                             .Send(CheckSum(content.Length/2 - 1))
+                             .SendNoWrap(content)
+                             .Send(END_OF_SMS);
+                        SaveHistoryRecord(phoneNo, "发信", DateTime.Now.ToLocalTime(), context);
+                        
+                    });
+                new Thread(t).Start();
+                firstMutex.Close();*/
+                Mutex firstMutex = new Mutex(false);
+                firstMutex.WaitOne(); 
                 var hex = PDU8bitEncoder(context);
                 var length = (hex.Length/2).ToString("X2");
                 TerminalMonitor.CallLock = false;
@@ -463,12 +486,9 @@ namespace FormUI.OperationLayer
                      .SendNoWrap(content)
                      .Send(END_OF_SMS);
                 SaveHistoryRecord(phoneNo, "发信", DateTime.Now.ToLocalTime(), context);
-                //TerminalMonitor.OnListBox1Listener(terminal, context);
-//                watch.Stop();//获取当前实例测量得出的总运行时间（以毫秒为单位）
-//                string time = watch.ElapsedMilliseconds.ToString();
-//                MessageBox.Show(time);
                 TerminalMonitor.CallLock = true;
-                MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
+                MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context); 
+                firstMutex.Close(); 
             }
             catch(Exception ex)
             {
@@ -476,6 +496,20 @@ namespace FormUI.OperationLayer
             }
 
         }
+        /// ﹤summary﹥   
+        /// 投递一个异步调用   
+        /// ﹤/summary﹥   
+        public  void PostAsync(string terminal,string phone,string context)
+        {
+            AsyncSend caller = new AsyncSend(SendChineseMessage);
+            caller.BeginInvoke(terminal,phone ,context, new AsyncCallback(SendCallBack), caller);
+        }
+          void SendCallBack(IAsyncResult ar)
+         {
+             AsyncSend caller = (AsyncSend)ar.AsyncState;
+             caller.EndInvoke(ar);
+         } 
+
 
         /// <summary>
         ///     汉字转Unicode码

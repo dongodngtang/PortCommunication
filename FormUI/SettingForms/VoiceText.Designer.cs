@@ -40,10 +40,10 @@
             // 
             this.txtVoiceText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtVoiceText.Location = new System.Drawing.Point(3, 17);
-            this.txtVoiceText.MaxLength = 140;
+            this.txtVoiceText.MaxLength = 70;
             this.txtVoiceText.Multiline = true;
             this.txtVoiceText.Name = "txtVoiceText";
-            this.txtVoiceText.Size = new System.Drawing.Size(491, 103);
+            this.txtVoiceText.Size = new System.Drawing.Size(430, 103);
             this.txtVoiceText.TabIndex = 0;
             // 
             // groupBox1
@@ -51,7 +51,7 @@
             this.groupBox1.Controls.Add(this.txtVoiceText);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(497, 123);
+            this.groupBox1.Size = new System.Drawing.Size(436, 123);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "编辑语音文本";

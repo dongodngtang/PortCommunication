@@ -88,7 +88,7 @@ namespace FormUI.OperationLayer
             {
                 Thread.Sleep(20);
                 i++;
-                if (i > 250)
+                if (i > 300)
                 {
                 Received = false;
                 throw new Exception("发送超时，请检查串口设备"); 
@@ -156,7 +156,7 @@ namespace FormUI.OperationLayer
                 port.ReceivedBytesThreshold = port.ReadBufferSize;
                 while (true)
                 {
-                    //Thread.Sleep(100);
+                    Thread.Sleep(100);
                     var message = port.ReadExisting();
                     if (string.Equals(message, string.Empty))
                     {
@@ -179,7 +179,9 @@ namespace FormUI.OperationLayer
                     IsReceived = true;
                     return;
                 }
-              
+                TerminalMonitor.CallLock = false;
+                Mutex firstMutex = new Mutex(false);
+                firstMutex.WaitOne(); 
                 var t = new ThreadStart(() =>
                     {
                         var filter = new FilterProcessor(content).Run();
@@ -187,6 +189,7 @@ namespace FormUI.OperationLayer
                         Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
                     });
                 new Thread(t).Start();
+                firstMutex.Close();
             }
             catch (Exception ex)
             {
