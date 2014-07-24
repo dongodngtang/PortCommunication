@@ -282,7 +282,7 @@ namespace FormUI.OperationLayer
             }
             return Encoding.ASCII.GetString(dst);
         }
-
+    
         static byte[] HexStringToBytes(string hexString)
         {
             int hexStringLength = hexString.Length;
@@ -477,7 +477,6 @@ namespace FormUI.OperationLayer
                 firstMutex.WaitOne(); 
                 var hex = PDU8bitEncoder(context);
                 var length = (hex.Length/2).ToString("X2");
-                TerminalMonitor.CallLock = false;
                 string content = string.Format(CHINESE_SMS_TEMP,
                                                PhoneEncoder(phoneNo), length, hex);
                 _port.Send(CHAR_MODE)
@@ -496,21 +495,77 @@ namespace FormUI.OperationLayer
             }
 
         }
-        /// ﹤summary﹥   
-        /// 投递一个异步调用   
-        /// ﹤/summary﹥   
-        public  void PostAsync(string terminal,string phone,string context)
+        public void SendSmsLong(string terminal, string phone, string context)
         {
-            AsyncSend caller = new AsyncSend(SendChineseMessage);
-            caller.BeginInvoke(terminal,phone ,context, new AsyncCallback(SendCallBack), caller);
+            Mutex firstMutex = new Mutex(false);
+            firstMutex.WaitOne();
+            var hex = PDU8bitEncoder(context);
+            var length = (hex.Length / 2).ToString("X2");
+            string content = string.Format(CHINESE_SMS_TEMP,
+                                           PhoneEncoder(phone), length, hex);
         }
-          void SendCallBack(IAsyncResult ar)
-         {
-             AsyncSend caller = (AsyncSend)ar.AsyncState;
-             caller.EndInvoke(ar);
-         } 
+        public string PDU7BitEncoder(string phone, string Text)
+        {
+            /*dataCodingScheme = "00";
+            DestinationAddress = phone;
 
+            if (Text.Length > 160)
+            {
+                //长短信设TP-UDHI位为1 PDU-type = “51”
+                ProtocolDataUnitType = "51";
 
+                //计算长短信条数
+                int count = Text.Length / 153 + 1;
+
+                //长短信格式字符串，格式 每条之间 逗号分隔
+                string result = string.Empty;
+
+                for (int i = 0; i < count; i++)
+                {
+                    //如果不是最后一条
+                    if (i != count - 1)
+                    {
+                        UserData = Text.Substring(i * 153 + 1, 152);
+
+                        result += serviceCenterAddress + protocolDataUnitType
+                            + messageReference + destinationAddress + protocolIdentifer
+                             + dataCodingScheme + validityPeriod + (160).ToString("X2")
+                             + "05000339" + count.ToString("X2") + (i + 1).ToString("X2")
+                             + ((int)(new ASCIIEncoding().GetBytes(Text.Substring(i * 153, 1))[0] << 1)).ToString("X2") + userData + ",";
+                    }
+                    else
+                    {
+                        UserData = Text.Substring(i * 153 + 1);
+
+                        int len = Text.Substring(i * 153).Length;
+
+                        if (userData != null || userData.Length != 0)
+                        {
+
+                            result += serviceCenterAddress + protocolDataUnitType
+                                + messageReference + destinationAddress + protocolIdentifer
+                                 + dataCodingScheme + validityPeriod + (len + 7).ToString("X2")
+                                 + "05000339" + count.ToString("X2") + (i + 1).ToString("X2")
+                                 + ((int)(new ASCIIEncoding().GetBytes(Text.Substring(i * 153, 1))[0] << 1)).ToString("X2")
+                                 + userData;
+                        }
+                        else
+                        {
+                            result = result.TrimEnd(',');
+                        }
+                    }
+                }
+
+                return result;
+            }
+
+            UserData = Text;
+
+            return serviceCenterAddress + protocolDataUnitType
+                + messageReference + destinationAddress + protocolIdentifer
+                + dataCodingScheme + validityPeriod + userDataLenghth + userData;*/
+            return null;
+        }
         /// <summary>
         ///     汉字转Unicode码
         /// </summary>
