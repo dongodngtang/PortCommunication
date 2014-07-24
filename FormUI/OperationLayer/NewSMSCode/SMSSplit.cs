@@ -1,4 +1,4 @@
-﻿/*/* ----------------------------------------------------------
+﻿/* ----------------------------------------------------------
 文件名称：Split.cs
 
 
@@ -11,13 +11,12 @@
 版本历史：    
     V1.0	2011年08月19日
 			短信拆分部分
------------------------------------------------------------- #1#
+------------------------------------------------------------ */
 
 using System;
 using System.Collections.Generic;
-using Splash;
 
-namespace FormUI.OperationLayer
+namespace FormUI.OperationLayer.NewSMSCode
 {
     /// <summary>
     /// 短信拆分部分
@@ -291,4 +290,4 @@ namespace FormUI.OperationLayer
             return CSMUDH.ToArray();
         }
     }
-}*/
+}

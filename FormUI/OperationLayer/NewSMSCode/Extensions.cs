@@ -18,9 +18,10 @@ QQ：36748897
             1、Int32类型的Bit位测试和Bit位设置
             2、Array类型的子数组检索
 ------------------------------------------------------------ */
+
 using System;
 
-namespace Splash
+namespace FormUI.OperationLayer.NewSMSCode
 {
     /// <summary>
     /// 扩展方法：

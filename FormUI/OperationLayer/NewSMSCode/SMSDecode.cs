@@ -1,4 +1,4 @@
-﻿/*/* ----------------------------------------------------------
+﻿/* ----------------------------------------------------------
 文件名称：Decode.cs
 
 作者：秦建辉
@@ -15,14 +15,13 @@ QQ：36748897
 版本历史：    
     V1.0	2011年08月19日
 			PDU格式短信解码部分（不支持文本压缩短信）
------------------------------------------------------------- #1#
+------------------------------------------------------------ */
 
 using System;
 using System.Text;
 using System.Collections.Generic;
-using Splash;
 
-namespace FormUI.OperationLayer
+namespace FormUI.OperationLayer.NewSMSCode
 {
     /// <summary>
     /// PDU格式短信解码部分
@@ -460,4 +459,4 @@ namespace FormUI.OperationLayer
             return UDH.ToArray();
         }
     }
-}*/
+}

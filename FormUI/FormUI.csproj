@@ -98,12 +98,12 @@
     <Compile Include="OperationLayer\DataGridViewPrinter.cs" />
     <Compile Include="OperationLayer\DosCommand.cs" />
     <Compile Include="OperationLayer\EventListenter.cs" />
-    <Compile Include="OperationLayer\Extensions.cs" />
-    <Compile Include="OperationLayer\GSMALPATH.cs" />
+    <Compile Include="OperationLayer\NewSMSCode\Extensions.cs" />
+    <Compile Include="OperationLayer\NewSMSCode\GSMALPATH.cs" />
     <Compile Include="OperationLayer\MessageBoxTimeOut.cs" />
-    <Compile Include="OperationLayer\SMSDecode.cs" />
-    <Compile Include="OperationLayer\SMSPDU.cs" />
-    <Compile Include="OperationLayer\SMSSplit.cs" />
+    <Compile Include="OperationLayer\NewSMSCode\SMSDecode.cs" />
+    <Compile Include="OperationLayer\NewSMSCode\SMSPDU.cs" />
+    <Compile Include="OperationLayer\NewSMSCode\SMSSplit.cs" />
     <Compile Include="OperationLayer\WakeUp.cs" />
     <Compile Include="SettingForms\AutoPlayer.cs">
       <SubType>Form</SubType>
@@ -375,7 +375,7 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
-    <Compile Include="OperationLayer\SMSEncode.cs" />
+    <Compile Include="OperationLayer\NewSMSCode\SMSEncode.cs" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -16,10 +16,11 @@ QQ：36748897
     V1.0	2011年08月19日
 			GSM编码和Unicode编码对照字典
 ------------------------------------------------------------ */
+
 using System;
 using System.Collections.Generic;
 
-namespace Splash.Phone
+namespace FormUI.OperationLayer.NewSMSCode
 {
     /// <summary>
     /// GSM编码和Unicode编码对照字典

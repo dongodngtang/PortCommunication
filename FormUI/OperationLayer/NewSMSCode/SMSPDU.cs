@@ -1,4 +1,4 @@
-﻿/*/* ----------------------------------------------------------
+﻿/* ----------------------------------------------------------
 文件名称：SMSPDU.cs
 
 博客：http://blog.csdn.net/jhqin
@@ -10,12 +10,12 @@
 版本历史：    
     V1.0	2011年08月19日
 			短信编码参数设置部分
------------------------------------------------------------- #1#
+------------------------------------------------------------ */
 
 using System;
 using System.Text;
 
-namespace FormUI.OperationLayer
+namespace FormUI.OperationLayer.NewSMSCode
 {
     /// <summary>
     /// 短信编码参数设置部分
@@ -151,7 +151,6 @@ namespace FormUI.OperationLayer
                     {
                         dt = (DateTime)value;
                     }
-/*
 
                     StringBuilder sb = new StringBuilder(14);
                     sb.Append(BCDEncoding(dt.Year % 100));  // 年
@@ -160,7 +159,6 @@ namespace FormUI.OperationLayer
                     sb.Append(BCDEncoding(dt.Hour));        // 时
                     sb.Append(BCDEncoding(dt.Minute));      // 分
                     sb.Append(BCDEncoding(dt.Second));      // 秒
-#1#
 
                     // 时区（-14小时～+14小时），度量范围为-56～+56
                     sb.Append(BCDEncoding((Int32)TimeZoneInfo.Local.BaseUtcOffset.TotalMinutes / 15));
@@ -175,4 +173,4 @@ namespace FormUI.OperationLayer
         /// </summary>
         private static Int32 _mCSMMR = 0;
     }
-}*/
+}
