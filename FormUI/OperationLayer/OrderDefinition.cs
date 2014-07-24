@@ -222,6 +222,11 @@ namespace FormUI.OperationLayer
             string order = "播放3" + playTimes + voiceText;
             comAT.SendChineseMessage(terminalName ,phone, order);
         }
+        public void TextVoice(string terminalName, string phone, string playTimes, string voiceText)
+        {
+            string order = "播放3" + playTimes + voiceText;
+            comAT.SendSmsLong(terminalName, phone, order);
+        }
         /// <summary>
         /// 开通C型终端
         /// </summary>

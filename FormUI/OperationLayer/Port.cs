@@ -156,7 +156,7 @@ namespace FormUI.OperationLayer
                 port.ReceivedBytesThreshold = port.ReadBufferSize;
                 while (true)
                 {
-                    Thread.Sleep(100);
+                    
                     var message = port.ReadExisting();
                     if (string.Equals(message, string.Empty))
                     {

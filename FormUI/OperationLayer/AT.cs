@@ -454,25 +454,6 @@ namespace FormUI.OperationLayer
             try
             {
                 TerminalMonitor.CallLock = false;
-               /* Mutex firstMutex = new Mutex(false);
-                firstMutex.WaitOne();
-                var t = new ThreadStart(() =>
-                    {
-                        var hex = PDU8bitEncoder(context);
-                        var length = (hex.Length/2).ToString("X2");
-                        TerminalMonitor.CallLock = false;
-                        string content = string.Format(CHINESE_SMS_TEMP,
-                                                       PhoneEncoder(phoneNo), length, hex);
-                        _port.Send(CHAR_MODE)
-                             .Send(SMS_CH)
-                             .Send(CheckSum(content.Length/2 - 1))
-                             .SendNoWrap(content)
-                             .Send(END_OF_SMS);
-                        SaveHistoryRecord(phoneNo, "发信", DateTime.Now.ToLocalTime(), context);
-                        
-                    });
-                new Thread(t).Start();
-                firstMutex.Close();*/
                 Mutex firstMutex = new Mutex(false);
                 firstMutex.WaitOne(); 
                 var hex = PDU8bitEncoder(context);
@@ -499,73 +480,127 @@ namespace FormUI.OperationLayer
         {
             Mutex firstMutex = new Mutex(false);
             firstMutex.WaitOne();
-            var hex = PDU8bitEncoder(context);
-            var length = (hex.Length / 2).ToString("X2");
-            string content = string.Format(CHINESE_SMS_TEMP,
-                                           PhoneEncoder(phone), length, hex);
-        }
-        public string PDU7BitEncoder(string phone, string Text)
-        {
-            /*dataCodingScheme = "00";
-            DestinationAddress = phone;
-
-            if (Text.Length > 160)
+            var smsContent = LongSms(context);
+            var smsCount = smsContent.Length;
+            var strCenterNumber = "0891683108100005F0";
+            for (int i = 0; i < smsCount; i++)
             {
-                //长短信设TP-UDHI位为1 PDU-type = “51”
-                ProtocolDataUnitType = "51";
-
-                //计算长短信条数
-                int count = Text.Length / 153 + 1;
-
-                //长短信格式字符串，格式 每条之间 逗号分隔
-                string result = string.Empty;
-
-                for (int i = 0; i < count; i++)
-                {
-                    //如果不是最后一条
-                    if (i != count - 1)
-                    {
-                        UserData = Text.Substring(i * 153 + 1, 152);
-
-                        result += serviceCenterAddress + protocolDataUnitType
-                            + messageReference + destinationAddress + protocolIdentifer
-                             + dataCodingScheme + validityPeriod + (160).ToString("X2")
-                             + "05000339" + count.ToString("X2") + (i + 1).ToString("X2")
-                             + ((int)(new ASCIIEncoding().GetBytes(Text.Substring(i * 153, 1))[0] << 1)).ToString("X2") + userData + ",";
-                    }
-                    else
-                    {
-                        UserData = Text.Substring(i * 153 + 1);
-
-                        int len = Text.Substring(i * 153).Length;
-
-                        if (userData != null || userData.Length != 0)
-                        {
-
-                            result += serviceCenterAddress + protocolDataUnitType
-                                + messageReference + destinationAddress + protocolIdentifer
-                                 + dataCodingScheme + validityPeriod + (len + 7).ToString("X2")
-                                 + "05000339" + count.ToString("X2") + (i + 1).ToString("X2")
-                                 + ((int)(new ASCIIEncoding().GetBytes(Text.Substring(i * 153, 1))[0] << 1)).ToString("X2")
-                                 + userData;
-                        }
-                        else
-                        {
-                            result = result.TrimEnd(',');
-                        }
-                    }
-                }
-
-                return result;
+                string content = smsDecodedsms(strCenterNumber, phone, smsContent[i],smsCount,
+                                               i + 1);
+                 string nLength = String.Format("{0:D2}", (content.Length - strCenterNumber.Length) / 2);   //获取短信内容加上手机号码长度
+                _port.Send(CHAR_MODE)
+                     .Send(SMS_CH)
+                     .Send(CheckSum(Convert.ToInt32(nLength)))
+                     .SendNoWrap(content);
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="smsContent"></param>
+        public string[] LongSms(string smsContent)
+        {
+            int smsMaxLenght = 280;
+            string[] sContent;
+            string tempStr = EncodingOther(smsContent);
+            int splitCount = 1;
+            //如果不能被280整除。则要分割 +1
+            if (tempStr.Length % smsMaxLenght != 0)
+            {
+                splitCount = tempStr.Length / smsMaxLenght;
+                splitCount += 1;
+                 sContent = new string[splitCount];
+            }
+            else
+            {
+                splitCount = tempStr.Length / smsMaxLenght;
+                sContent = new string[splitCount];
             }
 
-            UserData = Text;
+            //循环塞入数组
+            for (int i = 0; i < sContent.Length; i++)
+            {
+                //如果不是最后一个
+                if (i < splitCount - 1)
+                {
+                    sContent[i] = tempStr.Substring(i * smsMaxLenght, smsMaxLenght);
+                }
+                else
+                {
+                    //如果是最后一个，则第二个参数为剩余的长度 
+                    sContent[i] = tempStr.Substring(i * smsMaxLenght);
+                }
+            }
+            return sContent;
 
-            return serviceCenterAddress + protocolDataUnitType
-                + messageReference + destinationAddress + protocolIdentifer
-                + dataCodingScheme + validityPeriod + userDataLenghth + userData;*/
-            return null;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public static string EncodingOther(string content)
+        {
+            string result = string.Empty;
+            byte[] bytes = System.Text.Encoding.BigEndianUnicode.GetBytes(content);
+            foreach (char item in content)
+            {
+                bytes = System.Text.Encoding.BigEndianUnicode.GetBytes(new char[1] { item });
+                if (bytes.Length < 2)
+                    continue;
+
+                //
+                if (0x80 == (Asc(item) & 0x80))//汉字
+                {
+                    result = string.Format("{0}{1:X2}", result, bytes[0]);
+                    result = string.Format("{0}{1:X2}", result, bytes[1]);
+                }
+                else
+                {
+                    result = string.Format("{0}00{1:X2}", result, bytes[1]);
+                }
+            }
+            return result;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        private static int Asc(char item)
+        {
+            byte[] bytes = System.Text.Encoding.Default.GetBytes(new char[1] { item });
+
+            if (bytes.Length < 2)
+                return bytes[0];
+
+            return bytes[0] * 256 + bytes[1] - 65535;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="strCenterNumber"></param>
+        /// <param name="strNumber"></param>
+        /// <param name="strSMScontent"></param>
+        /// <param name="count"></param>
+        /// <param name="currIndex"></param>
+        /// <returns></returns>
+        public string smsDecodedsms(string strCenterNumber, string strNumber, string strSMScontent, int count, int currIndex)
+        {
+
+           
+            string s = String.Format("{0}51000D9168{1}000800{2:X2}05000339{4:D2}{5:D2}{3}",
+                                        strCenterNumber,
+                                        PhoneEncoder(strNumber),
+                                        strSMScontent.Length / 2 + 6,
+                                        strSMScontent,
+                                        count.ToString("X2"),
+                                        currIndex.ToString("X2"));
+            return s;
+        }
+
+
+
         /// <summary>
         ///     汉字转Unicode码
         /// </summary>

@@ -26,12 +26,12 @@ namespace FormUI.SettingForms
 
         private void btOk_Click(object sender, EventArgs e)
         {
-              if (txtVoiceText.MaxLength <= 70 && Terminals.Count > 0)
+              if (txtVoiceText.MaxLength <= 300 && Terminals.Count > 0)
                 {
                     foreach (var item in Terminals)
                     {
                        
-                        _order.PlayTextVoice(item.Text, item.ToolTipText, txtPlayTimes.Text.Trim(),
+                        _order.TextVoice(item.Text, item.ToolTipText, txtPlayTimes.Text.Trim(),
                                              txtVoiceText.Text.Trim());
                     }
                     this.Close();

@@ -40,7 +40,7 @@
             // 
             this.txtVoiceText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtVoiceText.Location = new System.Drawing.Point(3, 17);
-            this.txtVoiceText.MaxLength = 70;
+            this.txtVoiceText.MaxLength = 300;
             this.txtVoiceText.Multiline = true;
             this.txtVoiceText.Name = "txtVoiceText";
             this.txtVoiceText.Size = new System.Drawing.Size(430, 103);
