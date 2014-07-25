@@ -15,61 +15,61 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1A884FE9602A4791BB071D3255923CA3"
+        "MsmKey" = "8:_1DE17490F4211B3EE2385DE20281ED3F"
+        "OwnerKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1DE17490F4211B3EE2385DE20281ED3F"
+        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_45BD5B5767C043B2B2726FDF991AB0A4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3DEA0CF361D34523B5B5006003E93600"
+        "MsmKey" = "8:_45FFA19CDF8A4A2D8D87EAA35524CF24"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3F2BDBA4340748C19E1E228FA2660B69"
-        "OwnerKey" = "8:_9BC85C84618E5E9A0F2364438FCD352A"
+        "MsmKey" = "8:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
+        "OwnerKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3F2BDBA4340748C19E1E228FA2660B69"
-        "OwnerKey" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
+        "MsmKey" = "8:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
+        "OwnerKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3F2BDBA4340748C19E1E228FA2660B69"
-        "OwnerKey" = "8:_4FC14DFEC3F3CD440FA783E19BB83A32"
+        "MsmKey" = "8:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
+        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4FC14DFEC3F3CD440FA783E19BB83A32"
-        "OwnerKey" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_51B9D6848600467596D324E2BBCB2673"
+        "MsmKey" = "8:_5F0D845E51E84D1894FA00D524F9580E"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_57751E473F7F1F0BF6282FFE8CB4CE18"
-        "OwnerKey" = "8:_9BC85C84618E5E9A0F2364438FCD352A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_57751E473F7F1F0BF6282FFE8CB4CE18"
-        "OwnerKey" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_6C5383A11E8646C8851544F594EE6A8A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7796538D54774FF8B8A047DD378A794B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -81,91 +81,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
+        "MsmKey" = "8:_85823FB2AE804611B2A6B2C5ADA28B5A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_81530BC961244B0B8F1770E7788C31F3"
+        "MsmKey" = "8:_8B8A6392A3A5402E8D0B49C867E64E79"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_88147D7AA3A64938A55802455EFCED54"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_94039DB88835409FBC57BF9BFC52C58B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_98DDCEF776EC5FD10A9E08FD06BE59EA"
-        "OwnerKey" = "8:_9BC85C84618E5E9A0F2364438FCD352A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_98DDCEF776EC5FD10A9E08FD06BE59EA"
-        "OwnerKey" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_98DDCEF776EC5FD10A9E08FD06BE59EA"
-        "OwnerKey" = "8:_4FC14DFEC3F3CD440FA783E19BB83A32"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9BC85C84618E5E9A0F2364438FCD352A"
-        "OwnerKey" = "8:_4FC14DFEC3F3CD440FA783E19BB83A32"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9BC85C84618E5E9A0F2364438FCD352A"
-        "OwnerKey" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
+        "MsmKey" = "8:_96EECDBE786A4E9F9FD2217E35E6410A"
+        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_A0C7888D7BFF4061ACDDCAEF61C553A8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A381914DA556AA2D069A0939F9B6DB34"
-        "OwnerKey" = "8:_57751E473F7F1F0BF6282FFE8CB4CE18"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A381914DA556AA2D069A0939F9B6DB34"
-        "OwnerKey" = "8:_F79151F2B23638FD11532E1BEA94ED4D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A381914DA556AA2D069A0939F9B6DB34"
-        "OwnerKey" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A381914DA556AA2D069A0939F9B6DB34"
-        "OwnerKey" = "8:_9BC85C84618E5E9A0F2364438FCD352A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A6616E034A12421D80660F9078E4A1CB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -177,8 +111,56 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_AEC5B83FCDC34EA5A4AA41CA222B5DF8"
+        "MsmKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BB5D2362079C4055A6092F6E69360F22"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CC1493D0F201B9F12FA91629F21D0CFA"
+        "OwnerKey" = "8:_1DE17490F4211B3EE2385DE20281ED3F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CC1493D0F201B9F12FA91629F21D0CFA"
+        "OwnerKey" = "8:_96EECDBE786A4E9F9FD2217E35E6410A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CC1493D0F201B9F12FA91629F21D0CFA"
+        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CC1493D0F201B9F12FA91629F21D0CFA"
+        "OwnerKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D9FF51011E52BC3EC40E64A6B85FE8EF"
+        "OwnerKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D9FF51011E52BC3EC40E64A6B85FE8EF"
+        "OwnerKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D9FF51011E52BC3EC40E64A6B85FE8EF"
+        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -189,56 +171,74 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F79151F2B23638FD11532E1BEA94ED4D"
-        "OwnerKey" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
+        "MsmKey" = "8:_DFD414D741EE401CADE74770F4B040BF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
+        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
+        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
+        "OwnerKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A381914DA556AA2D069A0939F9B6DB34"
+        "OwnerKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
+        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F79151F2B23638FD11532E1BEA94ED4D"
+        "OwnerKey" = "8:_96EECDBE786A4E9F9FD2217E35E6410A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4FC14DFEC3F3CD440FA783E19BB83A32"
+        "OwnerKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9BC85C84618E5E9A0F2364438FCD352A"
+        "OwnerKey" = "8:_D9FF51011E52BC3EC40E64A6B85FE8EF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3F2BDBA4340748C19E1E228FA2660B69"
+        "OwnerKey" = "8:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_98DDCEF776EC5FD10A9E08FD06BE59EA"
+        "OwnerKey" = "8:_1DE17490F4211B3EE2385DE20281ED3F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_57751E473F7F1F0BF6282FFE8CB4CE18"
+        "OwnerKey" = "8:_CC1493D0F201B9F12FA91629F21D0CFA"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -351,136 +351,14 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1A884FE9602A4791BB071D3255923CA3"
-            {
-            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\delete.ico"
-            "TargetName" = "8:delete.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3DEA0CF361D34523B5B5006003E93600"
-            {
-            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\chord.wav"
-            "TargetName" = "8:chord.wav"
-            "Tag" = "8:"
-            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3F2BDBA4340748C19E1E228FA2660B69"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:TomorrowSoft.Model, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_3F2BDBA4340748C19E1E228FA2660B69"
-                    {
-                    "Name" = "8:TomorrowSoft.Model.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:TomorrowSoft.Model.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4FC14DFEC3F3CD440FA783E19BB83A32"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_4FC14DFEC3F3CD440FA783E19BB83A32"
-                    {
-                    "Name" = "8:BLL.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:BLL.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_51B9D6848600467596D324E2BBCB2673"
-            {
-            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\errorCodes.txt"
-            "TargetName" = "8:errorCodes.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_57751E473F7F1F0BF6282FFE8CB4CE18"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1DE17490F4211B3EE2385DE20281ED3F"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:TomorrowSoft.DBUtility, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_57751E473F7F1F0BF6282FFE8CB4CE18"
+                    "_1DE17490F4211B3EE2385DE20281ED3F"
                     {
                     "Name" = "8:TomorrowSoft.DBUtility.dll"
                     "Attributes" = "3:512"
@@ -504,12 +382,123 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_45BD5B5767C043B2B2726FDF991AB0A4"
+            {
+            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\errorCodes.txt"
+            "TargetName" = "8:errorCodes.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_45FFA19CDF8A4A2D8D87EAA35524CF24"
+            {
+            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\autoRun.exe"
+            "TargetName" = "8:autoRun.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_5377D4C2657C1E4F2AAEF5DCFB68EC86"
+                    {
+                    "Name" = "8:Infrastructure.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Infrastructure.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5F0D845E51E84D1894FA00D524F9580E"
+            {
+            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\autoRunCfg.exe"
+            "TargetName" = "8:autoRunCfg.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6C5383A11E8646C8851544F594EE6A8A"
             {
             "SourcePath" = "8:..\\FormUI\\bin\\Debug\\SerialPort.db"
             "TargetName" = "8:SerialPort.db"
             "Tag" = "8:"
             "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7796538D54774FF8B8A047DD378A794B"
+            {
+            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\chord.wav"
+            "TargetName" = "8:chord.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -544,10 +533,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_81530BC961244B0B8F1770E7788C31F3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_85823FB2AE804611B2A6B2C5ADA28B5A"
             {
-            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\uninst.exe"
-            "TargetName" = "8:uninst.exe"
+            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\AutoShutdownHelper.ICO"
+            "TargetName" = "8:AutoShutdownHelper.ICO"
             "Tag" = "8:"
             "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
             "Condition" = "8:"
@@ -564,10 +553,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_88147D7AA3A64938A55802455EFCED54"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8B8A6392A3A5402E8D0B49C867E64E79"
             {
-            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\autoRun.exe"
-            "TargetName" = "8:autoRun.exe"
+            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\delete.ico"
+            "TargetName" = "8:delete.ico"
             "Tag" = "8:"
             "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
             "Condition" = "8:"
@@ -584,71 +573,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_94039DB88835409FBC57BF9BFC52C58B"
-            {
-            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\autoRunCfg.exe"
-            "TargetName" = "8:autoRunCfg.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_98DDCEF776EC5FD10A9E08FD06BE59EA"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_96EECDBE786A4E9F9FD2217E35E6410A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Infrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:System.Data.SQLite.Linq, Version=1.0.89.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_98DDCEF776EC5FD10A9E08FD06BE59EA"
+                    "_96EECDBE786A4E9F9FD2217E35E6410A"
                     {
-                    "Name" = "8:Infrastructure.dll"
+                    "Name" = "8:System.Data.SQLite.Linq.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Infrastructure.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9BC85C84618E5E9A0F2364438FCD352A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:TomorrowSoft.DAL, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_9BC85C84618E5E9A0F2364438FCD352A"
-                    {
-                    "Name" = "8:TomorrowSoft.DAL.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:TomorrowSoft.DAL.dll"
+            "SourcePath" = "8:System.Data.SQLite.Linq.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
@@ -686,14 +624,54 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A381914DA556AA2D069A0939F9B6DB34"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A843052C01A848CA9B43142E9BBB496C"
+            {
+            "SourcePath" = "8:..\\1829\\b.ico"
+            "TargetName" = "8:b.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BB5D2362079C4055A6092F6E69360F22"
+            {
+            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\AutoShutdownHelper.exe"
+            "TargetName" = "8:AutoShutdownHelper.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CC1493D0F201B9F12FA91629F21D0CFA"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:System.Data.SQLite, Version=1.0.89.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A381914DA556AA2D069A0939F9B6DB34"
+                    "_CC1493D0F201B9F12FA91629F21D0CFA"
                     {
                     "Name" = "8:System.Data.SQLite.dll"
                     "Attributes" = "3:512"
@@ -717,30 +695,21 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A6616E034A12421D80660F9078E4A1CB"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D9FF51011E52BC3EC40E64A6B85FE8EF"
             {
-            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\AutoShutdownHelper.ICO"
-            "TargetName" = "8:AutoShutdownHelper.ICO"
-            "Tag" = "8:"
-            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A843052C01A848CA9B43142E9BBB496C"
-            {
-            "SourcePath" = "8:..\\1829\\b.ico"
-            "TargetName" = "8:b.ico"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:TomorrowSoft.Model, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D9FF51011E52BC3EC40E64A6B85FE8EF"
+                    {
+                    "Name" = "8:TomorrowSoft.Model.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:TomorrowSoft.Model.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
             "Condition" = "8:"
@@ -754,27 +723,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AEC5B83FCDC34EA5A4AA41CA222B5DF8"
-            {
-            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\AutoShutdownHelper.exe"
-            "TargetName" = "8:AutoShutdownHelper.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DB94CBBD181C487B9BC95D683AF595AC"
@@ -797,20 +746,71 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F79151F2B23638FD11532E1BEA94ED4D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DFD414D741EE401CADE74770F4B040BF"
+            {
+            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\AutoShutdownHelper\\uninst.exe"
+            "TargetName" = "8:uninst.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E68A4013A90E7F1DF6AB82F8D4F5F485"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:System.Data.SQLite.Linq, Version=1.0.89.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F79151F2B23638FD11532E1BEA94ED4D"
+                    "_E68A4013A90E7F1DF6AB82F8D4F5F485"
                     {
-                    "Name" = "8:System.Data.SQLite.Linq.dll"
+                    "Name" = "8:BLL.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:System.Data.SQLite.Linq.dll"
+            "SourcePath" = "8:BLL.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F9C15AD5BB5C12978EF7866CFA6994D3"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:TomorrowSoft.DAL, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F9C15AD5BB5C12978EF7866CFA6994D3"
+                    {
+                    "Name" = "8:TomorrowSoft.DAL.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:TomorrowSoft.DAL.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
@@ -940,7 +940,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:德海GSM广播监测系统"
         "ProductCode" = "8:{972D60E5-614B-474D-87EE-8FE46321D4F7}"
-        "PackageCode" = "8:{FF4F8789-E3EC-4F4A-885F-A8ABE01E71E1}"
+        "PackageCode" = "8:{2ABF363D-BBB7-4A20-9F45-2CC0F3F2B0FB}"
         "UpgradeCode" = "8:{4A5C16BA-D3C8-4B5C-9F39-CDE9C4B0D393}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1060,20 +1060,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2E8CFD09B91E4A0EA20F893E42029586"
-            {
-            "Name" = "8:德海GSM广播监测系统"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
-            "Folder" = "8:_E84B64C60E104831B7B239CE6E8D4214"
-            "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
-            "Icon" = "8:_A843052C01A848CA9B43142E9BBB496C"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_98109DC0420E4165AA5ABA26429E0955"
             {
             "Name" = "8:卸载"
@@ -1088,7 +1074,7 @@
             "Icon" = "8:"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B0378FD9111D456ABB1D11BE28F4C567"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E230B3F9C848436FA399F2FA254AC87B"
             {
             "Name" = "8:德海GSM广播监测系统"
             "Arguments" = "8:"
@@ -1096,8 +1082,22 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_7FEF5DB092784FBA8F7500BA63557D09"
-            "Folder" = "8:_26FF0007D791445F8207264582840015"
+            "Target" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "Icon" = "8:_A843052C01A848CA9B43142E9BBB496C"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EA1AFDF510B04E7FB51119F9837CAEA9"
+            {
+            "Name" = "8:德海GSM广播监测系统"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
             "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
             "Icon" = "8:_A843052C01A848CA9B43142E9BBB496C"
             "Feature" = "8:"
@@ -1501,7 +1501,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_7FEF5DB092784FBA8F7500BA63557D09"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AEE51CB474EA48B69CC7E56955B1DDE2"
             {
             "SourcePath" = "8:..\\FormUI\\obj\\x86\\Debug\\FormUI.exe"
             "TargetName" = "8:"

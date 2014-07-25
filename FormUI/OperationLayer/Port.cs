@@ -172,7 +172,7 @@ namespace FormUI.OperationLayer
 //                var content = message.Replace("\r", string.Empty)
 //                                     .Split(new[] {"\n"}, StringSplitOptions.RemoveEmptyEntries);
                 var content = strCollect.Replace("\r", string.Empty)
-                                   .Split(new[] {"\n","OK"}, StringSplitOptions.RemoveEmptyEntries);
+                                   .Split(new[] {"\n","ERROR"}, StringSplitOptions.RemoveEmptyEntries);
                 ReadCardMes(content);
                 if (!ReceiveEventEnabled)
                 {

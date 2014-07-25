@@ -119,7 +119,7 @@ namespace FormUI
                     if (e.Filter.Context.Contains("告警") || e.Filter.IsQsDown)
                     {
                         listView1.Items[i].ImageKey = TerminalState.RedChecked.ToString();
-                        MessageBox.Show(string.Format("{0}", e.Filter.Context));
+                        new MessageBoxTimeOut().Show(3000, string.Format("{0}", e.Filter.Context),"告警",MessageBoxButtons.OK);
                     }
                     /* if (e.Filter.IsQsDown)
                     {
