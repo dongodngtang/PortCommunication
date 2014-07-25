@@ -16,7 +16,6 @@ namespace FormUI.OperationLayer
         private readonly HistoryRecordService _bllHistory = new HistoryRecordService();
         private readonly Port _port = Port.Instance;
         private readonly HistoryRecord history = new HistoryRecord();
-        private bool IsSend = false;
 
         #region 指令
 
@@ -438,29 +437,32 @@ namespace FormUI.OperationLayer
         {
             _port.Send(SMS_ANSWER);
         }
-       /// <summary>
-       /// 发送中文短信
-       /// </summary>
-       /// <param name="terminal"></param>
-       /// <param name="phoneNo"></param>
-       /// <param name="context"></param>
-        public void SendChineseMessage(string terminal, string phoneNo, string context)
+
+
+        /// <summary>
+        ///     发送中文短信
+        /// </summary>
+        /// <param name="terminal"></param>
+        /// <param name="phoneNo"></param>
+        /// <param name="context"></param>
+        public void SendChineseMessage(string terminal, string phone, string context)
         {
             try
             {
                 TerminalMonitor.CallLock = false;
                 var firstMutex = new Mutex(false);
                 firstMutex.WaitOne();
-                string hex = PDU8bitEncoder(context);
-                string length = (hex.Length/2).ToString("X2");
-                string content = string.Format(CHINESE_SMS_TEMP,
-                                               PhoneEncoder(phoneNo), length, hex);
-                _port.Send(CHAR_MODE)
-                     .Send(SMS_CH)
-                     .Send(CheckSum(content.Length/2 - 1))
-                     .SendNoWrap(content)
-                     .Send(END_OF_SMS);
-                SaveHistoryRecord(phoneNo, "发信", DateTime.Now.ToLocalTime(), context);
+                var sms = new SMS();
+                string[] csmSeries = sms.PDUEncoding("+86" + phone, context);
+                foreach (string content in csmSeries)
+                {
+                    int len = content.Length/2 - 1;
+                    _port.Send(CHAR_MODE)
+                         .Send(SMS_CH)
+                         .Send(CheckSum(len))
+                         .SendNoWrap(content)
+                         .Send(END_OF_SMS);
+                }
                 TerminalMonitor.CallLock = true;
                 MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
                 firstMutex.Close();
@@ -470,142 +472,6 @@ namespace FormUI.OperationLayer
                 MessageBox.Show(ex.Message);
             }
         }
-
-        public void SendSmsLong(string terminal, string phone, string context)
-        {
-            var firstMutex = new Mutex(false);
-            firstMutex.WaitOne();
-            string[] smsContent = LongSms(context);
-            int smsCount = smsContent.Length;
-            string strCenterNumber = "0891683108100005F0";
-            for (int i = 0; i < smsCount; i++)
-            {
-                string content = smsDecodedsms(strCenterNumber, phone, smsContent[i], smsCount,
-                                               i + 1);
-                string nLength = String.Format("{0:D2}", (content.Length - strCenterNumber.Length)/2); //获取短信内容加上手机号码长度
-                _port.Send(CHAR_MODE)
-                     .Send(SMS_CH)
-                     .Send(CheckSum(Convert.ToInt32(nLength)))
-                     .SendNoWrap(content);
-            }
-        }
-        public void NewSendLong(string terminal, string phone, string context)
-        {
-            SMS sms = new SMS();
-            String[] CSMSeries = sms.PDUEncoding("+86"+phone, context);
-            for (int i = 0; i < CSMSeries.Length; i++)
-            {
-                string content = CSMSeries[i];
-                int len = (content.Length - Convert.ToInt32(content.Substring(0, 2), 16) * 2 - 2) / 2;
-            _port.Send(CHAR_MODE)
-                   .Send(SMS_CH)
-                   .Send(CheckSum(len))
-                   .Send(content);
-            }
-           
-        }
-        /// <summary>
-        /// </summary>
-        /// <param name="smsContent"></param>
-        public string[] LongSms(string smsContent)
-        {
-            int smsMaxLenght = 280;
-            string[] sContent;
-            string tempStr = EncodingOther(smsContent);
-            int splitCount = 1;
-            //如果不能被280整除。则要分割 +1
-            if (tempStr.Length%smsMaxLenght != 0)
-            {
-                splitCount = tempStr.Length/smsMaxLenght;
-                splitCount += 1;
-                sContent = new string[splitCount];
-            }
-            else
-            {
-                splitCount = tempStr.Length/smsMaxLenght;
-                sContent = new string[splitCount];
-            }
-
-            //循环塞入数组
-            for (int i = 0; i < sContent.Length; i++)
-            {
-                //如果不是最后一个
-                if (i < splitCount - 1)
-                {
-                    sContent[i] = tempStr.Substring(i*smsMaxLenght, smsMaxLenght);
-                }
-                else
-                {
-                    //如果是最后一个，则第二个参数为剩余的长度 
-                    sContent[i] = tempStr.Substring(i*smsMaxLenght);
-                }
-            }
-            return sContent;
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="content"></param>
-        /// <returns></returns>
-        public static string EncodingOther(string content)
-        {
-            string result = string.Empty;
-            byte[] bytes = Encoding.BigEndianUnicode.GetBytes(content);
-            foreach (char item in content)
-            {
-                bytes = Encoding.BigEndianUnicode.GetBytes(new char[1] {item});
-                if (bytes.Length < 2)
-                    continue;
-
-                //
-                if (0x80 == (Asc(item) & 0x80)) //汉字
-                {
-                    result = string.Format("{0}{1:X2}", result, bytes[0]);
-                    result = string.Format("{0}{1:X2}", result, bytes[1]);
-                }
-                else
-                {
-                    result = string.Format("{0}00{1:X2}", result, bytes[1]);
-                }
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        private static int Asc(char item)
-        {
-            byte[] bytes = Encoding.Default.GetBytes(new char[1] {item});
-
-            if (bytes.Length < 2)
-                return bytes[0];
-
-            return bytes[0]*256 + bytes[1] - 65535;
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="strCenterNumber"></param>
-        /// <param name="strNumber"></param>
-        /// <param name="strSMScontent"></param>
-        /// <param name="count"></param>
-        /// <param name="currIndex"></param>
-        /// <returns></returns>
-        public string smsDecodedsms(string strCenterNumber, string strNumber, string strSMScontent, int count,
-                                    int currIndex)
-        {
-            string s = String.Format("{0}51000D9168{1}000800{2:X2}05000339{4:D2}{5:D2}{3}",
-                                     strCenterNumber,
-                                     PhoneEncoder(strNumber),
-                                     strSMScontent.Length/2 + 6,
-                                     strSMScontent,
-                                     count.ToString("X2"),
-                                     currIndex.ToString("X2"));
-            return s;
-        }
-
 
         /// <summary>
         ///     汉字转Unicode码
@@ -722,5 +588,20 @@ namespace FormUI.OperationLayer
         {
             _port.Send(string.Format("AT+CMGD={0}", index));
         }
+
+        #region 旧的短信编码并发送文本
+
+        /*  string hex = PDU8bitEncoder(context);
+                string length = (hex.Length/2).ToString("X2");
+                string content = string.Format(CHINESE_SMS_TEMP,
+                                               PhoneEncoder(phoneNo), length, hex);
+                _port.Send(CHAR_MODE)
+                     .Send(SMS_CH)
+                     .Send(CheckSum(content.Length/2 - 1))
+                     .SendNoWrap(content)
+                     .Send(END_OF_SMS);
+                SaveHistoryRecord(phoneNo, "发信", DateTime.Now.ToLocalTime(), context);*/
+
+        #endregion
     }
 }

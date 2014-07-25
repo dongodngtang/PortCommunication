@@ -30,8 +30,8 @@ namespace FormUI.SettingForms
                 {
                     foreach (var item in Terminals)
                     {
-                       
-                        _order.TextVoice(item.Text, item.ToolTipText, txtPlayTimes.Text.Trim(),
+
+                        _order.PlayTextVoice(item.Text, item.ToolTipText, txtPlayTimes.Text.Trim(),
                                              txtVoiceText.Text.Trim());
                     }
                     this.Close();

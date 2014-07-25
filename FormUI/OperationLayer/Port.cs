@@ -88,7 +88,7 @@ namespace FormUI.OperationLayer
             {
                 Thread.Sleep(20);
                 i++;
-                if (i > 300)
+                if (i > 500)
                 {
                 Received = false;
                 throw new Exception("发送超时，请检查串口设备"); 
@@ -145,7 +145,7 @@ namespace FormUI.OperationLayer
         {
             SerialPort.Close();
         }
-
+        
         private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string strCollect = string.Empty;
@@ -177,19 +177,26 @@ namespace FormUI.OperationLayer
                 if (!ReceiveEventEnabled)
                 {
                     IsReceived = true;
-                    return;
+                    //return;
                 }
-                TerminalMonitor.CallLock = false;
-                Mutex firstMutex = new Mutex(false);
-                firstMutex.WaitOne(); 
-                var t = new ThreadStart(() =>
+                Thread.Sleep(100);
+                foreach (string t1 in content)
+                {
+                    if (t1.Contains("+CMT:"))
                     {
-                        var filter = new FilterProcessor(content).Run();
-                        if (filter == null) return;
-                        Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
-                    });
-                new Thread(t).Start();
-                firstMutex.Close();
+                        TerminalMonitor.CallLock = false;
+                        Mutex firstMutex = new Mutex(false);
+                        firstMutex.WaitOne();
+                        var t = new ThreadStart(() =>
+                            {
+                                var filter = new FilterProcessor(content).Run();
+                                if (filter == null) return;
+                                Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
+                            });
+                        new Thread(t).Start();
+                        firstMutex.Close();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -216,6 +223,8 @@ namespace FormUI.OperationLayer
 
         }
 
+        #region 启动前读取短信并保存
+
         protected readonly WhiteListService White = new WhiteListService();
         protected readonly TerminalService Terminal = new TerminalService();
 
@@ -227,7 +236,7 @@ namespace FormUI.OperationLayer
             bool isLongMessage;
             string phone;
             DateTime time;
-            string content; 
+            string content;
             AT.GetSmsContent(Content, out isLongMessage, out phone, out time, out content, out current, out total,
                              out identifier);
             if (phone.StartsWith("86"))
@@ -278,6 +287,9 @@ namespace FormUI.OperationLayer
             }
         }
 
+        #endregion
+
+
         private string Name
         {
             get { return "收信"; }
@@ -324,5 +336,7 @@ namespace FormUI.OperationLayer
         }
 
         #endregion
+
+      
     }
 }

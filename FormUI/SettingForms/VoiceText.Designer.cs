@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoiceText));
             this.txtVoiceText = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPlayTimes = new System.Windows.Forms.TextBox();
@@ -45,6 +46,7 @@
             this.txtVoiceText.Name = "txtVoiceText";
             this.txtVoiceText.Size = new System.Drawing.Size(430, 103);
             this.txtVoiceText.TabIndex = 0;
+            this.txtVoiceText.Text = resources.GetString("txtVoiceText.Text");
             // 
             // groupBox1
             // 
