@@ -290,35 +290,35 @@
             // 终端ToolStripMenuItem
             // 
             this.终端ToolStripMenuItem.Name = "终端ToolStripMenuItem";
-            this.终端ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.终端ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.终端ToolStripMenuItem.Text = "终端";
             this.终端ToolStripMenuItem.Click += new System.EventHandler(this.终端ToolStripMenuItem_Click);
             // 
             // 口令管理ToolStripMenuItem
             // 
             this.口令管理ToolStripMenuItem.Name = "口令管理ToolStripMenuItem";
-            this.口令管理ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.口令管理ToolStripMenuItem.Text = "口令";
+            this.口令管理ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.口令管理ToolStripMenuItem.Text = "用户管理";
             this.口令管理ToolStripMenuItem.Click += new System.EventHandler(this.口令管理ToolStripMenuItem_Click);
             // 
             // 告警ToolStripMenuItem
             // 
             this.告警ToolStripMenuItem.Name = "告警ToolStripMenuItem";
-            this.告警ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.告警ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.告警ToolStripMenuItem.Text = "告警时间";
             this.告警ToolStripMenuItem.Click += new System.EventHandler(this.告警ToolStripMenuItem_Click);
             // 
             // 定时查询ToolStripMenuItem
             // 
             this.定时查询ToolStripMenuItem.Name = "定时查询ToolStripMenuItem";
-            this.定时查询ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.定时查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.定时查询ToolStripMenuItem.Text = "定时检测";
             this.定时查询ToolStripMenuItem.Click += new System.EventHandler(this.定时查询ToolStripMenuItem_Click);
             // 
             // 定时开关机ToolStripMenuItem
             // 
             this.定时开关机ToolStripMenuItem.Name = "定时开关机ToolStripMenuItem";
-            this.定时开关机ToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.定时开关机ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.定时开关机ToolStripMenuItem.Text = "定时开关机";
             this.定时开关机ToolStripMenuItem.Click += new System.EventHandler(this.定时开关机ToolStripMenuItem_Click);
             // 

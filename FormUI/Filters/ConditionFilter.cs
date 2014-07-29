@@ -36,25 +36,26 @@ namespace FormUI.Filters
              return condition;
 
          }
-        public static bool PhotovoltaicCompare()
+        public static bool PhotovoltaicCompare(out string text)
         {
+            text = string.Empty;
             var qs = new QsService().GetAll();
             var isHors = false;
             if (qs.Rows.Count>0)
             {
                 if (double.Parse(_photovoltaic) < Convert.ToDouble(Settings.Default.RDS))
                 {
-                    content = string.Format("告警：光伏值：{0}低于{1}  ",_photovoltaic , Settings.Default.RDS);
+                    text = string.Format("告警：光伏值：{0}低于{1}\r\n", _photovoltaic, Settings.Default.RDS);
                 }
                 if (double.Parse(_battery) < Convert.ToDouble(Settings.Default.Battery))
                 {
-                    content += string.Format("告警：电池值：{0}低于{1}\r\n",_battery , Settings.Default.Battery);
+                    text += string.Format("告警：电池值：{0}低于{1}\r\n", _battery, Settings.Default.Battery);
                 }
                 for(int a=2; a<=5;a++)
                 {
                     if (Horn[a].Contains("0.0"))
                     {
-                        content += string.Format("告警：{0}喇叭异常\r\n", a - 1);
+                        text += string.Format("告警：{0}喇叭异常\r\n", a - 1);
                         isHors = true;
                     }
                     

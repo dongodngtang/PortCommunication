@@ -14,7 +14,7 @@ namespace FormUI.Filters
         }
         public override string Context { get; set; }
         public override string Name {
-            get { return "未接通"; }
+            get { return "挂断"; }
         }
 
         public HangUpFilter(Filter next) : base(next)

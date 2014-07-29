@@ -13,7 +13,7 @@ namespace TomorrowSoft.DAL
             strSql.Append("insert into MessageIndex(");
             strSql.Append("MessageIndex )");
             strSql.Append(" values (");
-            strSql.Append("@MessageIndex )");
+            strSql.Append("@MessageIndex ) ");
             SQLiteParameter[] parameters = {
 				
 					new SQLiteParameter("@MessageIndex", DbType.String),

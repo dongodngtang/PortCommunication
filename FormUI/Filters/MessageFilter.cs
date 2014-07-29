@@ -20,6 +20,7 @@ namespace FormUI.Filters
         private DateTime time;
         private string content;
         private bool isQsDown;
+        private string text;
         public MessageFilter(Filter next) : base(next)
         {
         }
@@ -28,7 +29,7 @@ namespace FormUI.Filters
         {
             if (Content.Length >= 2 && Content[0].Contains("+CMT:"))
             {
-                new AT().SmsAnswer();
+//                new AT().SmsAnswer();
                 bool isLongMessage;
                 int current;
                 int total;
@@ -66,7 +67,7 @@ namespace FormUI.Filters
                     if (content.Contains("光伏")){
                         new ConditionService()
                             .Add(ConditionFilter.FilterCondition(phone, content));
-                        isQsDown = ConditionFilter.PhotovoltaicCompare();
+                        isQsDown = ConditionFilter.PhotovoltaicCompare(out text);
                     }
                     else
                     {
@@ -93,7 +94,7 @@ namespace FormUI.Filters
 
                     if (isQsDown)
                     {
-                        Context = ConditionFilter.content + content;
+                        Context = text + content;
                     }
                     return this;
                 }

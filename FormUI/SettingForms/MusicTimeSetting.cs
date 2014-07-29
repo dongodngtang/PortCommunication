@@ -23,5 +23,7 @@ namespace FormUI.SettingForms
             Settings.Default.Save();
             this.Close();
         }
+
+       
     }
 }

@@ -88,7 +88,7 @@ namespace FormUI.OperationLayer
             {
                 Thread.Sleep(20);
                 i++;
-                if (i > 500)
+                if (i > 360)
                 {
                 Received = false;
                 throw new Exception("发送超时，请检查串口设备"); 
@@ -179,22 +179,25 @@ namespace FormUI.OperationLayer
                     IsReceived = true;
                     //return;
                 }
-                Thread.Sleep(100);
+               
                 foreach (string t1 in content)
                 {
-                    if (t1.Contains("+CMT:"))
+                    if (t1.Contains("+CMT:") || t1.Contains("NO CARRIER"))
                     {
                         TerminalMonitor.CallLock = false;
-                        Mutex firstMutex = new Mutex(false);
-                        firstMutex.WaitOne();
-                        var t = new ThreadStart(() =>
+                        new Thread(() =>
+                            {
+                                var filter = new FilterProcessor(content).Run();
+                                if (filter == null) return;
+                                Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
+                            }).Start();
+                      /*  var t = new ThreadStart(() =>
                             {
                                 var filter = new FilterProcessor(content).Run();
                                 if (filter == null) return;
                                 Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
                             });
-                        new Thread(t).Start();
-                        firstMutex.Close();
+                        new Thread(t).Start();*/
                     }
                 }
             }
@@ -208,18 +211,18 @@ namespace FormUI.OperationLayer
             }
         }
 
+        public static int GetMesCount;
         private void ReadCardMes(string[] content)
         {
-            
             for (int index = 0; index < content.Length; index ++)
             {
                 if (!content[index].Contains("+CMGL:")) continue;
-                MessageSave(content[index + 1]);
-                var mesNo = content[index].Split(new[] {"+CMGL:",","}, StringSplitOptions.RemoveEmptyEntries);
+                int count;
+                MessageSave(content[index + 1],out count);
+                var mesNo = content[index].Split(new[] { "+CMGL:", "," }, StringSplitOptions.RemoveEmptyEntries);
                 new MessageIndexService().Add(mesNo[0]);
-              
+                GetMesCount = count;
             }
-          
 
         }
 
@@ -228,15 +231,16 @@ namespace FormUI.OperationLayer
         protected readonly WhiteListService White = new WhiteListService();
         protected readonly TerminalService Terminal = new TerminalService();
 
-        private void MessageSave(string Content)
+        private void MessageSave(string Content,out int count)
         {
             int current;
             int total;
             string identifier;
             bool isLongMessage;
-            string phone;
+             string phone;
             DateTime time;
             string content;
+            count = 0;
             AT.GetSmsContent(Content, out isLongMessage, out phone, out time, out content, out current, out total,
                              out identifier);
             if (phone.StartsWith("86"))
@@ -283,7 +287,7 @@ namespace FormUI.OperationLayer
                         });
 
                 }
-
+                count++;
             }
         }
 

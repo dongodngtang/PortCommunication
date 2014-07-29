@@ -20,7 +20,12 @@ namespace FormUI.ManagerForms
         {
             
             InitializeComponent();
-            bs.DataSource = _history.GetModelList("");
+            StringBuilder sbQuery = new StringBuilder();
+            sbQuery.AppendFormat("datetime([HandlerTime]) >= datetime('{0} 00:00:00') ",DateTime .Now.ToString("yyyy-MM-dd"));
+            sbQuery.Append(" AND ");
+            sbQuery.AppendFormat("datetime([HandlerTime]) <= datetime('{0}') ", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            List<HistoryRecord> terminals = _history.GetModelList(sbQuery.ToString());
+            bs.DataSource = terminals;
             GetHistoryList(bs);
             MyDataGridViewPrinter = new DataGridViewPrinter();
 
@@ -39,9 +44,9 @@ namespace FormUI.ManagerForms
         private void btQuery_Click(object sender, EventArgs e)
         {
             StringBuilder sbQuery = new StringBuilder();
-            sbQuery.AppendFormat("datetime([HandlerTime]) >= datetime('{0} 00:00') ", dtpBegin.Value.ToString("yyyy-MM-dd"));
+            sbQuery.AppendFormat("datetime([HandlerTime]) >= datetime('{0} 00:00:00') ", dtpBegin.Value.ToString("yyyy-MM-dd"));
             sbQuery.Append(" AND ");
-            sbQuery.AppendFormat("datetime([HandlerTime]) <= datetime('{0}') ", dtpEnd.Value.ToString("yyyy-MM-dd HH:mm"));
+            sbQuery.AppendFormat("datetime([HandlerTime]) <= datetime('{0}') ", dtpEnd.Value.ToString("yyyy-MM-dd HH:mm:ss"));
             List<HistoryRecord> terminals = _history.GetModelList(sbQuery.ToString());
             bs.DataSource = terminals;
             GetHistoryList(bs);

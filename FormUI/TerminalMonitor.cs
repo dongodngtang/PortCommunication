@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using BLL;
 using FormUI.Filters;
@@ -132,6 +133,8 @@ namespace FormUI
                     
                     str = listView1.Items[i].Text;
                     listView1.Items[i].Tag = new object();
+                    new AT().SmsAnswer();
+                    CallLock = true;
                     break;
                 }
             }
@@ -139,7 +142,6 @@ namespace FormUI
             ControlListboxAmount();
             
             listBox1.Items.Add(new Item(e.Filter.Name + "于：" + str, e.Filter.Context, e.Filter.Time));
-            CallLock = true;
         }
 
         private void TerminalMonitor_Load(object sender, EventArgs e)
@@ -196,8 +198,9 @@ namespace FormUI
             {
                 cmd.DeleteMes(mesIndex.Rows[i]["MessageIndex"].ToString());
             }
-            MessageBox.Show(string.Format("后台接收{0}条短信", mesIndex.Rows.Count));
             new MessageIndexService().Delete();
+            if (Port.GetMesCount <= 0) return;
+            new MessageBoxTimeOut().Show(3000, string.Format("后台接受{0}条短信！",Port.GetMesCount), "提示", MessageBoxButtons.OK);
         }
 
         /// <summary>
@@ -349,7 +352,7 @@ namespace FormUI
             {
                 cmd.CallUp(items[0].ToolTipText);
                 CallLock = false;
-                listBox1.Items.Add(new Item("拨号至：" + listView1.FocusedItem.Text, null));
+                listBox1.Items.Add(new Item("拨号至：" + items[0].Text, null));
             }
             catch (Exception ex)
             {
@@ -467,6 +470,7 @@ namespace FormUI
             }
         }
 
+        public static int IsSend = 0;
         private void btFloodWarn_Click(object sender, EventArgs e)
         {
             IList<ListViewItem> items = GetSelectedPhone();
@@ -475,12 +479,12 @@ namespace FormUI
                                 MessageBoxButtons.OKCancel,
                                 MessageBoxIcon.Question) == DialogResult.OK)
             {
-                /*             try
+                             try
                         { var t = new ThreadStart(() =>
                                     {
                             foreach (ListViewItem item in items)
                             {
-                               
+                                IsSend = 1;
                                         string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
                                                                           "3",
                                                                           (Settings.Default.Ceshi == string.Empty
@@ -492,15 +496,17 @@ namespace FormUI
                                                                                                                            "0")));
                                     
 
-                            }}); 
+                            }
+                                        IsSend = 2;
+                                    }); 
                             new Thread(t).Start();
                         }
                         catch (Exception ex)
                         {
                             MessageBox.Show(ex.Message);
-                        }*/
+                        }
 
-                try
+            /*    try
                 {
                     foreach (ListViewItem item in items)
                     {
@@ -517,7 +523,7 @@ namespace FormUI
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }
+                }*/
             }
         }
 
@@ -531,7 +537,9 @@ namespace FormUI
             {
                 try
                 {
-                    foreach (ListViewItem item in items)
+                    
+
+                     foreach (ListViewItem item in items)
                     {
                         string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
                                                           "4",
@@ -694,6 +702,7 @@ namespace FormUI
 //            }
             if (CallLock)
                 ChangeState();
+
         }
 
         private void btRainFull_Click(object sender, EventArgs e)

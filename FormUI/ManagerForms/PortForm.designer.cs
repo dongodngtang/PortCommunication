@@ -133,15 +133,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(218, 279);
             this.panel1.TabIndex = 11;
-            
             // 
             // lbConnectTip
             // 
             this.lbConnectTip.AutoSize = true;
-            this.lbConnectTip.Font = new System.Drawing.Font("楷体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbConnectTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbConnectTip.Location = new System.Drawing.Point(56, 163);
             this.lbConnectTip.Name = "lbConnectTip";
-            this.lbConnectTip.Size = new System.Drawing.Size(22, 21);
+            this.lbConnectTip.Size = new System.Drawing.Size(19, 25);
             this.lbConnectTip.TabIndex = 17;
             this.lbConnectTip.Text = " ";
             // 
@@ -283,7 +282,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "PortForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "串口调试工具";
+            this.Text = "串口管理";
             this.Load += new System.EventHandler(this.MainFrom_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

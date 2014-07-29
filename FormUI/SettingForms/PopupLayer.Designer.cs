@@ -40,7 +40,7 @@
             // 
             // btnDone
             // 
-            this.btnDone.Location = new System.Drawing.Point(170, 205);
+            this.btnDone.Location = new System.Drawing.Point(144, 239);
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(66, 23);
             this.btnDone.TabIndex = 0;
@@ -61,9 +61,10 @@
             // 
             // lbPopupContent
             // 
+            this.lbPopupContent.AllowDrop = true;
             this.lbPopupContent.Location = new System.Drawing.Point(39, 83);
             this.lbPopupContent.Name = "lbPopupContent";
-            this.lbPopupContent.Size = new System.Drawing.Size(370, 114);
+            this.lbPopupContent.Size = new System.Drawing.Size(327, 153);
             this.lbPopupContent.TabIndex = 3;
             this.lbPopupContent.Text = "label1";
             // 
@@ -95,9 +96,10 @@
             // 
             // PopupLayer
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 248);
+            this.ClientSize = new System.Drawing.Size(378, 285);
             this.ControlBox = false;
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.lbTime);

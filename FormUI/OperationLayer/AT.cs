@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Threading;
@@ -13,6 +14,7 @@ namespace FormUI.OperationLayer
 
     public class AT
     {
+        private readonly Queue<SendMes> SendQueues = new Queue<SendMes>();
         private readonly HistoryRecordService _bllHistory = new HistoryRecordService();
         private readonly Port _port = Port.Instance;
         private readonly HistoryRecord history = new HistoryRecord();
@@ -115,6 +117,7 @@ namespace FormUI.OperationLayer
         {
             return string.Format(CALL, phoneNo);
         }
+
 
         /// <summary>
         ///     发送短信至
@@ -438,8 +441,51 @@ namespace FormUI.OperationLayer
             _port.Send(SMS_ANSWER);
         }
 
+        public void SendQueueInfo(string terminal, string phone, string context)
+        {
+            SendQueues.Enqueue(new SendMes(phone, terminal, context));
+        }
+
 
         /// <summary>
+        ///     发送中文短信
+        /// </summary>
+        /// <param name="terminal"></param>
+        /// <param name="phoneNo"></param>
+        /// <param name="context"></param>
+        public void SendChineseMessage(string terminal, string phone, string context)
+        {
+            try
+            {
+                TerminalMonitor.CallLock = false;
+                var firstMutex = new Mutex(false);
+                firstMutex.WaitOne();
+                var sms = new SMS();
+                string[] csmSeries = sms.PDUEncoding("+86" + phone, context);
+                foreach (string content in csmSeries)
+                {
+                    int len = content.Length/2 - 1;
+                    _port.Send(CHAR_MODE)
+                         .Send(SMS_CH)
+                         .Send(CheckSum(len))
+                         .SendNoWrap(content)
+                         .Send(END_OF_SMS);
+                }
+                TerminalMonitor.CallLock = true;
+                SaveHistoryRecord(phone, "发信",
+                                  DateTime.Now.ToLocalTime(),
+                                  context);
+                MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
+
+                firstMutex.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /*/// <summary>
         ///     发送中文短信
         /// </summary>
         /// <param name="terminal"></param>
@@ -471,7 +517,7 @@ namespace FormUI.OperationLayer
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }*/
 
         /// <summary>
         ///     汉字转Unicode码
