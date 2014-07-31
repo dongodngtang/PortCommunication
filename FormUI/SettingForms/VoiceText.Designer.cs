@@ -33,6 +33,8 @@
             this.txtPlayTimes = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btOk = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,11 +42,12 @@
             // 
             this.txtVoiceText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtVoiceText.Location = new System.Drawing.Point(3, 17);
-            this.txtVoiceText.MaxLength = 300;
+            this.txtVoiceText.MaxLength = 130;
             this.txtVoiceText.Multiline = true;
             this.txtVoiceText.Name = "txtVoiceText";
             this.txtVoiceText.Size = new System.Drawing.Size(430, 103);
             this.txtVoiceText.TabIndex = 0;
+            this.txtVoiceText.TextChanged += new System.EventHandler(this.txtVoiceText_TextChanged);
             // 
             // groupBox1
             // 
@@ -83,12 +86,32 @@
             this.btOk.UseVisualStyleBackColor = true;
             this.btOk.Click += new System.EventHandler(this.btOk_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(384, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 12);
+            this.label2.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(313, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "当前字数：";
+            // 
             // VoiceText
             // 
             this.AcceptButton = this.btOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 262);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btOk);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPlayTimes);
@@ -109,5 +132,7 @@
         private System.Windows.Forms.TextBox txtPlayTimes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btOk;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

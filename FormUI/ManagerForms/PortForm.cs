@@ -95,7 +95,7 @@ namespace FormUI.ManagerForms
         }
 
 
- 
+ /*
         //在事件里输出接收的数据
         private void comPort_DataReceived(DataReceivedEventArgs e)
         {
@@ -113,7 +113,7 @@ namespace FormUI.ManagerForms
                 }
                     )
                 );
-        }
+        }*/
         private void btnOpenClose_Click(object sender, EventArgs e)
         {
             try

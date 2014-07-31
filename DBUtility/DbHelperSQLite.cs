@@ -15,7 +15,8 @@ namespace TomorrowSoft.DBUtility
     public abstract class DbHelperSQLite
     {
         //数据库连接字符串(app.config来配置)，可以动态更改connectionString支持多数据库.		
-        public static string connectionString = PubConstant.ConnectionString;
+       //public static string connectionString = PubConstant.ConnectionString;
+        public static string connectionString = string.Format(@"Data Source ={0}\SerialPort.db;Version=3", Environment.CurrentDirectory);
         public DbHelperSQLite()
         {
         }

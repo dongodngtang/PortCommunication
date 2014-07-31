@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1DE17490F4211B3EE2385DE20281ED3F"
         "OwnerKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
         "MsmSig" = "8:_UNDEFINED"
@@ -22,7 +28,7 @@
         "Entry"
         {
         "MsmKey" = "8:_1DE17490F4211B3EE2385DE20281ED3F"
-        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "OwnerKey" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -39,8 +45,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4FB632B9FF0E49EBBE94FFDCFA893332"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
         "OwnerKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
+        "OwnerKey" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -51,19 +69,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
-        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_5F0D845E51E84D1894FA00D524F9580E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_6C5383A11E8646C8851544F594EE6A8A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -94,7 +100,7 @@
         "Entry"
         {
         "MsmKey" = "8:_96EECDBE786A4E9F9FD2217E35E6410A"
-        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "OwnerKey" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -106,12 +112,6 @@
         "Entry"
         {
         "MsmKey" = "8:_A843052C01A848CA9B43142E9BBB496C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -136,7 +136,7 @@
         "Entry"
         {
         "MsmKey" = "8:_CC1493D0F201B9F12FA91629F21D0CFA"
-        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "OwnerKey" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -154,13 +154,13 @@
         "Entry"
         {
         "MsmKey" = "8:_D9FF51011E52BC3EC40E64A6B85FE8EF"
-        "OwnerKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
+        "OwnerKey" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D9FF51011E52BC3EC40E64A6B85FE8EF"
-        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "OwnerKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -178,13 +178,7 @@
         "Entry"
         {
         "MsmKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
-        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
-        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "OwnerKey" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -195,20 +189,32 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
+        "MsmKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
+        "OwnerKey" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
+        "OwnerKey" = "8:_CC1493D0F201B9F12FA91629F21D0CFA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_96EECDBE786A4E9F9FD2217E35E6410A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -233,12 +239,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1DE17490F4211B3EE2385DE20281ED3F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CC1493D0F201B9F12FA91629F21D0CFA"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -422,6 +422,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4FB632B9FF0E49EBBE94FFDCFA893332"
+            {
+            "SourcePath" = "8:..\\FormUI\\SerialPort.db"
+            "TargetName" = "8:SerialPort.db"
+            "Tag" = "8:"
+            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
             {
             "AssemblyRegister" = "3:1"
@@ -459,26 +479,6 @@
             "TargetName" = "8:autoRunCfg.exe"
             "Tag" = "8:"
             "Folder" = "8:_AE0726FBDFCF44AE84526BDA44877BE5"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6C5383A11E8646C8851544F594EE6A8A"
-            {
-            "SourcePath" = "8:..\\FormUI\\bin\\Debug\\SerialPort.db"
-            "TargetName" = "8:SerialPort.db"
-            "Tag" = "8:"
-            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -940,7 +940,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:德海GSM广播监测系统"
         "ProductCode" = "8:{972D60E5-614B-474D-87EE-8FE46321D4F7}"
-        "PackageCode" = "8:{2ABF363D-BBB7-4A20-9F45-2CC0F3F2B0FB}"
+        "PackageCode" = "8:{782D340E-4A5F-4508-AE83-D746B36E97D6}"
         "UpgradeCode" = "8:{4A5C16BA-D3C8-4B5C-9F39-CDE9C4B0D393}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1060,6 +1060,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_96ED1E5425364578B2930E2A2E969759"
+            {
+            "Name" = "8:德海GSM广播监测系统"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
+            "Folder" = "8:_E84B64C60E104831B7B239CE6E8D4214"
+            "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "Icon" = "8:_A843052C01A848CA9B43142E9BBB496C"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_98109DC0420E4165AA5ABA26429E0955"
             {
             "Name" = "8:卸载"
@@ -1074,7 +1088,7 @@
             "Icon" = "8:"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E230B3F9C848436FA399F2FA254AC87B"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9A9B17B46A8B400F9771B429F45864EC"
             {
             "Name" = "8:德海GSM广播监测系统"
             "Arguments" = "8:"
@@ -1082,22 +1096,8 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
-            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
-            "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
-            "Icon" = "8:_A843052C01A848CA9B43142E9BBB496C"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EA1AFDF510B04E7FB51119F9837CAEA9"
-            {
-            "Name" = "8:德海GSM广播监测系统"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_AEE51CB474EA48B69CC7E56955B1DDE2"
-            "Folder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "Target" = "8:_1DCF84487DC442719CFE7B0A6DA09F5C"
+            "Folder" = "8:_26FF0007D791445F8207264582840015"
             "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
             "Icon" = "8:_A843052C01A848CA9B43142E9BBB496C"
             "Feature" = "8:"
@@ -1501,7 +1501,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AEE51CB474EA48B69CC7E56955B1DDE2"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1DCF84487DC442719CFE7B0A6DA09F5C"
             {
             "SourcePath" = "8:..\\FormUI\\obj\\x86\\Debug\\FormUI.exe"
             "TargetName" = "8:"

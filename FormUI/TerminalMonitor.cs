@@ -23,6 +23,7 @@ namespace FormUI
         public delegate void MyEvent(object sender, FilterEventArgs e);
 
         public static bool CallLock = true;
+        public static int IsSend = 0;
 
         private readonly OrderDefinition _order = new OrderDefinition();
         private readonly TerminalService _service = new TerminalService();
@@ -101,13 +102,12 @@ namespace FormUI
                         _order.TimeSet(e.Filter.Phone, e.Filter.Phone,
                                        DateTime.Now.ToString("yyyyMMddHHmmss").Substring(2));
                         listView1.Items[i].ImageKey = TerminalState.RunningChecked.ToString();
-                      
                     }
                     if (e.Filter.Context.Contains("本地喊话") || e.Filter.Context.Contains("播放"))
 
                     {
                         listView1.Items[i].ImageKey = TerminalState.GreenChecked.ToString();
-                      }
+                    }
 
                     if (e.Filter.Context.Contains("已停播") || e.Filter.Context.Contains("OK"))
                     {
@@ -120,7 +120,8 @@ namespace FormUI
                     if (e.Filter.Context.Contains("告警") || e.Filter.IsQsDown)
                     {
                         listView1.Items[i].ImageKey = TerminalState.RedChecked.ToString();
-                        new MessageBoxTimeOut().Show(3000, string.Format("{0}", e.Filter.Context),"告警",MessageBoxButtons.OK);
+                        new MessageBoxTimeOut().Show(3000, string.Format("{0}", e.Filter.Context), "告警",
+                                                     MessageBoxButtons.OK);
                     }
                     /* if (e.Filter.IsQsDown)
                     {
@@ -130,17 +131,15 @@ namespace FormUI
                     {
                         cmd.HangUp();
                     }
-                    
+
                     str = listView1.Items[i].Text;
                     listView1.Items[i].Tag = new object();
                     new AT().SmsAnswer();
-                    CallLock = true;
                     break;
                 }
             }
 
             ControlListboxAmount();
-            
             listBox1.Items.Add(new Item(e.Filter.Name + "于：" + str, e.Filter.Context, e.Filter.Time));
         }
 
@@ -193,14 +192,15 @@ namespace FormUI
         private void DeleteReadMsg()
         {
             DataTable mesIndex = new MessageIndexService().GetAll();
-            if (mesIndex.Rows.Count <= 0) return;
+            int receiveCount = mesIndex.Rows.Count;
+            if (receiveCount <= 0) return;
             for (int i = 0; i < mesIndex.Rows.Count; i++)
             {
                 cmd.DeleteMes(mesIndex.Rows[i]["MessageIndex"].ToString());
             }
             new MessageIndexService().Delete();
-            if (Port.GetMesCount <= 0) return;
-            new MessageBoxTimeOut().Show(3000, string.Format("后台接受{0}条短信！",Port.GetMesCount), "提示", MessageBoxButtons.OK);
+            new MessageBoxTimeOut().Show(3000, string.Format("后台接受{0}条短信！", receiveCount), "提示",
+                                         MessageBoxButtons.OK);
         }
 
         /// <summary>
@@ -224,7 +224,7 @@ namespace FormUI
             }
             if (port.IsOpen && port.Received)
             {
-                timer1.Interval = 3000;
+                timer1.Interval = 4000;
                 timer1.Enabled = true;
                 lbPortState.Text = port.SerialPort.PortName;
                 lbPortState.ForeColor = Color.Green;
@@ -470,7 +470,6 @@ namespace FormUI
             }
         }
 
-        public static int IsSend = 0;
         private void btFloodWarn_Click(object sender, EventArgs e)
         {
             IList<ListViewItem> items = GetSelectedPhone();
@@ -479,34 +478,33 @@ namespace FormUI
                                 MessageBoxButtons.OKCancel,
                                 MessageBoxIcon.Question) == DialogResult.OK)
             {
-                             try
-                        { var t = new ThreadStart(() =>
-                                    {
+                try
+                {
+                    var t = new ThreadStart(() =>
+                        {
                             foreach (ListViewItem item in items)
                             {
                                 IsSend = 1;
-                                        string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                                          "3",
-                                                                          (Settings.Default.Ceshi == string.Empty
-                                                                               ? "3"
-                                                                               : Settings.Default.Xiehong).PadLeft(2,
-                                                                                                                   Convert
-                                                                                                                       .ToChar
-                                                                                                                       (
-                                                                                                                           "0")));
-                                    
-
+                                string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
+                                                                  "3",
+                                                                  (Settings.Default.Ceshi == string.Empty
+                                                                       ? "3"
+                                                                       : Settings.Default.Xiehong).PadLeft(2,
+                                                                                                           Convert
+                                                                                                               .ToChar
+                                                                                                               (
+                                                                                                                   "0")));
                             }
-                                        IsSend = 2;
-                                    }); 
-                            new Thread(t).Start();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
+                            IsSend = 2;
+                        });
+                    new Thread(t).Start();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
-            /*    try
+                /*    try
                 {
                     foreach (ListViewItem item in items)
                     {
@@ -537,9 +535,7 @@ namespace FormUI
             {
                 try
                 {
-                    
-
-                     foreach (ListViewItem item in items)
+                    foreach (ListViewItem item in items)
                     {
                         string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
                                                           "4",
@@ -702,7 +698,6 @@ namespace FormUI
 //            }
             if (CallLock)
                 ChangeState();
-
         }
 
         private void btRainFull_Click(object sender, EventArgs e)

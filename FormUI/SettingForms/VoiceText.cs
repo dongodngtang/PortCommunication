@@ -26,7 +26,7 @@ namespace FormUI.SettingForms
 
         private void btOk_Click(object sender, EventArgs e)
         {
-              if (txtVoiceText.MaxLength <= 300 && Terminals.Count > 0)
+              if (txtVoiceText.MaxLength <= 139 && Terminals.Count > 0)
                 {
                     foreach (var item in Terminals)
                     {
@@ -40,6 +40,11 @@ namespace FormUI.SettingForms
                 {
                     MessageBox.Show("语音文本最多字符数不得超过70个!");
                 }
+        }
+
+        private void txtVoiceText_TextChanged(object sender, EventArgs e)
+        {
+            label2.Text = txtVoiceText.TextLength.ToString();
         }
 
         
