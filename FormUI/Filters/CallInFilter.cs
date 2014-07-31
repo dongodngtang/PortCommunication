@@ -48,7 +48,8 @@ namespace FormUI.Filters
                         {
                             Times++;
                         }
-                        return this;
+                        //return this;
+                        At.HangUp();
                     }
                     At.HangUp();
                     return null;

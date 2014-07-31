@@ -131,7 +131,10 @@ namespace FormUI
                     {
                         cmd.HangUp();
                     }
-
+                    if (e.Filter.Name.Contains("挂断"))
+                    {
+                        CallLock = true;
+                    }
                     str = listView1.Items[i].Text;
                     listView1.Items[i].Tag = new object();
                     new AT().SmsAnswer();
@@ -734,7 +737,7 @@ namespace FormUI
         /// <summary>
         ///     启动定时开关机
         /// </summary>
-        public static void Shutdown()
+        private void Shutdown()
         {
             Process.Start(@"AutoShutdownHelper\AutoShutdownHelper.exe");
         }

@@ -183,7 +183,7 @@ namespace FormUI.OperationLayer
                
                 foreach (string t1 in content)
                 {
-                    if (t1.Contains("+CMT:") || t1.Contains("NO CARRIER"))
+                    if (t1.Contains("+CMT:") || t1.Contains("NO CARRIER") || t1.Contains("RING"))
                     {
                      
                         new Thread(() =>
