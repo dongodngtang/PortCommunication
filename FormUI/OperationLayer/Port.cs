@@ -166,7 +166,7 @@ namespace FormUI.OperationLayer
                     else
                     {
                         strCollect += message;
-                        Thread.Sleep(100);
+                        Thread.Sleep(60);
                     }
                 } 
 //                var message = port.ReadExisting();
@@ -174,6 +174,7 @@ namespace FormUI.OperationLayer
 //                                     .Split(new[] {"\n"}, StringSplitOptions.RemoveEmptyEntries);
                 var content = strCollect.Replace("\r", string.Empty)
                                    .Split(new[] {"\n","ERROR"}, StringSplitOptions.RemoveEmptyEntries);
+                
                 ReadCardMes(content);
                 if (!ReceiveEventEnabled)
                 {

@@ -169,7 +169,7 @@
             this.txtPlayTimes.Name = "txtPlayTimes";
             this.txtPlayTimes.Size = new System.Drawing.Size(67, 21);
             this.txtPlayTimes.TabIndex = 27;
-            this.txtPlayTimes.Text = "3";
+            this.txtPlayTimes.Text = "03";
             // 
             // label5
             // 

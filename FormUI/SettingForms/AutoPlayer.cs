@@ -113,7 +113,8 @@ namespace FormUI.SettingForms
         {
             AlarmClock.GroupName = dgvGroup.SelectedRows[0].Cells[0].Value.ToString();
             AlarmClock.PlayTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-            MessageBox.Show("正在执行");
+            this.Close();
+            new MessageBoxTimeOut().Show(5000, string.Format("从现在开始倒计时执行延时组播！"), "提示", MessageBoxButtons.OK);
         }
     }
 }

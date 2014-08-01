@@ -169,7 +169,7 @@ namespace FormUI.ManagerForms
             {
                 cmd.DeleteMes(mesIndex.Rows[i]["MessageIndex"].ToString());
             }
-            MessageBox.Show(string.Format("后台接收{0}条短信", mesIndex.Rows.Count));
+//            MessageBox.Show(string.Format("后台接收{0}条短信", mesIndex.Rows.Count));
             new MessageIndexService().Delete();
         }
      

@@ -23,7 +23,6 @@ namespace FormUI
         public delegate void MyEvent(object sender, FilterEventArgs e);
 
         public static bool CallLock = true;
-        public static int IsSend = 0;
 
         private readonly OrderDefinition _order = new OrderDefinition();
         private readonly TerminalService _service = new TerminalService();
@@ -202,8 +201,8 @@ namespace FormUI
                 cmd.DeleteMes(mesIndex.Rows[i]["MessageIndex"].ToString());
             }
             new MessageIndexService().Delete();
-            new MessageBoxTimeOut().Show(3000, string.Format("后台接受{0}条短信！", receiveCount), "提示",
-                                         MessageBoxButtons.OK);
+//            new MessageBoxTimeOut().Show(3000, string.Format("后台接受{0}条短信！", receiveCount), "提示",
+//                                         MessageBoxButtons.OK);
         }
 
         /// <summary>
@@ -481,51 +480,25 @@ namespace FormUI
                                 MessageBoxButtons.OKCancel,
                                 MessageBoxIcon.Question) == DialogResult.OK)
             {
-                try
-                {
-                    var t = new ThreadStart(() =>
-                        {
-                            foreach (ListViewItem item in items)
-                            {
-                                IsSend = 1;
-                                string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                                  "3",
-                                                                  (Settings.Default.Ceshi == string.Empty
-                                                                       ? "3"
-                                                                       : Settings.Default.Xiehong).PadLeft(2,
-                                                                                                           Convert
-                                                                                                               .ToChar
-                                                                                                               (
-                                                                                                                   "0")));
-                            }
-                            IsSend = 2;
-                        });
-                    new Thread(t).Start();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-                /*    try
-                {
-                    foreach (ListViewItem item in items)
+                    try
                     {
-                        string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                          "3",
-                                                          (Settings.Default.Ceshi == string.Empty
-                                                               ? "3"
-                                                               : Settings.Default.Xiehong).PadLeft(2,
-                                                                                                   Convert
-                                                                                                       .ToChar(
-                                                                                                           "0")));
+                        foreach (ListViewItem item in items)
+                        {
+                            string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
+                                                              "3",
+                                                              (Settings.Default.Ceshi == string.Empty
+                                                                   ? "3"
+                                                                   : Settings.Default.Xiehong).PadLeft(2,
+                                                                                                       Convert
+                                                                                                           .ToChar(
+                                                                                                               "0")));
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }*/
-            }
         }
 
         private void btSlaggWarn_Click(object sender, EventArgs e)
