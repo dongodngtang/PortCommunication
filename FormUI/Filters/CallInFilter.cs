@@ -35,12 +35,12 @@ namespace FormUI.Filters
                     {
                         if (PhoneNo != Phone || Times > 3)
                         {
-                            new HistoryRecordService().Add(new HistoryRecord()
+                           /* new HistoryRecordService().Add(new HistoryRecord()
                                 {
                                     Handler = Name,
                                     PhoneNo = Phone,
                                     HandlerTime = Time,
-                                });
+                                });*/
                             Times = 0;
                             PhoneNo = PhoneNo;
                         }

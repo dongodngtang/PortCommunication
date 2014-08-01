@@ -131,7 +131,7 @@ namespace FormUI
                     {
                         cmd.HangUp();
                     }
-                    if (e.Filter.Name.Contains("挂断"))
+                    if (e.Filter.Name.Contains("挂机"))
                     {
                         CallLock = true;
                     }

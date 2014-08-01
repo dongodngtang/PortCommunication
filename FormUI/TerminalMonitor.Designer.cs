@@ -130,6 +130,7 @@
             // btRainFull
             // 
             this.btRainFull.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
+            this.btRainFull.Enabled = false;
             this.btRainFull.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btRainFull.Location = new System.Drawing.Point(901, 406);
             this.btRainFull.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
