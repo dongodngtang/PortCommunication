@@ -451,15 +451,15 @@ namespace FormUI.OperationLayer
         ///     发送中文短信
         /// </summary>
         /// <param name="terminal"></param>
-        /// <param name="phoneNo"></param>
+        /// <param name="phone"></param>
         /// <param name="context"></param>
         public void SendChineseMessage(string terminal, string phone, string context)
         {
             try
             {
-                TerminalMonitor.CallLock = false;
-                var firstMutex = new Mutex(false);
-                firstMutex.WaitOne();
+               
+//                var firstMutex = new Mutex(false);
+//                firstMutex.WaitOne();
                 var sms = new SMS();
                 string[] csmSeries = sms.PDUEncoding("+86" + phone, context);
                 foreach (string content in csmSeries)
@@ -471,13 +471,13 @@ namespace FormUI.OperationLayer
                          .SendNoWrap(content)
                          .Send(END_OF_SMS);
                 }
-                TerminalMonitor.CallLock = true;
+
                 SaveHistoryRecord(phone, "发信",
                                   DateTime.Now.ToLocalTime(),
                                   context);
                 MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
 
-                firstMutex.Close();
+//                firstMutex.Close();
             }
             catch (Exception ex)
             {

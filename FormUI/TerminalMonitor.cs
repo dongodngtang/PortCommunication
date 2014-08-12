@@ -37,7 +37,7 @@ namespace FormUI
             InitializeComponent();
             cmd = new AT();
             alarmClock = new AlarmClock();
-            AT.MyListView = this;
+           
         }
 
         public event MyEvent NewPhone;
@@ -148,7 +148,7 @@ namespace FormUI
         private void TerminalMonitor_Load(object sender, EventArgs e)
         {
 //            Opacity = 0;
-
+            AT.MyListView = this;
             port.Owner = this;
             timer1.Start();
             try
@@ -408,7 +408,7 @@ namespace FormUI
                     foreach (ListViewItem item in items)
                     {
                         string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                          "6",
+                                                          "4",
                                                           (Settings.Default.Ceshi == string.Empty
                                                                ? "3"
                                                                : Settings.Default.Ceshi).PadLeft(2,
@@ -485,7 +485,7 @@ namespace FormUI
                         foreach (ListViewItem item in items)
                         {
                             string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                              "3",
+                                                              "1",
                                                               (Settings.Default.Ceshi == string.Empty
                                                                    ? "3"
                                                                    : Settings.Default.Xiehong).PadLeft(2,
@@ -514,7 +514,7 @@ namespace FormUI
                     foreach (ListViewItem item in items)
                     {
                         string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                          "4",
+                                                          "2",
                                                           (Settings.Default.Ceshi == string.Empty
                                                                ? "3"
                                                                : Settings.Default.Paizha).PadLeft(2,
@@ -541,7 +541,7 @@ namespace FormUI
                     foreach (ListViewItem item in items)
                     {
                         _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                         "5",
+                                         "3",
                                          (Settings.Default.Ceshi == string.Empty
                                               ? "3"
                                               : Settings.Default.Fadian).PadLeft(2, Convert.ToChar("0")));

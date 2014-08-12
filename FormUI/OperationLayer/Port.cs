@@ -166,7 +166,7 @@ namespace FormUI.OperationLayer
                     else
                     {
                         strCollect += message;
-                        Thread.Sleep(60);
+                        Thread.Sleep(100);
                     }
                 } 
 //                var message = port.ReadExisting();
@@ -193,7 +193,7 @@ namespace FormUI.OperationLayer
                                 if (filter == null) return;
                                 Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
                             }).Start();
-                       // Thread.Sleep(100);
+                        Thread.Sleep(150);
                         /*  var t = new ThreadStart(() =>
                             {
                                 var filter = new FilterProcessor(content).Run();

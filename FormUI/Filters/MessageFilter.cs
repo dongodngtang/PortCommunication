@@ -72,17 +72,17 @@ namespace FormUI.Filters
                     else
                     {
                        
-                        var txt = content.Replace("\r\n", string.Empty);
+              /*          var txt = content.Replace("\r\n", string.Empty);
                         for (int b = 1; b < (txt.Length/48); b++)
                         {
                             txt = txt.Insert(48*b, "\r\n");
-                        }
+                        }*/
                           new HistoryRecordService().Add(new HistoryRecord()
                             {
                                 Handler = Name,
                                 PhoneNo = phone,
                                 HandlerTime = DateTime.Now.ToLocalTime(),
-                                Context = txt,
+                                Context = content,
                             });
 
                     }
