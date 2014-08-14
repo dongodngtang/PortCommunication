@@ -14,7 +14,7 @@ namespace FormUI.OperationLayer
 
     public class AT
     {
-        private readonly Queue<SendMes> SendQueues = new Queue<SendMes>();
+        private readonly Queue<RecMesSave> SendQueues = new Queue<RecMesSave>();
         private readonly HistoryRecordService _bllHistory = new HistoryRecordService();
         private readonly Port _port = Port.Instance;
         private readonly HistoryRecord history = new HistoryRecord();
@@ -384,11 +384,11 @@ namespace FormUI.OperationLayer
         ///     电话拨打
         /// </summary>
         /// <param name="phoneNo"></param>
-        public void CallUp(string phoneNo)
+        public void CallUp(string phoneNo,string name)
         {
             _port.SendNoResponse(Call(phoneNo));
 
-            SaveHistoryRecord(phoneNo, "拨号", DateTime.Now.ToLocalTime(), null);
+            SaveHistoryRecord(phoneNo, "拨号", DateTime.Now.ToLocalTime(), null,name);
         }
 
         /// <summary>
@@ -422,7 +422,7 @@ namespace FormUI.OperationLayer
 
             SaveHistoryRecord(phoneNo, "发信",
                               DateTime.Now.ToLocalTime(),
-                              messageText);
+                              messageText,null);
         }
 
         /// <summary>
@@ -441,11 +441,6 @@ namespace FormUI.OperationLayer
             _port.Send(SMS_ANSWER);
         }
 
-        public void SendQueueInfo(string terminal, string phone, string context)
-        {
-            SendQueues.Enqueue(new SendMes(phone, terminal, context));
-        }
-
 
         /// <summary>
         ///     发送中文短信
@@ -455,34 +450,39 @@ namespace FormUI.OperationLayer
         /// <param name="context"></param>
         public void SendChineseMessage(string terminal, string phone, string context)
         {
-            try
+            lock (this)
             {
-               
-//                var firstMutex = new Mutex(false);
-//                firstMutex.WaitOne();
-                var sms = new SMS();
-                string[] csmSeries = sms.PDUEncoding("+86" + phone, context);
-                foreach (string content in csmSeries)
+                try
                 {
-                    int len = content.Length/2 - 1;
-                    _port.Send(CHAR_MODE)
-                         .Send(SMS_CH)
-                         .Send(CheckSum(len))
-                         .SendNoWrap(content)
-                         .Send(END_OF_SMS);
+
+                    //                var firstMutex = new Mutex(false);
+                    //                firstMutex.WaitOne();
+                    TerminalMonitor.CallLock = false;
+                    var sms = new SMS();
+                    string[] csmSeries = sms.PDUEncoding("+86" + phone, context);
+                    foreach (string content in csmSeries)
+                    {
+                        int len = content.Length / 2 - 1;
+                        _port.Send(CHAR_MODE)
+                             .Send(SMS_CH)
+                             .Send(CheckSum(len))
+                             .SendNoWrap(content)
+                             .Send(END_OF_SMS);
+                    }
+
+                    SaveHistoryRecord(phone, "发信",
+                                      DateTime.Now.ToLocalTime(),
+                                      context, terminal);
+                    MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
+                    TerminalMonitor.CallLock = true;
+                    //                firstMutex.Close();
                 }
-
-                SaveHistoryRecord(phone, "发信",
-                                  DateTime.Now.ToLocalTime(),
-                                  context);
-                MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
-
-//                firstMutex.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
         }
 
         /*/// <summary>
@@ -551,12 +551,13 @@ namespace FormUI.OperationLayer
         }
 
 
-        private void SaveHistoryRecord(string phoneNo, string ways, DateTime time, string context)
+        private void SaveHistoryRecord(string phoneNo, string ways, DateTime time, string context,string name)
         {
             history.PhoneNo = phoneNo;
             history.Handler = ways;
             history.HandlerTime = time;
             history.Context = context;
+            history.Name = name;
             _bllHistory.Add(history);
         }
 

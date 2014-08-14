@@ -13,6 +13,10 @@ namespace TomorrowSoft.Model
         /// </summary>
         public virtual int Id { get; set;}
         /// <summary>
+        /// 终端名
+        /// </summary>
+        public virtual string Name { get; set; }
+        /// <summary>
         /// 操作
         /// </summary>
         public virtual string Handler { get; set; }

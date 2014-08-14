@@ -119,6 +119,10 @@ namespace TomorrowSoft.BLL
 					{
 					model.Context=dt.Rows[n]["Context"].ToString();
 					}
+                    if (dt.Rows[n]["Name"] != null && dt.Rows[n]["Name"].ToString() != "")
+                    {
+                        model.Name = dt.Rows[n]["Name"].ToString();
+                    }
 					modelList.Add(model);
 				}
 			}

@@ -48,21 +48,22 @@ namespace TomorrowSoft.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into HistoryRecord(");
-			strSql.Append("Handler,PhoneNo,HandlerTime,Context)");
+			strSql.Append("Handler,PhoneNo,HandlerTime,Context,Name)");
 			strSql.Append(" values (");
-			strSql.Append("@Handler,@PhoneNo,@HandlerTime,@Context)");
+			strSql.Append("@Handler,@PhoneNo,@HandlerTime,@Context,@Name)");
 			SQLiteParameter[] parameters = {
 				
 					new SQLiteParameter("@Handler", DbType.String),
 					new SQLiteParameter("@PhoneNo", DbType.String),
 					new SQLiteParameter("@HandlerTime", DbType.Date),
-					new SQLiteParameter("@Context", DbType.String)};
+					new SQLiteParameter("@Context", DbType.String),
+                    new SQLiteParameter( "@Name",DbType .String)};
 			
 			parameters[0].Value = model.Handler;
 			parameters[1].Value = model.PhoneNo;
 			parameters[2].Value = model.HandlerTime;
 			parameters[3].Value = model.Context;
-
+		    parameters[4].Value = model.Name;
 			int rows=DbHelperSQLite.ExecuteSql(strSql.ToString(),parameters);
 			return rows > 0;
 		}
@@ -173,7 +174,7 @@ namespace TomorrowSoft.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select Id,Handler,PhoneNo,HandlerTime,Context ");
+			strSql.Append("select Id,Handler,PhoneNo,HandlerTime,Context,Name");
 			strSql.Append(" FROM HistoryRecord ");
 			if(strWhere.Trim()=="")
 			{

@@ -11,7 +11,7 @@ namespace FormUI.Filters
         public static string content;
         public static string[] Horn;
     
-         public static Condition FilterCondition(string phone,string context)
+         public static Condition FilterCondition(string phone,string context,string name)
          {
              string[] result = context.Split(new[] { "光伏", "\r\n", "\n", "\r\t","电池",
              "市电","功放","1喇叭","2喇叭","3喇叭","4喇叭"}, 
@@ -21,7 +21,7 @@ namespace FormUI.Filters
                      PhoneNo = phone,
                      Battery = result[0],
                      Photovoltaic = result[1],
- 
+                     Name = name,
                      Horn1 = result[2],
                      Horn2 = result[3],
                      Horn3 = result[4],

@@ -7,14 +7,14 @@ using TomorrowSoft.BLL;
 using TomorrowSoft.Model;
 
 namespace FormUI.SettingForms
-{  
+{
     public partial class TerminalForm : Form
     {
-        
+
         private TerminalService _bllTerminal;
         private OrderDefinition _order = new OrderDefinition();
         private List<Terminal> _terminals = new List<Terminal>();
-     
+
 
         public TerminalForm()
         {
@@ -22,11 +22,11 @@ namespace FormUI.SettingForms
             _bllTerminal = new TerminalService();
         }
 
-      
+
         private void TerminalForm_Load(object sender, EventArgs e)
         {
-           
-        
+
+
             GetTerminalList();
             new ControlHelpers().FormChange(this);
         }
@@ -46,7 +46,7 @@ namespace FormUI.SettingForms
             Settings.Default.Save();
             MessageBox.Show("保存成功");
         }
-        
+
         private void btTerminalAdd_Click(object sender, EventArgs e)
         {
             new TerminalAdd().ShowDialog();
@@ -77,16 +77,17 @@ namespace FormUI.SettingForms
             }
         }
 
-      
+
         private void btTimeSettingOK_Click(object sender, EventArgs e)
         {
             foreach (var terminal in _terminals)
             {
-                _order.TimeSetting(terminal .Name ,terminal.PhoneNo, Year.Text, Mouth.Text, Day.Text, Hour.Text, Minute.Text, Second.Text);
+                _order.TimeSetting(terminal.Name, terminal.PhoneNo, Year.Text, Mouth.Text, Day.Text, Hour.Text,
+                                   Minute.Text, Second.Text);
             }
         }
 
-     
+
 
         private void btEdit_Click(object sender, EventArgs e)
         {
@@ -96,11 +97,15 @@ namespace FormUI.SettingForms
             }
             else
             {
-                var model = dataGridView1.SelectedRows[0].DataBoundItem  as Terminal;
+                var model = dataGridView1.SelectedRows[0].DataBoundItem as Terminal;
                 new TerminalAdd(model).ShowDialog();
                 GetTerminalList();
             }
         }
-       
+
+      
+        
+
     }
+
 }

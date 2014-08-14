@@ -90,7 +90,7 @@
             this.tabMeetingNum.Location = new System.Drawing.Point(4, 25);
             this.tabMeetingNum.Name = "tabMeetingNum";
             this.tabMeetingNum.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMeetingNum.Size = new System.Drawing.Size(748, 383);
+            this.tabMeetingNum.Size = new System.Drawing.Size(836, 514);
             this.tabMeetingNum.TabIndex = 4;
             this.tabMeetingNum.Text = "   会  议   ";
             this.tabMeetingNum.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.tabTimer.Margin = new System.Windows.Forms.Padding(5);
             this.tabTimer.Name = "tabTimer";
             this.tabTimer.Padding = new System.Windows.Forms.Padding(5);
-            this.tabTimer.Size = new System.Drawing.Size(748, 383);
+            this.tabTimer.Size = new System.Drawing.Size(836, 514);
             this.tabTimer.TabIndex = 3;
             this.tabTimer.Text = "   时  间   ";
             this.tabTimer.UseVisualStyleBackColor = true;

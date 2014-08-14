@@ -23,7 +23,7 @@ namespace FormUI.SettingForms
 
         private void btDialingOk_Click(object sender, EventArgs e)
         {
-            comAT.CallUp(txResult.Text);
+            comAT.CallUp(txResult.Text,null);
         }
 
         private void btClearOne_Click(object sender, EventArgs e)

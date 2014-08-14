@@ -17,7 +17,10 @@ namespace FormUI.Filters
         public virtual string Context { get; set; }
         public virtual DateTime Time { get; set; }
         public virtual bool IsQsDown { get; set; }
+
+        public virtual string Content1 { get; set; }
        
+
         protected Filter(Filter next)
         {
             _next = next;

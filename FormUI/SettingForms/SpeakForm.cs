@@ -51,7 +51,7 @@ namespace FormUI.SettingForms
                         var terminal = dgvPlayOne.SelectedRows[index].DataBoundItem as Terminal;
                         if (terminal != null)
                         {
-                            com.CallUp(terminal.PhoneNo);
+                            com.CallUp(terminal.PhoneNo,null);
                         }
                         else
                         {
@@ -83,7 +83,7 @@ namespace FormUI.SettingForms
                         var terminal = dgvPlayOne.SelectedRows[index].DataBoundItem as Terminal;
                         if (terminal != null)
                         {
-                            com.CallUp(terminal.GroupPhone);
+                            com.CallUp(terminal.GroupPhone,null);
                         }
                         else
                         {
@@ -107,7 +107,7 @@ namespace FormUI.SettingForms
                                                     MessageBoxButtons.OKCancel,
                                                     MessageBoxIcon.Question) == DialogResult.OK)
             {
-                com.CallUp(terminal.AllPhone);
+                com.CallUp(terminal.AllPhone,null);
             }
           
         }

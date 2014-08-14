@@ -11,6 +11,7 @@ namespace FormUI.Filters
         public override string Phone { get; protected set; }
         public override DateTime Time { get; set; }
         public override string Context { get; set; }
+        public override string Content1 { get; set; }
         public override bool IsQsDown { get; set; }
         
         public override string Name {
@@ -65,33 +66,15 @@ namespace FormUI.Filters
                     }
 
                     if (content.Contains("光伏")){
-                        new ConditionService()
-                            .Add(ConditionFilter.FilterCondition(phone, content));
+                        /*new ConditionService()
+                            .Add(ConditionFilter.FilterCondition(phone, content));*/
                         isQsDown = ConditionFilter.PhotovoltaicCompare(out text);
                     }
-                    else
-                    {
-                       
-              /*          var txt = content.Replace("\r\n", string.Empty);
-                        for (int b = 1; b < (txt.Length/48); b++)
-                        {
-                            txt = txt.Insert(48*b, "\r\n");
-                        }*/
-                          new HistoryRecordService().Add(new HistoryRecord()
-                            {
-                                Handler = Name,
-                                PhoneNo = phone,
-                                HandlerTime = DateTime.Now.ToLocalTime(),
-                                Context = content,
-                            });
-
-                    }
-                  //  new AT().DeleteReadMes();
                     Phone = phone;
                     Time = time;
                     Context = content;
                     IsQsDown = isQsDown;
-
+                    Content1 = content;
                     if (isQsDown)
                     {
                         Context = text + content;

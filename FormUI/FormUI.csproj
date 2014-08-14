@@ -104,7 +104,7 @@
     <Compile Include="OperationLayer\NewSMSCode\SMSDecode.cs" />
     <Compile Include="OperationLayer\NewSMSCode\SMSPDU.cs" />
     <Compile Include="OperationLayer\NewSMSCode\SMSSplit.cs" />
-    <Compile Include="OperationLayer\SendMes.cs" />
+    <Compile Include="OperationLayer\RecMesSave.cs" />
     <Compile Include="OperationLayer\WakeUp.cs" />
     <Compile Include="SettingForms\AutoPlayer.cs">
       <SubType>Form</SubType>

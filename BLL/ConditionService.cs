@@ -84,7 +84,7 @@ namespace TomorrowSoft.BLL
 		/// </summary>
 		public List<TomorrowSoft.Model.Condition> DataTableToList(DataTable dt)
 		{
-			List<TomorrowSoft.Model.Condition> modelList = new List<TomorrowSoft.Model.Condition>();
+			var modelList = new List<TomorrowSoft.Model.Condition>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
@@ -136,6 +136,10 @@ namespace TomorrowSoft.BLL
                     if (dt.Rows[n]["HandlerTime"] != null && dt.Rows[n]["HandlerTime"].ToString() != "")
                     {
                         model.HandlerTime = DateTime .Parse(dt.Rows[n]["HandlerTime"].ToString());
+                    }
+                    if (dt.Rows[n]["Name"] != null && dt.Rows[n]["Name"].ToString() != "")
+                    {
+                        model.Name = dt.Rows[n]["Name"].ToString();
                     }
 					modelList.Add(model);
 				}

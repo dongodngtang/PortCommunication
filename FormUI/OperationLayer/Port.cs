@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.IO.Ports;
 using System.Threading;
 using System.Windows.Forms;
@@ -15,6 +15,16 @@ namespace FormUI.OperationLayer
     [Aop]
     public class Port : AopObject
     {
+        private static volatile Port instance;
+
+        private static readonly object syncRoot = new Object();
+
+        private Port()
+        {
+            ReceiveEventEnabled = true;
+            SerialPort = new SerialPort();
+        }
+
         public TerminalMonitor Owner { get; set; }
 
         /// <summary>
@@ -29,15 +39,12 @@ namespace FormUI.OperationLayer
         public bool ReceiveEventEnabled { get; set; }
 
         /// <summary>
-        /// 接收到回应
+        ///     接收到回应
         /// </summary>
         public bool IsReceived { get; set; }
 
-        private static volatile Port instance;
-
-        private static readonly object syncRoot = new Object();
         /// <summary>
-        /// 多线程单例模式，确保SerialPort只实例化一次
+        ///     多线程单例模式，确保SerialPort只实例化一次
         /// </summary>
         /// <returns></returns>
         public static Port Instance
@@ -54,35 +61,35 @@ namespace FormUI.OperationLayer
             }
         }
 
-       
-        public SerialPort SerialPort { get; private set; }
 
-        private Port()
-        {
-            ReceiveEventEnabled = true;
-            SerialPort = new SerialPort();
-        }
+        public SerialPort SerialPort { get; private set; }
 
         public bool IsOpen
         {
             get { return SerialPort.IsOpen; }
         }
 
+        public bool Received { get; set; }
+
+        private string Name
+        {
+            get { return "收信"; }
+        }
+
         [Operation]
         public Port Send(string at)
         {
-            
             SerialPort.WriteLine(at);
             Suspend();
             return this;
         }
-        public bool Received { get; set; }
+
         /// <summary>
-        /// 挂起线程，等待串口回应
+        ///     挂起线程，等待串口回应
         /// </summary>
         private void Suspend()
         {
-            var i = 0;
+            int i = 0;
             Received = true;
             while (!IsReceived)
             {
@@ -90,14 +97,14 @@ namespace FormUI.OperationLayer
                 i++;
                 if (i > 360)
                 {
-                Received = false;
-                throw new Exception("发送超时，请检查串口设备或波特率参数是否正确！"); 
+                    Received = false;
+                    throw new Exception("发送超时，请检查串口设备或波特率参数是否正确！");
                 }
             }
             IsReceived = false;
         }
 
-   
+
         [Operation]
         public Port SendNoWrap(string at)
         {
@@ -146,164 +153,88 @@ namespace FormUI.OperationLayer
             SerialPort.Close();
         }
 
- 
+
         private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             string strCollect = string.Empty;
-    
             var port = (SerialPort) sender;
-            try
-            {
-                port.ReceivedBytesThreshold = port.ReadBufferSize;
-                while (true)
+                try
                 {
-                    
-                    var message = port.ReadExisting();
-                    if (string.Equals(message, string.Empty))
+                    port.ReceivedBytesThreshold = port.ReadBufferSize;
+                    while (true)
                     {
-                        break;
+                        string message = port.ReadExisting();
+                        if (string.Equals(message, string.Empty))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            strCollect += message;
+                            Thread.Sleep(100);
+                        }
                     }
-                    else
+                    //                var message = port.ReadExisting();
+                    //                var content = message.Replace("\r", string.Empty)
+                    //                                     .Split(new[] {"\n"}, StringSplitOptions.RemoveEmptyEntries);
+                    string[] content = strCollect.Replace("\r", string.Empty)
+                                                 .Split(new[] {"\n", "ERROR"}, StringSplitOptions.RemoveEmptyEntries);
+
+                    ReadCardMes(content);
+                    foreach (string t1 in content)
                     {
-                        strCollect += message;
-                        Thread.Sleep(100);
-                    }
-                } 
-//                var message = port.ReadExisting();
-//                var content = message.Replace("\r", string.Empty)
-//                                     .Split(new[] {"\n"}, StringSplitOptions.RemoveEmptyEntries);
-                var content = strCollect.Replace("\r", string.Empty)
-                                   .Split(new[] {"\n","ERROR"}, StringSplitOptions.RemoveEmptyEntries);
-                
-                ReadCardMes(content);
-                if (!ReceiveEventEnabled)
-                {
-                    IsReceived = true;
-                    //return;
-                }
-               
-                foreach (string t1 in content)
-                {
-                    if (t1.Contains("+CMT:") || t1.Contains("NO CARRIER") || t1.Contains("RING"))
-                    {
-                     
-                        new Thread(() =>
+                        if (t1.Contains("+CMT:") || t1.Contains("NO CARRIER") || t1.Contains("RING"))
+                        {
+                            new Thread(() =>
                             {
                                 var filter = new FilterProcessor(content).Run();
                                 if (filter == null) return;
                                 Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
                             }).Start();
-                        Thread.Sleep(150);
-                        /*  var t = new ThreadStart(() =>
-                            {
-                                var filter = new FilterProcessor(content).Run();
-                                if (filter == null) return;
-                                Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
-                            });
-                        new Thread(t).Start();*/
+                            Thread.Sleep(250);
+                            /*  var t = new ThreadStart(() =>
+                                  {
+                                      Filter filter = new FilterProcessor(content).Run();
+                                      if (filter == null) return;
+                                      Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
+                                  });
+                              new Thread(t).Start();*/
+                        }
                     }
+                    if (!ReceiveEventEnabled)
+                    {
+                        IsReceived = true;
+                        //return;
+                    }
+  
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                port.ReceivedBytesThreshold = 1;
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    port.ReceivedBytesThreshold = 1;
+                }
+            
         }
 
         private void ReadCardMes(string[] content)
         {
-            
             for (int index = 0; index < content.Length; index ++)
             {
                 if (!content[index].Contains("+CMGL:")) continue;
                 MessageSave(content[index + 1]);
-                var mesNo = content[index].Split(new[] { "+CMGL:", "," }, StringSplitOptions.RemoveEmptyEntries);
+                string[] mesNo = content[index].Split(new[] {"+CMGL:", ","}, StringSplitOptions.RemoveEmptyEntries);
                 new MessageIndexService().Add(mesNo[0]);
-         
             }
-
-        }
-
-        #region 启动前读取短信并保存
-
-        protected readonly WhiteListService White = new WhiteListService();
-        protected readonly TerminalService Terminal = new TerminalService();
-
-        private void MessageSave(string Content)
-        {
-            int current;
-            int total;
-            string identifier;
-            bool isLongMessage;
-             string phone;
-            DateTime time;
-            string content;
-            AT.GetSmsContent(Content, out isLongMessage, out phone, out time, out content, out current, out total,
-                             out identifier);
-            if (phone.StartsWith("86"))
-                phone = phone.Remove(0, 2);
-            if (White.PhoneExists(phone) || Terminal.PhoneExists(phone))
-            {
-
-                if (isLongMessage)
-                {
-                    var service = new LongSmsService();
-                    service.Add(new LongSms
-                        {
-                            Content = content,
-                            Current = current,
-                            Identifier = identifier,
-                            Phone = phone,
-                            Time = time,
-                            Total = total
-                        });
-
-                    var longSmses = service.GetBy(phone, identifier, time);
-                    if (longSmses.Count < total)
-                        return;
-                    content = string.Empty;
-                    foreach (var sms in longSmses)
-                    {
-                        content += sms.Content;
-                    }
-
-                }
-                if (content.Contains("光伏"))
-                {
-                    new ConditionService()
-                        .Add(ConditionFilter.FilterCondition(phone, content));
-                }
-                else
-                {
-                    new HistoryRecordService().Add(new HistoryRecord()
-                        {
-                            Handler = Name,
-                            PhoneNo = phone,
-                            HandlerTime = DateTime.Now.ToLocalTime(),
-                            Context = content
-                        });
-
-                }
-            }
-        }
-
-        #endregion
-
-
-        private string Name
-        {
-            get { return "收信"; }
         }
 
         private void port_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
         {
             if (!Instance.ReceiveEventEnabled) return;
             var port = (SerialPort) sender;
-            var output = port.ReadExisting();
+            string output = port.ReadExisting();
             MessageBox.Show(output, "AT指令错误");
         }
 
@@ -314,7 +245,7 @@ namespace FormUI.OperationLayer
             SerialPort.PortName = portName;
             return this;
         }
-            
+
         public Port SetBaudRate(string baudRate)
         {
             SerialPort.BaudRate = Convert.ToInt32(baudRate);
@@ -341,6 +272,54 @@ namespace FormUI.OperationLayer
 
         #endregion
 
-      
+        #region 启动前读取短信并保存
+
+        protected readonly TerminalService Terminal = new TerminalService();
+        protected readonly WhiteListService White = new WhiteListService();
+
+        private void MessageSave(string Content)
+        {
+            int current;
+            int total;
+            string identifier;
+            bool isLongMessage;
+            string phone;
+            DateTime time;
+            string content;
+            AT.GetSmsContent(Content, out isLongMessage, out phone, out time, out content, out current, out total,
+                             out identifier);
+            if (phone.StartsWith("86"))
+                phone = phone.Remove(0, 2);
+            if (White.PhoneExists(phone) || Terminal.PhoneExists(phone))
+            {
+                if (isLongMessage)
+                {
+                    var service = new LongSmsService();
+                    service.Add(new LongSms
+                        {
+                            Content = content,
+                            Current = current,
+                            Identifier = identifier,
+                            Phone = phone,
+                            Time = time,
+                            Total = total
+                        });
+
+                    IList<LongSms> longSmses = service.GetBy(phone, identifier, time);
+                    if (longSmses.Count < total)
+                        return;
+                    content = string.Empty;
+                    foreach (LongSms sms in longSmses)
+                    {
+                        content += sms.Content;
+                    }
+                }
+                string name = new TerminalService().GetList("PhoneNo=" + phone).Tables[0].Rows[0]["Name"].ToString();
+
+                new RecMesSave().SaveMes(content, phone, name);
+            }
+        }
+
+        #endregion
     }
 }

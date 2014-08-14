@@ -37,7 +37,6 @@ namespace FormUI
             InitializeComponent();
             cmd = new AT();
             alarmClock = new AlarmClock();
-           
         }
 
         public event MyEvent NewPhone;
@@ -137,12 +136,14 @@ namespace FormUI
                     str = listView1.Items[i].Text;
                     listView1.Items[i].Tag = new object();
                     new AT().SmsAnswer();
+                    Thread.Sleep(100);
                     break;
                 }
             }
 
             ControlListboxAmount();
             listBox1.Items.Add(new Item(e.Filter.Name + "于：" + str, e.Filter.Context, e.Filter.Time));
+            new RecMesSave().SaveMes(e.Filter.Content1, e.Filter.Phone, str);
         }
 
         private void TerminalMonitor_Load(object sender, EventArgs e)
@@ -352,7 +353,7 @@ namespace FormUI
             }
             try
             {
-                cmd.CallUp(items[0].ToolTipText);
+                cmd.CallUp(items[0].ToolTipText, items[0].Text);
                 CallLock = false;
                 listBox1.Items.Add(new Item("拨号至：" + items[0].Text, null));
             }
@@ -381,17 +382,14 @@ namespace FormUI
             if (MessageBox.Show(string.Format(@"确定发送至选中的{0}个终端？", items.Count), "提示",
                                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                try
-                {
-                    foreach (ListViewItem item in items)
+                var t1 = new ThreadStart(() =>
                     {
-                        _order.ConditionQuery(item.Text, item.ToolTipText);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                        foreach (ListViewItem item in items)
+                        {
+                            _order.ConditionQuery(item.Text, item.ToolTipText);
+                        }
+                    });
+                new Thread(t1).Start();
             }
         }
 
@@ -480,25 +478,25 @@ namespace FormUI
                                 MessageBoxButtons.OKCancel,
                                 MessageBoxIcon.Question) == DialogResult.OK)
             {
-                    try
+                try
+                {
+                    foreach (ListViewItem item in items)
                     {
-                        foreach (ListViewItem item in items)
-                        {
-                            string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                              "1",
-                                                              (Settings.Default.Ceshi == string.Empty
-                                                                   ? "3"
-                                                                   : Settings.Default.Xiehong).PadLeft(2,
-                                                                                                       Convert
-                                                                                                           .ToChar(
-                                                                                                               "0")));
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
+                        string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
+                                                          "1",
+                                                          (Settings.Default.Ceshi == string.Empty
+                                                               ? "3"
+                                                               : Settings.Default.Xiehong).PadLeft(2,
+                                                                                                   Convert
+                                                                                                       .ToChar(
+                                                                                                           "0")));
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void btSlaggWarn_Click(object sender, EventArgs e)

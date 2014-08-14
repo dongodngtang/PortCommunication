@@ -39,27 +39,26 @@ namespace TomorrowSoft.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Condition(");
-			strSql.Append("Photovoltaic,Battery,PowerSource,QS,Horn,Charge,Discharge,Volume,HandlerTime,PhoneNo)");
+			strSql.Append("Photovoltaic,Battery,PowerSource,QS,Horn,Charge,Discharge,Volume,HandlerTime,PhoneNo,Name)");
 			strSql.Append(" values (");
-            strSql.Append("@Photovoltaic,@Battery,@PowerSource,@QS,@Horn,@Charge,@Discharge,@Volume,@HandlerTime,@PhoneNo)");
+            strSql.Append("@Photovoltaic,@Battery,@PowerSource,@QS,@Horn,@Charge,@Discharge,@Volume,@HandlerTime,@PhoneNo,@Name)");
 			SQLiteParameter[] parameters = {
 
 					new SQLiteParameter("@Photovoltaic", DbType.String),
 					new SQLiteParameter("@Battery", DbType.String),
 					new SQLiteParameter("@PowerSource", DbType.String),
-	
 					new SQLiteParameter("@QS", DbType.String),
 					new SQLiteParameter("@Horn", DbType.String),
 					new SQLiteParameter("@Charge", DbType.String),				
                     new SQLiteParameter("@Discharge",DbType.String), 
                     new SQLiteParameter("@Volume", DbType.String),
                     new SQLiteParameter( "@HandlerTime",DbType.DateTime),
-                     new SQLiteParameter("@PhoneNo",DbType.String)};
+                    new SQLiteParameter("@PhoneNo",DbType.String),
+                    new SQLiteParameter( "@Name",DbType.String)};
 		
 			parameters[0].Value = model.Photovoltaic;
 			parameters[1].Value = model.Battery;
 			parameters[2].Value = model.PowerSource;
-	
 			parameters[3].Value = model.QS;
 			parameters[4].Value = model.Horn1;
             parameters[5].Value = model.Horn2;
@@ -67,6 +66,7 @@ namespace TomorrowSoft.DAL
             parameters[7].Value = model.Horn4;
             parameters[8].Value = model.HandlerTime;
             parameters[9].Value = model.PhoneNo;
+		    parameters[10].Value = model.Name;
 
 			int rows=DbHelperSQLite.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -252,7 +252,7 @@ namespace TomorrowSoft.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-            strSql.Append("select Id,Photovoltaic,Battery,PowerSource,QS,Horn,Charge,DisCharge,Volume,HandlerTime,PhoneNo ");
+            strSql.Append("select Id,Photovoltaic,Battery,PowerSource,QS,Horn,Charge,DisCharge,Volume,HandlerTime,PhoneNo,Name ");
 			strSql.Append(" FROM Condition ");
 		    if (strWhere.Trim() == "")
 		    {
