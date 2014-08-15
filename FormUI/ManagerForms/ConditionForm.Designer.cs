@@ -49,10 +49,6 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btPrint = new System.Windows.Forms.Button();
-            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-            this.btQuery = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.terminal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +61,10 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btPrint = new System.Windows.Forms.Button();
+            this.dtpEnd = new System.Windows.Forms.DateTimePicker();
+            this.btQuery = new System.Windows.Forms.Button();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -136,6 +136,7 @@
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -148,7 +149,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 456);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -261,57 +262,14 @@
             this.Column10,
             this.Column11,
             this.Column5});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 43);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(772, 438);
+            this.dataGridView1.Size = new System.Drawing.Size(772, 481);
             this.dataGridView1.TabIndex = 8;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dtpBegin);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.btClear);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.btPrint);
-            this.panel1.Controls.Add(this.dtpEnd);
-            this.panel1.Controls.Add(this.btQuery);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(772, 96);
-            this.panel1.TabIndex = 16;
-            // 
-            // btPrint
-            // 
-            this.btPrint.Location = new System.Drawing.Point(149, 26);
-            this.btPrint.Name = "btPrint";
-            this.btPrint.Size = new System.Drawing.Size(86, 48);
-            this.btPrint.TabIndex = 14;
-            this.btPrint.Text = "打 印";
-            this.btPrint.UseVisualStyleBackColor = true;
-            this.btPrint.Click += new System.EventHandler(this.btPrint_Click);
-            // 
-            // dtpEnd
-            // 
-            this.dtpEnd.Location = new System.Drawing.Point(487, 38);
-            this.dtpEnd.MinimumSize = new System.Drawing.Size(4, 25);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(135, 25);
-            this.dtpEnd.TabIndex = 12;
-            // 
-            // btQuery
-            // 
-            this.btQuery.Location = new System.Drawing.Point(658, 26);
-            this.btQuery.Name = "btQuery";
-            this.btQuery.Size = new System.Drawing.Size(86, 48);
-            this.btQuery.TabIndex = 13;
-            this.btQuery.Text = "查 询";
-            this.btQuery.UseVisualStyleBackColor = true;
-            this.btQuery.Click += new System.EventHandler(this.btQuery_Click);
             // 
             // Column1
             // 
@@ -410,6 +368,49 @@
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Width = 54;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dtpBegin);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btClear);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btPrint);
+            this.panel1.Controls.Add(this.dtpEnd);
+            this.panel1.Controls.Add(this.btQuery);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(772, 96);
+            this.panel1.TabIndex = 16;
+            // 
+            // btPrint
+            // 
+            this.btPrint.Location = new System.Drawing.Point(149, 26);
+            this.btPrint.Name = "btPrint";
+            this.btPrint.Size = new System.Drawing.Size(86, 48);
+            this.btPrint.TabIndex = 14;
+            this.btPrint.Text = "打 印";
+            this.btPrint.UseVisualStyleBackColor = true;
+            this.btPrint.Click += new System.EventHandler(this.btPrint_Click);
+            // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Location = new System.Drawing.Point(487, 38);
+            this.dtpEnd.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(135, 25);
+            this.dtpEnd.TabIndex = 12;
+            // 
+            // btQuery
+            // 
+            this.btQuery.Location = new System.Drawing.Point(658, 26);
+            this.btQuery.Name = "btQuery";
+            this.btQuery.Size = new System.Drawing.Size(86, 48);
+            this.btQuery.TabIndex = 13;
+            this.btQuery.Text = "查 询";
+            this.btQuery.UseVisualStyleBackColor = true;
+            this.btQuery.Click += new System.EventHandler(this.btQuery_Click);
             // 
             // ConditionForm
             // 

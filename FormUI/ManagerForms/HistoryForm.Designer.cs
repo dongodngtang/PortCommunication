@@ -45,6 +45,12 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dtpBegin = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,12 +59,6 @@
             this.btPrint = new System.Windows.Forms.Button();
             this.dtpEnd = new System.Windows.Forms.DateTimePicker();
             this.btQuery = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
@@ -92,6 +92,7 @@
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -104,7 +105,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 441);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -212,14 +213,63 @@
             this.Column5,
             this.Column2,
             this.Column4});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 28);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(797, 438);
+            this.dataGridView1.Size = new System.Drawing.Size(797, 466);
             this.dataGridView1.TabIndex = 8;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "序号  ";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 61;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Name";
+            this.Column6.HeaderText = "终端名";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 66;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "PhoneNo";
+            this.Column3.HeaderText = "号码  ";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 61;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "HandlerTime";
+            this.Column5.HeaderText = "日期    ";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 72;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Handler";
+            this.Column2.HeaderText = "操作  ";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 61;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Context";
+            this.Column4.HeaderText = "内容  ";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.Width = 61;
             // 
             // panel1
             // 
@@ -301,55 +351,6 @@
             this.btQuery.Text = "查 询";
             this.btQuery.UseVisualStyleBackColor = true;
             this.btQuery.Click += new System.EventHandler(this.btQuery_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Id";
-            this.Column1.HeaderText = "序号  ";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 61;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Name";
-            this.Column6.HeaderText = "终端名";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 66;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "PhoneNo";
-            this.Column3.HeaderText = "号码  ";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 61;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "HandlerTime";
-            this.Column5.HeaderText = "日期    ";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 72;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Handler";
-            this.Column2.HeaderText = "操作  ";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 61;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Context";
-            this.Column4.HeaderText = "内容  ";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.Width = 61;
             // 
             // HistoryForm
             // 

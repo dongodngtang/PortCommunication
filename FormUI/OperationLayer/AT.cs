@@ -379,7 +379,10 @@ namespace FormUI.OperationLayer
                  .Send(CLIP_ON)
                  .Send(SMCRAD_MESSAGE);
         }
-
+        public void MessageInit()
+        {
+            _port.Send(SMS_ALERT);
+        }
         /// <summary>
         ///     电话拨打
         /// </summary>
@@ -467,7 +470,8 @@ namespace FormUI.OperationLayer
                              .Send(SMS_CH)
                              .Send(CheckSum(len))
                              .SendNoWrap(content)
-                             .Send(END_OF_SMS);
+                             .Send(END_OF_SMS)
+                             .Send(SMS_ALERT);
                     }
 
                     SaveHistoryRecord(phone, "发信",
@@ -475,6 +479,7 @@ namespace FormUI.OperationLayer
                                       context, terminal);
                     MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
                     TerminalMonitor.CallLock = true;
+                    
                     //                firstMutex.Close();
                 }
                 catch (Exception ex)

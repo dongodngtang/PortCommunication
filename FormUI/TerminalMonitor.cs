@@ -100,14 +100,16 @@ namespace FormUI
                         _order.TimeSet(e.Filter.Phone, e.Filter.Phone,
                                        DateTime.Now.ToString("yyyyMMddHHmmss").Substring(2));
                         listView1.Items[i].ImageKey = TerminalState.RunningChecked.ToString();
+                     
                     }
                     if (e.Filter.Context.Contains("本地喊话") || e.Filter.Context.Contains("播放"))
 
                     {
                         listView1.Items[i].ImageKey = TerminalState.GreenChecked.ToString();
+                      
                     }
 
-                    if (e.Filter.Context.Contains("已停播") || e.Filter.Context.Contains("OK"))
+                    if (e.Filter.Context.Contains("已停播") || e.Filter.Context.Contains("OK")||e.Filter .Context.Contains( "充电"))
                     {
                         listView1.Items[i].ImageKey = TerminalState.RunningChecked.ToString();
                     }
@@ -135,8 +137,7 @@ namespace FormUI
                     }
                     str = listView1.Items[i].Text;
                     listView1.Items[i].Tag = new object();
-                    new AT().SmsAnswer();
-                    Thread.Sleep(100);
+                    cmd.SmsAnswer();
                     break;
                 }
             }
@@ -190,6 +191,8 @@ namespace FormUI
             NewPhone += RefreshListBox;
             ListBox1Listener += SendMesShow;
             WindowState = FormWindowState.Maximized;
+            AutoSend();
+
         }
 
         private void DeleteReadMsg()
@@ -392,7 +395,18 @@ namespace FormUI
                 new Thread(t1).Start();
             }
         }
-
+        public void AutoSend()
+        {
+            IList<ListViewItem> items = GetSelectedPhone();
+            var t1 = new ThreadStart(() =>
+            {
+                foreach (ListViewItem item in items)
+                {
+                    _order.ConditionQuery(item.Text, item.ToolTipText);
+                }
+            });
+            new Thread(t1).Start();
+        }
         private void btTestMusic_Click(object sender, EventArgs e)
         {
             IList<ListViewItem> items = GetSelectedPhone();
