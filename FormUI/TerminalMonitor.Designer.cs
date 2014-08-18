@@ -77,6 +77,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btAlarm = new System.Windows.Forms.Button();
             this.btOpenCTerminal = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -522,6 +523,13 @@
             this.btOpenCTerminal.UseVisualStyleBackColor = true;
             this.btOpenCTerminal.Click += new System.EventHandler(this.btOpenCTerminal_Click);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "德海GSM广播监测系统";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
+            // 
             // TerminalMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -548,8 +556,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TerminalMonitor";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "德海GSM广播监测系统";
+            this.MinimumSizeChanged += new System.EventHandler(this.TerminalMonitor_MinimumSizeChanged);
             this.Load += new System.EventHandler(this.TerminalMonitor_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -608,5 +618,6 @@
         private System.Windows.Forms.Button btOpenCTerminal;
         private System.Windows.Forms.ToolStripMenuItem 定时查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem c型终端ToolStripMenuItem;
+        public System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

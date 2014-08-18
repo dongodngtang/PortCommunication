@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using FormUI.OperationLayer.NewSMSCode;
 using TomorrowSoft.BLL;
@@ -379,19 +378,21 @@ namespace FormUI.OperationLayer
                  .Send(CLIP_ON)
                  .Send(SMCRAD_MESSAGE);
         }
+
         public void MessageInit()
         {
             _port.Send(SMS_ALERT);
         }
+
         /// <summary>
         ///     电话拨打
         /// </summary>
         /// <param name="phoneNo"></param>
-        public void CallUp(string phoneNo,string name)
+        public void CallUp(string phoneNo, string name)
         {
             _port.SendNoResponse(Call(phoneNo));
 
-            SaveHistoryRecord(phoneNo, "拨号", DateTime.Now.ToLocalTime(), null,name);
+            SaveHistoryRecord(phoneNo, "拨号", DateTime.Now.ToLocalTime(), null, name);
         }
 
         /// <summary>
@@ -425,7 +426,7 @@ namespace FormUI.OperationLayer
 
             SaveHistoryRecord(phoneNo, "发信",
                               DateTime.Now.ToLocalTime(),
-                              messageText,null);
+                              messageText, null);
         }
 
         /// <summary>
@@ -457,29 +458,32 @@ namespace FormUI.OperationLayer
             {
                 try
                 {
-
-                    //                var firstMutex = new Mutex(false);
-                    //                firstMutex.WaitOne();
                     TerminalMonitor.CallLock = false;
                     var sms = new SMS();
                     string[] csmSeries = sms.PDUEncoding("+86" + phone, context);
                     foreach (string content in csmSeries)
                     {
-                        int len = content.Length / 2 - 1;
+                        int len = content.Length/2 - 1;
                         _port.Send(CHAR_MODE)
                              .Send(SMS_CH)
                              .Send(CheckSum(len))
                              .SendNoWrap(content)
                              .Send(END_OF_SMS)
+                             .Send(SMS_NEW_AT)
                              .Send(SMS_ALERT);
                     }
 
                     SaveHistoryRecord(phone, "发信",
                                       DateTime.Now.ToLocalTime(),
                                       context, terminal);
-                    MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal, context);
+                    MyListView.Invoke(new Action<string, string>(MyListView.OnListBox1Listener), terminal,
+                                      context);
                     TerminalMonitor.CallLock = true;
-                    
+
+                    //                var firstMutex = new Mutex(false);
+                    //                firstMutex.WaitOne();
+
+
                     //                firstMutex.Close();
                 }
                 catch (Exception ex)
@@ -487,7 +491,6 @@ namespace FormUI.OperationLayer
                     MessageBox.Show(ex.Message);
                 }
             }
-
         }
 
         /*/// <summary>
@@ -556,7 +559,7 @@ namespace FormUI.OperationLayer
         }
 
 
-        private void SaveHistoryRecord(string phoneNo, string ways, DateTime time, string context,string name)
+        private void SaveHistoryRecord(string phoneNo, string ways, DateTime time, string context, string name)
         {
             history.PhoneNo = phoneNo;
             history.Handler = ways;

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using FormUI.OperationLayer;
 
@@ -32,10 +33,15 @@ namespace FormUI.ManagerForms
             {
                 try
                 {
-                    foreach (var item in Items)
-                    {
-                        _order.Alarm(item .Text ,item.ToolTipText, txtＭinute.Text.Trim());
-                    }
+                    var t = new ThreadStart(() =>
+                        {
+                            foreach (var item in Items)
+                            {
+                                _order.Alarm(item.Text, item.ToolTipText, txtＭinute.Text.Trim());
+                            }
+                        });
+                    new Thread(t).Start();
+
                 }
                 catch (Exception ex)
                 {

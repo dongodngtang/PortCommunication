@@ -191,7 +191,7 @@ namespace FormUI
             NewPhone += RefreshListBox;
             ListBox1Listener += SendMesShow;
             WindowState = FormWindowState.Maximized;
-            AutoSend();
+            //AutoSend();
 
         }
 
@@ -382,18 +382,26 @@ namespace FormUI
         private void btTest_Click(object sender, EventArgs e)
         {
             IList<ListViewItem> items = GetSelectedPhone();
-            if (MessageBox.Show(string.Format(@"确定发送至选中的{0}个终端？", items.Count), "提示",
-                                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            try
             {
-                var t1 = new ThreadStart(() =>
-                    {
-                        foreach (ListViewItem item in items)
+                if (MessageBox.Show(string.Format(@"确定发送至选中的{0}个终端？", items.Count), "提示",
+                                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    var t1 = new ThreadStart(() =>
                         {
-                            _order.ConditionQuery(item.Text, item.ToolTipText);
-                        }
-                    });
-                new Thread(t1).Start();
+                            foreach (ListViewItem item in items)
+                            {
+                                _order.ConditionQuery(item.Text, item.ToolTipText);
+                            }
+                        });
+                    new Thread(t1).Start();
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
         public void AutoSend()
         {
@@ -417,15 +425,21 @@ namespace FormUI
             {
                 try
                 {
-                    foreach (ListViewItem item in items)
-                    {
-                        string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                          "4",
-                                                          (Settings.Default.Ceshi == string.Empty
-                                                               ? "3"
-                                                               : Settings.Default.Ceshi).PadLeft(2,
-                                                                                                 Convert.ToChar("0")));
-                    }
+                    var t = new ThreadStart(() =>
+                        {
+                            foreach (ListViewItem item in items)
+                            {
+                                string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
+                                                                  "4",
+                                                                  (Settings.Default.Ceshi == string.Empty
+                                                                       ? "3"
+                                                                       : Settings.Default.Ceshi).PadLeft(2,
+                                                                                                         Convert.ToChar(
+                                                                                                             "0")));
+                            }
+                        });
+                    new Thread(t).Start();
+
                 }
                 catch (Exception ex)
                 {
@@ -440,6 +454,7 @@ namespace FormUI
             ListViewItem item = listView1.FocusedItem;
             try
             {
+                
                 _order.Detection(item.Text, item.ToolTipText);
             }
             catch (Exception ex)
@@ -494,17 +509,22 @@ namespace FormUI
             {
                 try
                 {
-                    foreach (ListViewItem item in items)
-                    {
-                        string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                          "1",
-                                                          (Settings.Default.Ceshi == string.Empty
-                                                               ? "3"
-                                                               : Settings.Default.Xiehong).PadLeft(2,
-                                                                                                   Convert
-                                                                                                       .ToChar(
-                                                                                                           "0")));
-                    }
+                    var t = new ThreadStart(() =>
+                        {
+                            foreach (ListViewItem item in items)
+                            {
+                                string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
+                                                                  "1",
+                                                                  (Settings.Default.Ceshi == string.Empty
+                                                                       ? "3"
+                                                                       : Settings.Default.Xiehong).PadLeft(2,
+                                                                                                           Convert
+                                                                                                               .ToChar(
+                                                                                                                   "0")));
+                            }
+                        });
+                    new Thread(t).Start();
+
                 }
                 catch (Exception ex)
                 {
@@ -523,15 +543,21 @@ namespace FormUI
             {
                 try
                 {
-                    foreach (ListViewItem item in items)
-                    {
-                        string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                                          "2",
-                                                          (Settings.Default.Ceshi == string.Empty
-                                                               ? "3"
-                                                               : Settings.Default.Paizha).PadLeft(2,
-                                                                                                  Convert.ToChar("0")));
-                    }
+                    var t = new ThreadStart(() =>
+                        {
+                            foreach (ListViewItem item in items)
+                            {
+                                string content = _order.PlayMusic(item.Text, item.ToolTipText, "1",
+                                                                  "2",
+                                                                  (Settings.Default.Ceshi == string.Empty
+                                                                       ? "3"
+                                                                       : Settings.Default.Paizha).PadLeft(2,
+                                                                                                          Convert.ToChar
+                                                                                                              ("0")));
+                            }
+                        });
+                    new Thread(t).Start();
+
                 }
                 catch (Exception ex)
                 {
@@ -550,14 +576,18 @@ namespace FormUI
             {
                 try
                 {
-                    foreach (ListViewItem item in items)
-                    {
-                        _order.PlayMusic(item.Text, item.ToolTipText, "1",
-                                         "3",
-                                         (Settings.Default.Ceshi == string.Empty
-                                              ? "3"
-                                              : Settings.Default.Fadian).PadLeft(2, Convert.ToChar("0")));
-                    }
+                    var t = new ThreadStart(() =>
+                        {
+                            foreach (ListViewItem item in items)
+                            {
+                                _order.PlayMusic(item.Text, item.ToolTipText, "1",
+                                                 "3",
+                                                 (Settings.Default.Ceshi == string.Empty
+                                                      ? "3"
+                                                      : Settings.Default.Fadian).PadLeft(2, Convert.ToChar("0")));
+                            }
+                        });
+                    new Thread(t).Start();
                 }
                 catch (Exception ex)
                 {
@@ -668,10 +698,15 @@ namespace FormUI
                                 MessageBoxButtons.OKCancel,
                                 MessageBoxIcon.Question) == DialogResult.OK)
             {
-                foreach (ListViewItem item in items)
-                {
-                    _order.MusicStop(item.Text, item.ToolTipText);
-                }
+                var t = new ThreadStart(() =>
+                    {
+                        foreach (ListViewItem item in items)
+                        {
+                            _order.MusicStop(item.Text, item.ToolTipText);
+                        }
+                    });
+                new Thread(t).Start();
+
             }
         }
 
@@ -760,10 +795,15 @@ namespace FormUI
             {
                 try
                 {
-                    foreach (ListViewItem item in items)
-                    {
-                        _order.Detection(item.Text, item.ToolTipText);
-                    }
+                    var t = new ThreadStart(() =>
+                        {
+                            foreach (ListViewItem item in items)
+                            {
+                                _order.Detection(item.Text, item.ToolTipText);
+                            }
+                        });
+                    new Thread(t).Start();
+
                 }
                 catch (Exception ex)
                 {
@@ -917,5 +957,24 @@ namespace FormUI
         }
 
         #endregion
+
+        private void TerminalMonitor_MinimumSizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                this.notifyIcon1.Visible = true;
+            } 
+
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Maximized;
+            notifyIcon1.Visible = false; 
+            //this.ShowInTaskbar = true;
+
+        }
     }
 }

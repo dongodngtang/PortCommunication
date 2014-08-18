@@ -95,7 +95,7 @@ namespace FormUI.OperationLayer
             {
                 Thread.Sleep(20);
                 i++;
-                if (i > 300)
+                if (i > 360)
                 {
                     Received = false;
                     throw new Exception("发送超时，请检查串口设备或波特率参数是否正确！");
@@ -158,56 +158,54 @@ namespace FormUI.OperationLayer
         {
             string strCollect = string.Empty;
             var port = (SerialPort) sender;
-            try
-            {
-                port.ReceivedBytesThreshold = port.ReadBufferSize;
-                while (true)
+                try
                 {
-                    string message = port.ReadExisting();
-                    if (string.Equals(message, string.Empty))
+                    port.ReceivedBytesThreshold = port.ReadBufferSize;
+                    while (true)
                     {
-                        break;
-                    }
-                    else
-                    {
+                        string message = port.ReadExisting();
+                        if (string.Equals(message, string.Empty))
+                        {
+                            break;
+                        }
                         strCollect += message;
-                        Thread.Sleep(100);
-                    }
-                }
-                //                var message = port.ReadExisting();
-                //                var content = message.Replace("\r", string.Empty)
-                //                                     .Split(new[] {"\n"}, StringSplitOptions.RemoveEmptyEntries);
-                string[] content = strCollect.Replace("\r", string.Empty)
-                                             .Split(new[] {"\n", "ERROR"}, StringSplitOptions.RemoveEmptyEntries);
-
-                ReadCardMes(content);
-                foreach (string t1 in content)
-                {
-                    if (t1.Contains("+CMT:") || t1.Contains("NO CARRIER") || t1.Contains("RING"))
-                    {
-                        new Thread(() =>
-                            {
-                                Filter filter = new FilterProcessor(content).Run();
-                                if (filter == null) return;
-                                Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
-                            }).Start();
                         Thread.Sleep(200);
                     }
+                    //                var message = port.ReadExisting();
+                    //                var content = message.Replace("\r", string.Empty)
+                    //                                     .Split(new[] {"\n"}, StringSplitOptions.RemoveEmptyEntries);
+                    string[] content = strCollect.Replace("\r", string.Empty)
+                                                 .Split(new[] {"\n", "ERROR"}, StringSplitOptions.RemoveEmptyEntries);
+
+                    ReadCardMes(content);
+                    foreach (string t1 in content)
+                    {
+                        if (t1.Contains("+CMT:") || t1.Contains("NO CARRIER") || t1.Contains("RING"))
+                        {
+                            var tHigh = new Thread(() =>
+                                {
+                                    Filter filter = new FilterProcessor(content).Run();
+                                    if (filter == null) return;
+                                    Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
+                                }) {Priority = ThreadPriority.AboveNormal};
+                            tHigh.Start();
+                            Thread.Sleep(200);
+                        }
+                    }
+                    if (!ReceiveEventEnabled)
+                    {
+                        IsReceived = true;
+                        //return;
+                    }
                 }
-                if (!ReceiveEventEnabled)
+                catch (Exception ex)
                 {
-                    IsReceived = true;
-                    //return;
+                    MessageBox.Show(ex.Message);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                port.ReceivedBytesThreshold = 1;
-            }
+                finally
+                {
+                    port.ReceivedBytesThreshold = 1;
+                }
         }
 
         private void ReadCardMes(string[] content)
