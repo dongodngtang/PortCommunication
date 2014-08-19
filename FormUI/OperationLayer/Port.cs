@@ -108,7 +108,7 @@ namespace FormUI.OperationLayer
         [Operation]
         public Port SendNoWrap(string at)
         {
-            Thread.Sleep(150);
+            //Thread.Sleep(150);
             SerialPort.Write(at);
             return this;
         }
@@ -124,7 +124,7 @@ namespace FormUI.OperationLayer
         [Operation]
         public Port Send(byte[] at)
         {
-            Thread.Sleep(150);
+//            Thread.Sleep(150);
             SerialPort.Write(at, 0, at.Length);
             Suspend();
             return this;
@@ -169,7 +169,7 @@ namespace FormUI.OperationLayer
                             break;
                         }
                         strCollect += message;
-                        Thread.Sleep(200);
+                        Thread.Sleep(100);
                     }
                     //                var message = port.ReadExisting();
                     //                var content = message.Replace("\r", string.Empty)

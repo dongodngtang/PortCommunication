@@ -137,11 +137,11 @@ namespace FormUI
                     }
                     str = listView1.Items[i].Text;
                     listView1.Items[i].Tag = new object();
-                    cmd.SmsAnswer();
+                   
                     break;
                 }
             }
-
+            cmd.SmsAnswer();
             ControlListboxAmount();
             listBox1.Items.Add(new Item(e.Filter.Name + "于：" + str, e.Filter.Context, e.Filter.Time));
             new RecMesSave().SaveMes(e.Filter.Content1, e.Filter.Phone, str);
@@ -958,23 +958,22 @@ namespace FormUI
 
         #endregion
 
-        private void TerminalMonitor_MinimumSizeChanged(object sender, EventArgs e)
+      
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Maximized;
+            notifyIcon1.Visible = false; 
+        }
+
+        private void TerminalMonitor_SizeChanged(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
                 this.notifyIcon1.Visible = true;
             } 
-
-        }
-
-        private void notifyIcon1_Click(object sender, EventArgs e)
-        {
-            this.Show();
-            this.WindowState = FormWindowState.Maximized;
-            notifyIcon1.Visible = false; 
-            //this.ShowInTaskbar = true;
-
         }
     }
 }

@@ -95,25 +95,24 @@ namespace FormUI.ManagerForms
         }
 
 
- /*
-        //在事件里输出接收的数据
-        private void comPort_DataReceived(DataReceivedEventArgs e)
-        {
-            txtRecv.BeginInvoke(
-                new MethodInvoker(() =>
-                {
-                    if (_port.HexMode)
-                    {
-                        txtRecv.AppendText(SerialPortUtil.ByteToHex(e.DataRecv)); //输出到主窗口文本控件   
-                    }
-                    else
-                    {
-                        txtRecv.AppendText(Encoding.Default.GetString(e.DataRecv)); //输出到主窗口文本控件 
-                    }
-                }
-                    )
-                );
-        }*/
+//        //在事件里输出接收的数据
+//        private void comPort_DataReceived(DataReceivedEventArgs e)
+//        {
+//            txtRecv.BeginInvoke(
+//                new MethodInvoker(() =>
+//                {
+//                    if (_port.HexMode)
+//                    {
+//                        txtRecv.AppendText(SerialPortUtil.ByteToHex(e.DataRecv)); //输出到主窗口文本控件   
+//                    }
+//                    else
+//                    {
+//                        txtRecv.AppendText(Encoding.Default.GetString(e.DataRecv)); //输出到主窗口文本控件 
+//                    }
+//                }
+//                    )
+//                );
+//        }
         private void btnOpenClose_Click(object sender, EventArgs e)
         {
             try
