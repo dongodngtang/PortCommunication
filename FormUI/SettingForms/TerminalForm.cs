@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using FormUI.OperationLayer;
 using FormUI.Properties;
@@ -103,7 +104,65 @@ namespace FormUI.SettingForms
             }
         }
 
-      
+        private void btImport_Click(object sender, EventArgs e)
+        {
+            var dialog = new OpenFileDialog
+            {
+                Filter = Resources.WhiteList_Get_txt_files,
+            };
+
+            if (dialog.ShowDialog() != DialogResult.OK) return;
+
+            try
+            {
+                string str;
+                using (var stream = dialog.OpenFile())
+                {
+                    using (var reader = new StreamReader(stream, System.Text.Encoding.Default))
+                    {
+                        str = reader.ReadToEnd();
+                        stream.Close();
+                        reader.Close();
+                    }
+                }
+                TerminalSerializer(str);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            GetTerminalList();
+        }
+
+        private void TerminalSerializer(string str)
+        {
+            var strcontent = str.Split(new[] {",", "."}, StringSplitOptions.RemoveEmptyEntries);
+            if (strcontent.Length != 2) throw new FileLoadException("终端表导入的格式不对！所有标点符号都是英文符号,.;|。");
+            var content = strcontent[1];
+            var strmodel = content.Split(new[] {";"}, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < strmodel.Length; i++)
+            {
+                var model = strmodel[i].Split(new[] {"|"}, StringSplitOptions.RemoveEmptyEntries);
+                if (model.Length == 4)
+                {
+                    _bllTerminal.Add(new Terminal()
+                        {
+                            Name = model[0].Trim(),
+                            PhoneNo = model[1].Trim(),
+                            Grouping = model[2].Trim(),
+                            GroupPhone = model[3].Trim(),
+                            Address = null,
+                            AllPhone = null
+                        });
+                }
+                else
+                {
+                    throw new Exception(string.Format("终端表中的一条记录格式不对在第：{0}条。", i + 1));
+                }
+               
+            }
+
+        }
         
 
     }

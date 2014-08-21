@@ -73,6 +73,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.TabControl = new System.Windows.Forms.TabControl();
+            this.btImport = new System.Windows.Forms.Button();
             this.tabMeetingNum.SuspendLayout();
             this.tabTimer.SuspendLayout();
             this.tabList.SuspendLayout();
@@ -276,6 +277,7 @@
             // tabList
             // 
             this.tabList.BackColor = System.Drawing.SystemColors.Control;
+            this.tabList.Controls.Add(this.btImport);
             this.tabList.Controls.Add(this.dataGridView1);
             this.tabList.Controls.Add(this.btEdit);
             this.tabList.Controls.Add(this.btDelete);
@@ -537,6 +539,17 @@
             this.TabControl.Size = new System.Drawing.Size(844, 543);
             this.TabControl.TabIndex = 0;
             // 
+            // btImport
+            // 
+            this.btImport.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btImport.Location = new System.Drawing.Point(467, 12);
+            this.btImport.Name = "btImport";
+            this.btImport.Size = new System.Drawing.Size(96, 36);
+            this.btImport.TabIndex = 6;
+            this.btImport.Text = "导 入";
+            this.btImport.UseVisualStyleBackColor = true;
+            this.btImport.Click += new System.EventHandler(this.btImport_Click);
+            // 
             // TerminalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -609,6 +622,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button btImport;
 
 
     }

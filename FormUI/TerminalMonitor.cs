@@ -191,7 +191,7 @@ namespace FormUI
             NewPhone += RefreshListBox;
             ListBox1Listener += SendMesShow;
             WindowState = FormWindowState.Maximized;
-            //AutoSend();
+            AutoSend();
 
         }
 

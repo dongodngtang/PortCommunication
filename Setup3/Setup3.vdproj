@@ -22,7 +22,7 @@
         "Entry"
         {
         "MsmKey" = "8:_1DE17490F4211B3EE2385DE20281ED3F"
-        "OwnerKey" = "8:_F3D2844544384D1A926D91E198F76DD2"
+        "OwnerKey" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -46,7 +46,7 @@
         "Entry"
         {
         "MsmKey" = "8:_5377D4C2657C1E4F2AAEF5DCFB68EC86"
-        "OwnerKey" = "8:_F3D2844544384D1A926D91E198F76DD2"
+        "OwnerKey" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -88,7 +88,7 @@
         "Entry"
         {
         "MsmKey" = "8:_96EECDBE786A4E9F9FD2217E35E6410A"
-        "OwnerKey" = "8:_F3D2844544384D1A926D91E198F76DD2"
+        "OwnerKey" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -100,6 +100,12 @@
         "Entry"
         {
         "MsmKey" = "8:_A1B7A837C6284FB3983CC404FE383430"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -130,7 +136,7 @@
         "Entry"
         {
         "MsmKey" = "8:_CC1493D0F201B9F12FA91629F21D0CFA"
-        "OwnerKey" = "8:_F3D2844544384D1A926D91E198F76DD2"
+        "OwnerKey" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -148,7 +154,7 @@
         "Entry"
         {
         "MsmKey" = "8:_D9FF51011E52BC3EC40E64A6B85FE8EF"
-        "OwnerKey" = "8:_F3D2844544384D1A926D91E198F76DD2"
+        "OwnerKey" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -172,13 +178,7 @@
         "Entry"
         {
         "MsmKey" = "8:_E68A4013A90E7F1DF6AB82F8D4F5F485"
-        "OwnerKey" = "8:_F3D2844544384D1A926D91E198F76DD2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F3D2844544384D1A926D91E198F76DD2"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,7 +190,7 @@
         "Entry"
         {
         "MsmKey" = "8:_F9C15AD5BB5C12978EF7866CFA6994D3"
-        "OwnerKey" = "8:_F3D2844544384D1A926D91E198F76DD2"
+        "OwnerKey" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -202,7 +202,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F3D2844544384D1A926D91E198F76DD2"
+        "OwnerKey" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1060,7 +1060,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_63D70BEE7CBD43D88703B6E64B17C498"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_29387A02D94F47BFADECCCBE12553194"
             {
             "Name" = "8:德海GSM广播监测系统"
             "Arguments" = "8:"
@@ -1068,22 +1068,8 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_F3D2844544384D1A926D91E198F76DD2"
+            "Target" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
             "Folder" = "8:_26FF0007D791445F8207264582840015"
-            "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
-            "Icon" = "8:_A843052C01A848CA9B43142E9BBB496C"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_67536088177F4B678BDE5A412FB934A9"
-            {
-            "Name" = "8:德海GSM广播监测系统"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_F3D2844544384D1A926D91E198F76DD2"
-            "Folder" = "8:_E84B64C60E104831B7B239CE6E8D4214"
             "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
             "Icon" = "8:_A843052C01A848CA9B43142E9BBB496C"
             "Feature" = "8:"
@@ -1100,6 +1086,20 @@
             "Folder" = "8:_E84B64C60E104831B7B239CE6E8D4214"
             "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
             "Icon" = "8:"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A294BB36CA394A1BB80084EF76FA0573"
+            {
+            "Name" = "8:德海GSM广播监测系统"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_A381905A36C44C99B2E1ED35EA5D514C"
+            "Folder" = "8:_E84B64C60E104831B7B239CE6E8D4214"
+            "WorkingFolder" = "8:_4BD058AE9A854C2EBD49389338D9D4D7"
+            "Icon" = "8:_A843052C01A848CA9B43142E9BBB496C"
             "Feature" = "8:"
             }
         }
@@ -1501,7 +1501,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F3D2844544384D1A926D91E198F76DD2"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A381905A36C44C99B2E1ED35EA5D514C"
             {
             "SourcePath" = "8:..\\FormUI\\obj\\x86\\Debug\\FormUI.exe"
             "TargetName" = "8:"
