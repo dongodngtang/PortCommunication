@@ -114,13 +114,21 @@ namespace FormUI.OperationLayer
                 string thetime = Convert.ToDateTime(PlayTime).AddMinutes(delay).ToString("yyyy/MM/dd HH:mm:ss");
                 if (DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss").Equals(thetime))
                 {
-                    string context = _order.PlayMusic(group.TerminalName, group.TerminalNo, group.PlayStyle, group.Music,
-                                                      group.PlayMinute);
-                    new MessageBoxTimeOut().Show(3000, string.Format("{0}：正在进行组播活动！", group.TerminalName), "提示",
-                                                 MessageBoxButtons.OK);
+                    List<GroupMemoryPlay> sendObject =
+                        memory.GetModelList(string.Format("GroupName = '{0}' AND PlayDelay ='{1}'"
+                                                          , GroupName, group.PlayDelay));
+                    foreach (GroupMemoryPlay senditem in sendObject)
+                    {
+                        _order.PlayMusic(senditem.TerminalName, senditem.TerminalNo, senditem.PlayStyle,
+                                                          senditem.Music,
+                                                          senditem.PlayMinute);
+                        new MessageBoxTimeOut().Show(3000, string.Format("{0}：正在进行组播活动！", senditem.TerminalName), "提示",
+                                                     MessageBoxButtons.OK);
+                    }
                 }
             }
         }
+
 
         private void Regular()
         {
@@ -137,10 +145,7 @@ namespace FormUI.OperationLayer
                     if (DateTime.Now.ToString("HH:mm:ss").Equals(time) &&
                         Convert.ToInt32(DateTime.Now.ToString("dd")).Equals(Convert.ToInt32(type[1])))
                     {
-                        _order.PlayMusic(item.TerminalName, item.Phone, item.PlayType, item.Music, item.PlayTimes);
-                        UpdatePlayTimes(item);
-                        new MessageBoxTimeOut().Show(6000, string.Format("{0}：正在进行定时广播!", item.TerminalName),
-                                                     "提示", MessageBoxButtons.OK);
+                        SendOrder(item);
                     }
                 }
                 if (type[0] == "每周")
@@ -148,10 +153,7 @@ namespace FormUI.OperationLayer
                     if (type[1].Contains(DateTime.Now.ToString("dddd")) &&
                         DateTime.Now.ToLongTimeString().Equals(item.Time))
                     {
-                        _order.PlayMusic(item.TerminalName, item.Phone, item.PlayType, item.Music, item.PlayTimes);
-                        UpdatePlayTimes(item);
-                        new MessageBoxTimeOut().Show(6000, string.Format("{0}：正在进行定时广播！", item.TerminalName), "提示",
-                                                     MessageBoxButtons.OK);
+                        SendOrder(item);
                     }
                 }
                 if (type[0] == "每天")
@@ -159,10 +161,7 @@ namespace FormUI.OperationLayer
                     string nowtime = DateTime.Now.ToString("HH:mm:ss") + "*";
                     if (nowtime.Equals(type[1]))
                     {
-                        _order.PlayMusic(item.TerminalName, item.Phone, item.PlayType, item.Music, item.PlayTimes);
-                        UpdatePlayTimes(item);
-                        new MessageBoxTimeOut().Show(6000, string.Format("{0}：正在进行定时广播！", item.TerminalName), "提示",
-                                                     MessageBoxButtons.OK);
+                        SendOrder(item);
                     }
                 }
                 if (type[0] == "指定时间")
@@ -170,12 +169,24 @@ namespace FormUI.OperationLayer
                     string time = type[1] + " " + item.Time;
                     if (DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss").Equals(time))
                     {
-                        _order.PlayMusic(item.TerminalName, item.Phone, item.PlayType, item.Music, item.PlayTimes);
-                        UpdatePlayTimes(item);
-                        new MessageBoxTimeOut().Show(6000, string.Format("{0}：正在进行定时广播！", item.TerminalName), "提示",
-                                                     MessageBoxButtons.OK);
+                        SendOrder(item);
                     }
                 }
+            }
+        }
+
+        private void SendOrder(RegularPlay item)
+        {
+            List<RegularPlay> sendObject =
+                _service.GetModelList("RegularType = '" + item.RegularType + "' AND Time = '" + item.Time +
+                                      "'");
+            foreach (RegularPlay senditem in sendObject)
+            {
+                _order.PlayMusic(senditem.TerminalName, senditem.Phone, senditem.PlayType, senditem.Music,
+                                 senditem.PlayTimes);
+                UpdatePlayTimes(senditem);
+                new MessageBoxTimeOut().Show(6000, string.Format("{0}：正在进行定时广播!", senditem.TerminalName),
+                                             "提示", MessageBoxButtons.OK);
             }
         }
 

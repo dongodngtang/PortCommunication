@@ -277,7 +277,7 @@ namespace TomorrowSoft.DBUtility
                 }
                 catch (SQLiteException ex)
                 {
-                    throw new Exception(ex.Message);
+                   throw new Exception(ex.Message);
                 }
                 return ds;
             }
