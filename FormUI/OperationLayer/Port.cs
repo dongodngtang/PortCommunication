@@ -158,6 +158,8 @@ namespace FormUI.OperationLayer
         {
             string strCollect = string.Empty;
             var port = (SerialPort) sender;
+            lock (this)
+            {
                 try
                 {
                     port.ReceivedBytesThreshold = port.ReadBufferSize;
@@ -206,6 +208,7 @@ namespace FormUI.OperationLayer
                 {
                     port.ReceivedBytesThreshold = 1;
                 }
+            }
         }
 
         private void ReadCardMes(string[] content)

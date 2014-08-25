@@ -41,6 +41,7 @@ namespace FormUI.Filters
             text = string.Empty;
             var qs = new QsService().GetAll();
             var isHors = false;
+            if (_photovoltaic == null || _battery == null) throw new ArgumentException("_photovoltaic和_battery不能为空！");  
             if (qs.Rows.Count>0)
             {
                 if (double.Parse(_photovoltaic) < Convert.ToDouble(Settings.Default.RDS))

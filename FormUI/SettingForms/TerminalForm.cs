@@ -102,6 +102,7 @@ namespace FormUI.SettingForms
                 new TerminalAdd(model).ShowDialog();
                 GetTerminalList();
             }
+
         }
 
         private void btImport_Click(object sender, EventArgs e)

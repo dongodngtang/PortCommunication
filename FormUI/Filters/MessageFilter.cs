@@ -66,8 +66,7 @@ namespace FormUI.Filters
                     }
 
                     if (content.Contains("光伏")){
-                        /*new ConditionService()
-                            .Add(ConditionFilter.FilterCondition(phone, content));*/
+                        ConditionFilter.FilterCondition(phone, content,Name);
                         isQsDown = ConditionFilter.PhotovoltaicCompare(out text);
                     }
                     Phone = phone;

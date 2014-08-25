@@ -55,6 +55,14 @@ namespace FormUI
         {
             ControlListboxAmount();
             listBox1.Items.Add(new Item("发送至：" + phone, context));
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                if (listView1.Items[i].Text == phone)
+                {
+                    listView1.Items[i].ForeColor = Color.Red;
+                    break;
+                }
+            }
         }
 
         /// <summary>
@@ -137,13 +145,14 @@ namespace FormUI
                     }
                     str = listView1.Items[i].Text;
                     listView1.Items[i].Tag = new object();
-                   
+                    listView1.Items[i].ForeColor = Color.Green;
                     break;
                 }
             }
             cmd.SmsAnswer();
             ControlListboxAmount();
             listBox1.Items.Add(new Item(e.Filter.Name + "于：" + str, e.Filter.Context, e.Filter.Time));
+            if (e.Filter.Content1 == null) return;
             new RecMesSave().SaveMes(e.Filter.Content1, e.Filter.Phone, str);
         }
 
@@ -191,7 +200,7 @@ namespace FormUI
             NewPhone += RefreshListBox;
             ListBox1Listener += SendMesShow;
             WindowState = FormWindowState.Maximized;
-            AutoSend();
+           // AutoSend();
 
         }
 
@@ -599,14 +608,18 @@ namespace FormUI
 
         private void 添加管理号码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            IList<ListViewItem> items = GetSelectedPhone();
             var white = new WhiteForm("添加管理号码");
             white.ShowDialog();
             if (white.DialogResult == DialogResult.OK && white.Phone != string.Empty)
             {
                 try
                 {
-                    string content = _order.AddManagerPhone(listView1.FocusedItem.Text,
-                                                            listView1.FocusedItem.ToolTipText, white.Phone);
+                    foreach (var item in items)
+                    {
+                        _order.AddManagerPhone(item.Text,item.ToolTipText, white.Phone);  
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -617,13 +630,18 @@ namespace FormUI
 
         private void 添加授权号码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            IList<ListViewItem> items = GetSelectedPhone();
             var white = new WhiteForm("添加授权号码");
             white.ShowDialog();
             if (white.DialogResult == DialogResult.OK && white.Phone != string.Empty)
             {
                 try
                 {
-                    _order.Authorization(listView1.FocusedItem.Text, listView1.FocusedItem.ToolTipText, white.Phone);
+                    foreach (var item in items)
+                    {
+                        _order.Authorization(item.Text, item.ToolTipText, white.Phone);
+                    }
+                   
                 }
                 catch (Exception ex)
                 {
@@ -912,6 +930,8 @@ namespace FormUI
 
         private enum TerminalState
         {
+            Send,
+            Receive,
             Test,
             Running,
             Stoped,

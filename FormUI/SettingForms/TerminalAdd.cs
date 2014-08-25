@@ -48,7 +48,8 @@ namespace FormUI.SettingForms
                 {
                     EditTerminal();
                 }
-            
+            this.Close();
+
         }
         
         private void AddTerminal()

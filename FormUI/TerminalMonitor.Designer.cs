@@ -203,6 +203,8 @@
             this.imageList.Images.SetKeyName(5, "Running");
             this.imageList.Images.SetKeyName(6, "Stoped");
             this.imageList.Images.SetKeyName(7, "StopedChecked");
+            this.imageList.Images.SetKeyName(8, "Send.jpg");
+            this.imageList.Images.SetKeyName(9, "Receive.jpg");
             // 
             // listBox1
             // 
@@ -356,26 +358,26 @@
             this.终端防盗解锁ToolStripMenuItem,
             this.c型终端ToolStripMenuItem});
             this.contextMenu.Name = "contextMenu";
-            this.contextMenu.Size = new System.Drawing.Size(149, 202);
+            this.contextMenu.Size = new System.Drawing.Size(143, 202);
             // 
             // 状态ToolStripMenuItem
             // 
             this.状态ToolStripMenuItem.Name = "状态ToolStripMenuItem";
-            this.状态ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.状态ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.状态ToolStripMenuItem.Text = "检测";
             this.状态ToolStripMenuItem.Click += new System.EventHandler(this.状态ToolStripMenuItem_Click);
             // 
             // 音量ToolStripMenuItem
             // 
             this.音量ToolStripMenuItem.Name = "音量ToolStripMenuItem";
-            this.音量ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.音量ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.音量ToolStripMenuItem.Text = "设置音量";
             this.音量ToolStripMenuItem.Click += new System.EventHandler(this.音量ToolStripMenuItem_Click);
             // 
             // 电压ToolStripMenuItem
             // 
             this.电压ToolStripMenuItem.Name = "电压ToolStripMenuItem";
-            this.电压ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.电压ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.电压ToolStripMenuItem.Text = "设置电压";
             this.电压ToolStripMenuItem.Click += new System.EventHandler(this.电压ToolStripMenuItem_Click);
             // 
@@ -388,76 +390,76 @@
             this.删除号码ToolStripMenuItem,
             this.清空白名单ToolStripMenuItem});
             this.白名单ToolStripMenuItem1.Name = "白名单ToolStripMenuItem1";
-            this.白名单ToolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.白名单ToolStripMenuItem1.Size = new System.Drawing.Size(142, 22);
             this.白名单ToolStripMenuItem1.Text = "白名单";
             // 
             // 查看ToolStripMenuItem
             // 
             this.查看ToolStripMenuItem.Name = "查看ToolStripMenuItem";
-            this.查看ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.查看ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.查看ToolStripMenuItem.Text = "查看";
             this.查看ToolStripMenuItem.Click += new System.EventHandler(this.查看ToolStripMenuItem_Click);
             // 
             // 添加管理号码ToolStripMenuItem
             // 
             this.添加管理号码ToolStripMenuItem.Name = "添加管理号码ToolStripMenuItem";
-            this.添加管理号码ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.添加管理号码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.添加管理号码ToolStripMenuItem.Text = "添加管理号码";
             this.添加管理号码ToolStripMenuItem.Click += new System.EventHandler(this.添加管理号码ToolStripMenuItem_Click);
             // 
             // 添加授权号码ToolStripMenuItem
             // 
             this.添加授权号码ToolStripMenuItem.Name = "添加授权号码ToolStripMenuItem";
-            this.添加授权号码ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.添加授权号码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.添加授权号码ToolStripMenuItem.Text = "添加授权号码";
             this.添加授权号码ToolStripMenuItem.Click += new System.EventHandler(this.添加授权号码ToolStripMenuItem_Click);
             // 
             // 删除号码ToolStripMenuItem
             // 
             this.删除号码ToolStripMenuItem.Name = "删除号码ToolStripMenuItem";
-            this.删除号码ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.删除号码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.删除号码ToolStripMenuItem.Text = "删除号码";
             this.删除号码ToolStripMenuItem.Click += new System.EventHandler(this.删除号码ToolStripMenuItem_Click);
             // 
             // 清空白名单ToolStripMenuItem
             // 
             this.清空白名单ToolStripMenuItem.Name = "清空白名单ToolStripMenuItem";
-            this.清空白名单ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.清空白名单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.清空白名单ToolStripMenuItem.Text = "清空白名单";
             this.清空白名单ToolStripMenuItem.Click += new System.EventHandler(this.清空白名单ToolStripMenuItem_Click);
             // 
             // 定时播放ToolStripMenuItem
             // 
             this.定时播放ToolStripMenuItem.Name = "定时播放ToolStripMenuItem";
-            this.定时播放ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.定时播放ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.定时播放ToolStripMenuItem.Text = "定时广播";
             this.定时播放ToolStripMenuItem.Click += new System.EventHandler(this.定时播放ToolStripMenuItem_Click);
             // 
             // 设定延时广播ToolStripMenuItem
             // 
             this.设定延时广播ToolStripMenuItem.Name = "设定延时广播ToolStripMenuItem";
-            this.设定延时广播ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.设定延时广播ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.设定延时广播ToolStripMenuItem.Text = "设定延时广播";
             this.设定延时广播ToolStripMenuItem.Click += new System.EventHandler(this.设定延时广播ToolStripMenuItem_Click);
             // 
             // 终端防盗加锁ToolStripMenuItem
             // 
             this.终端防盗加锁ToolStripMenuItem.Name = "终端防盗加锁ToolStripMenuItem";
-            this.终端防盗加锁ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.终端防盗加锁ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.终端防盗加锁ToolStripMenuItem.Text = "终端防盗加锁";
             this.终端防盗加锁ToolStripMenuItem.Click += new System.EventHandler(this.终端防盗加锁ToolStripMenuItem_Click);
             // 
             // 终端防盗解锁ToolStripMenuItem
             // 
             this.终端防盗解锁ToolStripMenuItem.Name = "终端防盗解锁ToolStripMenuItem";
-            this.终端防盗解锁ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.终端防盗解锁ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.终端防盗解锁ToolStripMenuItem.Text = "终端防盗解锁";
             this.终端防盗解锁ToolStripMenuItem.Click += new System.EventHandler(this.终端防盗解锁ToolStripMenuItem_Click);
             // 
             // c型终端ToolStripMenuItem
             // 
             this.c型终端ToolStripMenuItem.Name = "c型终端ToolStripMenuItem";
-            this.c型终端ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.c型终端ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.c型终端ToolStripMenuItem.Text = "C型终端";
             this.c型终端ToolStripMenuItem.Click += new System.EventHandler(this.c型终端ToolStripMenuItem_Click);
             // 
