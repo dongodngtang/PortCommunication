@@ -193,7 +193,7 @@ namespace FormUI.OperationLayer
                                     Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
                                 }) {Priority = ThreadPriority.AboveNormal};
                             tHigh.Start();
-                            Thread.Sleep(200);
+                            Thread.Sleep(260);
                         }
                     }
                     if (!ReceiveEventEnabled)
