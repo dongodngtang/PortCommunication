@@ -156,10 +156,11 @@ namespace FormUI.OperationLayer
 
         private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            string strCollect = string.Empty;
-            var port = (SerialPort) sender;
+           
             lock (this)
             {
+                var port = (SerialPort)sender;
+                string strCollect = string.Empty;
                 try
                 {
                     port.ReceivedBytesThreshold = port.ReadBufferSize;
@@ -171,7 +172,7 @@ namespace FormUI.OperationLayer
                             break;
                         }
                         strCollect += message;
-                        Thread.Sleep(100);
+                        Thread.Sleep(50);
                     }
                     //                var message = port.ReadExisting();
                     //                var content = message.Replace("\r", string.Empty)
@@ -180,6 +181,7 @@ namespace FormUI.OperationLayer
                                                  .Split(new[] {"\n", "ERROR"}, StringSplitOptions.RemoveEmptyEntries);
 
                     ReadCardMes(content);
+
                     foreach (string t1 in content)
                     {
                         if (t1.Contains("+CMT:") || t1.Contains("NO CARRIER") || t1.Contains("RING"))
@@ -199,6 +201,7 @@ namespace FormUI.OperationLayer
                         IsReceived = true;
                         //return;
                     }
+
                 }
                 catch (Exception ex)
                 {
