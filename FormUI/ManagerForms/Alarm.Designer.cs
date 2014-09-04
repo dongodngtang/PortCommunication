@@ -80,6 +80,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btOk);
             this.Name = "Alarm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "警报";
             this.ResumeLayout(false);
             this.PerformLayout();

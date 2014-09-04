@@ -10,7 +10,7 @@ namespace FormUI.OperationLayer
     {
         public void SaveMes(string content ,string phone,string name)
         {
-            if (content.Contains("光伏"))
+            if (content.Contains("喇叭"))
             {
                 new ConditionService()
                     .Add(ConditionFilter.FilterCondition(phone, content,name));

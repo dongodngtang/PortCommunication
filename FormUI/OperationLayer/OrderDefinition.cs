@@ -281,6 +281,15 @@ namespace FormUI.OperationLayer
         {
             comAT.SendChineseMessage(terminalName, phone, "检测");
         }
+        /// <summary>
+        /// 启动
+        /// </summary>
+        /// <param name="terminalName"></param>
+        /// <param name="phone"></param>
+        public void InitTerminal(string terminalName, string phone)
+        {
+            comAT.SendChineseMessage(terminalName, phone, "启动");
+        }
     }
 
     public enum PlayStyle

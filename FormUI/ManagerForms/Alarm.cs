@@ -41,12 +41,13 @@ namespace FormUI.ManagerForms
                             }
                         });
                     new Thread(t).Start();
-
+                   
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }
+                } 
+                this.Close();
             }
         }
 

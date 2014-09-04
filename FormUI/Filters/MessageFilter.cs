@@ -65,7 +65,8 @@ namespace FormUI.Filters
                        
                     }
 
-                    if (content.Contains("光伏")){
+                    if (content.Contains("喇叭"))
+                    {
                         ConditionFilter.FilterCondition(phone, content,Name);
                         isQsDown = ConditionFilter.PhotovoltaicCompare(out text);
                     }

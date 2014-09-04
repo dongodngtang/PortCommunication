@@ -97,63 +97,65 @@ namespace FormUI
         /// <param name="e"></param>
         private void RefreshListBox(object sender, FilterEventArgs e)
         {
-            string str = e.Filter.Phone;
-
-            for (int i = 0; i < listView1.Items.Count; i++)
+            lock (this)
             {
-                if (listView1.Items[i].ToolTipText == e.Filter.Phone)
+                string str = e.Filter.Phone;
+                for (int i = 0; i < listView1.Items.Count; i++)
                 {
-                    if (e.Filter.Context.Contains("本终端已启动"))
+                    if (listView1.Items[i].ToolTipText == e.Filter.Phone)
                     {
-                        _order.TimeSet(e.Filter.Phone, e.Filter.Phone,
-                                       DateTime.Now.ToString("yyyyMMddHHmmss").Substring(2));
-                        listView1.Items[i].ImageKey = TerminalState.RunningChecked.ToString();
-                     
-                    }
-                    if (e.Filter.Context.Contains("本地喊话") || e.Filter.Context.Contains("播放"))
+                        if (e.Filter.Context.Contains("本终端已启动"))
+                        {
+                            _order.TimeSet(e.Filter.Phone, e.Filter.Phone,
+                                           DateTime.Now.ToString("yyyyMMddHHmmss").Substring(2));
+                            listView1.Items[i].ImageKey = TerminalState.RunningChecked.ToString();
 
-                    {
-                        listView1.Items[i].ImageKey = TerminalState.GreenChecked.ToString();
-                      
-                    }
+                        }
+                        if (e.Filter.Context.Contains("本地喊话") || e.Filter.Context.Contains("播放"))
+                        {
+                            listView1.Items[i].ImageKey = TerminalState.GreenChecked.ToString();
 
-                    if (e.Filter.Context.Contains("已停播") || e.Filter.Context.Contains("OK")||e.Filter .Context.Contains( "充电"))
-                    {
-                        listView1.Items[i].ImageKey = TerminalState.RunningChecked.ToString();
+                        }
+
+                        if (e.Filter.Context.Contains("已停播") || e.Filter.Context.Contains("OK") || e.Filter.Context.Contains("充电"))
+                        {
+                            listView1.Items[i].ImageKey = TerminalState.RunningChecked.ToString();
+                        }
+                        if (e.Filter.Context.Contains("error"))
+                        {
+                            listView1.Items[i].ImageKey = TerminalState.StopedChecked.ToString();
+                        }
+                        if (e.Filter.Context.Contains("告警") || e.Filter.IsQsDown)
+                        {
+                            listView1.Items[i].ImageKey = TerminalState.RedChecked.ToString();
+                            new MessageBoxTimeOut().Show(3000, string.Format("{0}", e.Filter.Context), "告警",
+                                                         MessageBoxButtons.OK);
+                        }
+                        /* if (e.Filter.IsQsDown)
+                        {
+                            listView1.Items[i].ImageKey = TerminalState.Red.ToString();
+                        }*/
+                        if (e.Filter.Name.Contains("来电"))
+                        {
+                            cmd.HangUp();
+                        }
+                        if (e.Filter.Name.Contains("挂机"))
+                        {
+                            CallLock = true;
+                        }
+                        str = listView1.Items[i].Text;
+                        listView1.Items[i].Tag = new object();
+                        listView1.Items[i].ForeColor = Color.Green;
+                        break;
                     }
-                    if (e.Filter.Context.Contains("error"))
-                    {
-                        listView1.Items[i].ImageKey = TerminalState.StopedChecked.ToString();
-                    }
-                    if (e.Filter.Context.Contains("告警") || e.Filter.IsQsDown)
-                    {
-                        listView1.Items[i].ImageKey = TerminalState.RedChecked.ToString();
-                        new MessageBoxTimeOut().Show(3000, string.Format("{0}", e.Filter.Context), "告警",
-                                                     MessageBoxButtons.OK);
-                    }
-                    /* if (e.Filter.IsQsDown)
-                    {
-                        listView1.Items[i].ImageKey = TerminalState.Red.ToString();
-                    }*/
-                    if (e.Filter.Name.Contains("来电"))
-                    {
-                        cmd.HangUp();
-                    }
-                    if (e.Filter.Name.Contains("挂机"))
-                    {
-                        CallLock = true;
-                    }
-                    str = listView1.Items[i].Text;
-                    listView1.Items[i].Tag = new object();
-                    listView1.Items[i].ForeColor = Color.Green;
-                    break;
                 }
+                cmd.SmsAnswer();
+                ControlListboxAmount();
+                listBox1.Items.Add(new Item(e.Filter.Name + "于：" + str, e.Filter.Context, e.Filter.Time));
+                if (e.Filter.Content1 == null) return;
+                new RecMesSave().SaveMes(e.Filter.Content1, e.Filter.Phone, str);
             }
-            cmd.SmsAnswer();
-            ControlListboxAmount();
-            listBox1.Items.Add(new Item(e.Filter.Name + "于：" + str, e.Filter.Context, e.Filter.Time));
-            if (e.Filter.Content1 == null) return;
-            new RecMesSave().SaveMes(e.Filter.Content1, e.Filter.Phone, str);
+            
         }
 
         private void TerminalMonitor_Load(object sender, EventArgs e)
@@ -200,7 +202,7 @@ namespace FormUI
             NewPhone += RefreshListBox;
             ListBox1Listener += SendMesShow;
             WindowState = FormWindowState.Maximized;
-           // AutoSend();
+            //AutoSend();
 
         }
 
@@ -419,7 +421,7 @@ namespace FormUI
             {
                 foreach (ListViewItem item in items)
                 {
-                    _order.ConditionQuery(item.Text, item.ToolTipText);
+                    _order.InitTerminal(item.Text, item.ToolTipText);
                 }
             });
             new Thread(t1).Start();

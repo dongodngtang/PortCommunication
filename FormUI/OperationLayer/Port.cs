@@ -18,7 +18,7 @@ namespace FormUI.OperationLayer
         private static volatile Port instance;
 
         private static readonly object syncRoot = new Object();
-
+        public SerialPort SerialPort { get; private set; }
         private Port()
         {
             ReceiveEventEnabled = true;
@@ -62,7 +62,7 @@ namespace FormUI.OperationLayer
         }
 
 
-        public SerialPort SerialPort { get; private set; }
+       
 
         public bool IsOpen
         {
@@ -140,7 +140,7 @@ namespace FormUI.OperationLayer
                 SerialPort.NewLine = "\r\n";
                 SerialPort.DataReceived += port_DataReceived;
                 SerialPort.ErrorReceived += port_ErrorReceived;
-                Thread.Sleep(150);
+                //Thread.Sleep(150);
             }
             catch
             {
@@ -172,7 +172,7 @@ namespace FormUI.OperationLayer
                             break;
                         }
                         strCollect += message;
-                        Thread.Sleep(50);
+                        Thread.Sleep(30);
                     }
                     //                var message = port.ReadExisting();
                     //                var content = message.Replace("\r", string.Empty)
@@ -193,7 +193,7 @@ namespace FormUI.OperationLayer
                                     Owner.Invoke(new Action<Filter>(Owner.Popup), filter);
                                 }) {Priority = ThreadPriority.AboveNormal};
                             tHigh.Start();
-                            Thread.Sleep(260);
+                            //Thread.Sleep(260);
                         }
                     }
                     if (!ReceiveEventEnabled)
