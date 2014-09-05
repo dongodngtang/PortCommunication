@@ -27,8 +27,8 @@ namespace FormUI.SettingForms
 
         private void PopupLayer_Load(object sender, EventArgs e)
         {
-            timer1.Interval = 1000;
-            timer1.Enabled = true;
+//            timer1.Interval = 1000;
+//            timer1.Enabled = true;
         }
 
         private void cbClose_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace FormUI.SettingForms
             timer2.Enabled = false;//停止timer2计时器，
             if (this.Opacity > 0 && this.Opacity <= 1)//开始执行弹出窗渐渐透明
             {
-                this.Opacity = this.Opacity - 0.05;//透明频度0.05
+                this.Opacity = this.Opacity - 0.1;//透明频度0.1
             }
             if (MousePosition.X >= this.Location.X && MousePosition.Y >= this.Location.Y)//每次都判断鼠标是否是在弹出窗上，使用鼠标在屏幕上的坐标跟弹出窗体的屏幕坐标做比较。
             {

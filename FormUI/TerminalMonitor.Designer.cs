@@ -396,35 +396,35 @@
             // 查看ToolStripMenuItem
             // 
             this.查看ToolStripMenuItem.Name = "查看ToolStripMenuItem";
-            this.查看ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查看ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.查看ToolStripMenuItem.Text = "查看";
             this.查看ToolStripMenuItem.Click += new System.EventHandler(this.查看ToolStripMenuItem_Click);
             // 
             // 添加管理号码ToolStripMenuItem
             // 
             this.添加管理号码ToolStripMenuItem.Name = "添加管理号码ToolStripMenuItem";
-            this.添加管理号码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.添加管理号码ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.添加管理号码ToolStripMenuItem.Text = "添加管理号码";
             this.添加管理号码ToolStripMenuItem.Click += new System.EventHandler(this.添加管理号码ToolStripMenuItem_Click);
             // 
             // 添加授权号码ToolStripMenuItem
             // 
             this.添加授权号码ToolStripMenuItem.Name = "添加授权号码ToolStripMenuItem";
-            this.添加授权号码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.添加授权号码ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.添加授权号码ToolStripMenuItem.Text = "添加授权号码";
             this.添加授权号码ToolStripMenuItem.Click += new System.EventHandler(this.添加授权号码ToolStripMenuItem_Click);
             // 
             // 删除号码ToolStripMenuItem
             // 
             this.删除号码ToolStripMenuItem.Name = "删除号码ToolStripMenuItem";
-            this.删除号码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除号码ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.删除号码ToolStripMenuItem.Text = "删除号码";
             this.删除号码ToolStripMenuItem.Click += new System.EventHandler(this.删除号码ToolStripMenuItem_Click);
             // 
             // 清空白名单ToolStripMenuItem
             // 
             this.清空白名单ToolStripMenuItem.Name = "清空白名单ToolStripMenuItem";
-            this.清空白名单ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.清空白名单ToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.清空白名单ToolStripMenuItem.Text = "清空白名单";
             this.清空白名单ToolStripMenuItem.Click += new System.EventHandler(this.清空白名单ToolStripMenuItem_Click);
             // 
@@ -558,7 +558,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TerminalMonitor";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "德海GSM广播监测系统";
             this.Load += new System.EventHandler(this.TerminalMonitor_Load);

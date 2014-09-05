@@ -20,7 +20,6 @@ namespace FormUI.Filters
         private string phone;
         private DateTime time;
         private string content;
-        private bool isQsDown;
         private string text;
         public MessageFilter(Filter next) : base(next)
         {
@@ -64,18 +63,17 @@ namespace FormUI.Filters
                         }
                        
                     }
-
-                    if (content.Contains("喇叭"))
+                    IsQsDown = false;
+                    if (content.Contains("光伏"))
                     {
                         ConditionFilter.FilterCondition(phone, content,Name);
-                        isQsDown = ConditionFilter.PhotovoltaicCompare(out text);
+                        IsQsDown = !ConditionFilter.PhotovoltaicCompare(out text);
                     }
                     Phone = phone;
                     Time = time;
                     Context = content;
-                    IsQsDown = isQsDown;
                     Content1 = content;
-                    if (isQsDown)
+                    if (IsQsDown)
                     {
                         Context = text + content;
                     }
