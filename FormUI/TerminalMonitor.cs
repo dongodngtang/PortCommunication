@@ -24,8 +24,8 @@ namespace FormUI
 
         public static bool CallLock = true;
 
-        private readonly OrderDefinition _order = new OrderDefinition();
-        private readonly TerminalService _service = new TerminalService();
+        private readonly OrderDefinition _order;
+        private readonly TerminalService _service;
         private readonly AT cmd;
         private readonly Port port = Port.Instance;
         private Printer _printer = new Printer();
@@ -37,6 +37,8 @@ namespace FormUI
             InitializeComponent();
             cmd = new AT();
             alarmClock = new AlarmClock();
+            _order = new OrderDefinition();
+            _service = new TerminalService();
         }
 
         public event MyEvent NewPhone;
@@ -429,7 +431,8 @@ namespace FormUI
         private void btTestMusic_Click(object sender, EventArgs e)
         {
             IList<ListViewItem> items = GetSelectedPhone();
-            if (MessageBox.Show(string.Format(@"确定发送至选中的{0}个终端？", items.Count),
+            new MusicSet(items).ShowDialog();
+            /* if (MessageBox.Show(string.Format(@"确定发送至选中的{0}个终端？", items.Count),
                                 "提示",
                                 MessageBoxButtons.OKCancel,
                                 MessageBoxIcon.Question) == DialogResult.OK)
@@ -456,7 +459,7 @@ namespace FormUI
                 {
                     MessageBox.Show(ex.Message);
                 }
-            }
+            }*/
         }
 
 

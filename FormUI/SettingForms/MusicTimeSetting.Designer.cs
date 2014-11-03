@@ -98,7 +98,7 @@
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(230, 150);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(171, 20);
+            this.comboBox4.Size = new System.Drawing.Size(127, 20);
             this.comboBox4.TabIndex = 7;
             this.comboBox4.Text = global::FormUI.Properties.Settings.Default.Ceshi;
             // 
@@ -109,7 +109,7 @@
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(230, 72);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(171, 20);
+            this.comboBox3.Size = new System.Drawing.Size(127, 20);
             this.comboBox3.TabIndex = 6;
             this.comboBox3.Text = global::FormUI.Properties.Settings.Default.Paizha;
             // 
@@ -120,7 +120,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(230, 114);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(171, 20);
+            this.comboBox2.Size = new System.Drawing.Size(127, 20);
             this.comboBox2.TabIndex = 5;
             this.comboBox2.Text = global::FormUI.Properties.Settings.Default.Fadian;
             // 
@@ -131,7 +131,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(230, 33);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(171, 20);
+            this.comboBox1.Size = new System.Drawing.Size(127, 20);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = global::FormUI.Properties.Settings.Default.Xiehong;
             // 
