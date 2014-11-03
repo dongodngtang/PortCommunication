@@ -34,7 +34,7 @@
             this.btFloodWarn = new System.Windows.Forms.Button();
             this.btTest = new System.Windows.Forms.Button();
             this.btSlaggWarn = new System.Windows.Forms.Button();
-            this.btRainFull = new System.Windows.Forms.Button();
+            this.btTextPlay = new System.Windows.Forms.Button();
             this.btTestMusic = new System.Windows.Forms.Button();
             this.btWaterLevel = new System.Windows.Forms.Button();
             this.terminalCall = new System.Windows.Forms.Button();
@@ -78,6 +78,7 @@
             this.btAlarm = new System.Windows.Forms.Button();
             this.btOpenCTerminal = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.功能按钮显示隐藏ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -128,18 +129,18 @@
             this.btSlaggWarn.UseVisualStyleBackColor = true;
             this.btSlaggWarn.Click += new System.EventHandler(this.btSlaggWarn_Click);
             // 
-            // btRainFull
+            // btTextPlay
             // 
-            this.btRainFull.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
-            this.btRainFull.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btRainFull.Location = new System.Drawing.Point(901, 406);
-            this.btRainFull.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.btRainFull.Name = "btRainFull";
-            this.btRainFull.Size = new System.Drawing.Size(75, 31);
-            this.btRainFull.TabIndex = 7;
-            this.btRainFull.Text = "文本广播";
-            this.btRainFull.UseVisualStyleBackColor = true;
-            this.btRainFull.Click += new System.EventHandler(this.btRainFull_Click);
+            this.btTextPlay.AccessibleRole = System.Windows.Forms.AccessibleRole.RowHeader;
+            this.btTextPlay.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btTextPlay.Location = new System.Drawing.Point(901, 406);
+            this.btTextPlay.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.btTextPlay.Name = "btTextPlay";
+            this.btTextPlay.Size = new System.Drawing.Size(75, 31);
+            this.btTextPlay.TabIndex = 7;
+            this.btTextPlay.Text = "文本广播";
+            this.btTextPlay.UseVisualStyleBackColor = true;
+            this.btTextPlay.Click += new System.EventHandler(this.btRainFull_Click);
             // 
             // btTestMusic
             // 
@@ -285,7 +286,8 @@
             this.口令管理ToolStripMenuItem,
             this.告警ToolStripMenuItem,
             this.定时查询ToolStripMenuItem,
-            this.定时开关机ToolStripMenuItem});
+            this.定时开关机ToolStripMenuItem,
+            this.功能按钮显示隐藏ToolStripMenuItem});
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
             this.设置ToolStripMenuItem.Size = new System.Drawing.Size(59, 31);
             this.设置ToolStripMenuItem.Text = "设置(&S)";
@@ -531,6 +533,13 @@
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
+            // 功能按钮显示隐藏ToolStripMenuItem
+            // 
+            this.功能按钮显示隐藏ToolStripMenuItem.Name = "功能按钮显示隐藏ToolStripMenuItem";
+            this.功能按钮显示隐藏ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.功能按钮显示隐藏ToolStripMenuItem.Text = "功能按钮显示隐藏";
+            this.功能按钮显示隐藏ToolStripMenuItem.Click += new System.EventHandler(this.功能按钮显示隐藏ToolStripMenuItem_Click);
+            // 
             // TerminalMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -546,7 +555,7 @@
             this.Controls.Add(this.btWaterLevel);
             this.Controls.Add(this.terminalHangUp);
             this.Controls.Add(this.terminalCall);
-            this.Controls.Add(this.btRainFull);
+            this.Controls.Add(this.btTextPlay);
             this.Controls.Add(this.btTestMusic);
             this.Controls.Add(this.btSlaggWarn);
             this.Controls.Add(this.btTest);
@@ -575,7 +584,7 @@
         private System.Windows.Forms.Button btFloodWarn;
         private System.Windows.Forms.Button btTest;
         private System.Windows.Forms.Button btSlaggWarn;
-        private System.Windows.Forms.Button btRainFull;
+        private System.Windows.Forms.Button btTextPlay;
         private System.Windows.Forms.Button btTestMusic;
         private System.Windows.Forms.Button btWaterLevel;
         private System.Windows.Forms.Button terminalCall;
@@ -619,5 +628,6 @@
         private System.Windows.Forms.ToolStripMenuItem 定时查询ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem c型终端ToolStripMenuItem;
         public System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ToolStripMenuItem 功能按钮显示隐藏ToolStripMenuItem;
     }
 }

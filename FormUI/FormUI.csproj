@@ -124,6 +124,12 @@
     <Compile Include="SettingForms\BattryParatemerSetting.Designer.cs">
       <DependentUpon>BattryParatemerSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingForms\ButtonVisibleSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingForms\ButtonVisibleSet.Designer.cs">
+      <DependentUpon>ButtonVisibleSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingForms\CallForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingForms\BattryParatemerSetting.resx">
       <DependentUpon>BattryParatemerSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingForms\ButtonVisibleSet.resx">
+      <DependentUpon>ButtonVisibleSet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingForms\CallForm.resx">
       <DependentUpon>CallForm.cs</DependentUpon>

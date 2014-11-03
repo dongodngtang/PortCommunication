@@ -39,6 +39,7 @@ namespace FormUI
             alarmClock = new AlarmClock();
             _order = new OrderDefinition();
             _service = new TerminalService();
+            ButtonVisible();
         }
 
         public event MyEvent NewPhone;
@@ -67,6 +68,21 @@ namespace FormUI
             }
         }
 
+
+        public void ButtonVisible()
+        {
+            btFloodWarn.Enabled  = !Settings.Default.cbL1;
+            btSlaggWarn.Enabled = !Settings.Default.cbL2;
+            btPowerAlert.Enabled = !Settings.Default.cbL3;
+            btTextPlay.Enabled = !Settings.Default.cbL4;
+            btWaterLevel.Enabled = !Settings.Default.cbL5;
+
+            btTest.Enabled = !Settings.Default.cbR1;
+            btStopMusic.Enabled = !Settings.Default.cbR2;
+            btTestMusic.Enabled = !Settings.Default.cbR3;
+            btOpenCTerminal.Enabled = !Settings.Default.cbR4;
+            btAlarm.Enabled = !Settings.Default.cbR5;
+        }
         /// <summary>
         ///     ListBox中显示的记录的条数
         /// </summary>
@@ -197,6 +213,7 @@ namespace FormUI
             if (LoginForm.Level == "管理员")
             {
                 口令管理ToolStripMenuItem.Enabled = true;
+                功能按钮显示隐藏ToolStripMenuItem.Enabled = true;
             }
             new ControlHelpers().FormChange(this);
 
@@ -999,6 +1016,11 @@ namespace FormUI
                 this.Hide();
                 this.notifyIcon1.Visible = true;
             } 
+        }
+
+        private void 功能按钮显示隐藏ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ButtonVisibleSet(this).ShowDialog();
         }
     }
 }

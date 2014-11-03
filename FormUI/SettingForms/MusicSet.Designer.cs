@@ -150,7 +150,7 @@
             this.MaximizeBox = false;
             this.Name = "MusicSet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MusicSet";
+            this.Text = "自定义音乐播放";
             this.Load += new System.EventHandler(this.MusicSet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

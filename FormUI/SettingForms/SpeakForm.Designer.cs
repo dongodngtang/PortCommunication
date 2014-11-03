@@ -94,10 +94,10 @@
             this.tapPlayOne.Controls.Add(this.panel1);
             this.tapPlayOne.Controls.Add(this.dgvPlayOne);
             this.tapPlayOne.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tapPlayOne.Location = new System.Drawing.Point(4, 30);
+            this.tapPlayOne.Location = new System.Drawing.Point(4, 29);
             this.tapPlayOne.Name = "tapPlayOne";
             this.tapPlayOne.Padding = new System.Windows.Forms.Padding(3);
-            this.tapPlayOne.Size = new System.Drawing.Size(724, 379);
+            this.tapPlayOne.Size = new System.Drawing.Size(724, 380);
             this.tapPlayOne.TabIndex = 0;
             this.tapPlayOne.Text = "        单 喊        ";
             this.tapPlayOne.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(3, 260);
+            this.bindingNavigator1.Location = new System.Drawing.Point(3, 261);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -143,7 +143,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(32, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "/ {0}";
             this.bindingNavigatorCountItem.ToolTipText = "总项数";
             // 
@@ -221,7 +221,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.Controls.Add(this.btLinkOne);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 285);
+            this.panel1.Location = new System.Drawing.Point(3, 286);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(718, 91);
             this.panel1.TabIndex = 1;
@@ -257,7 +257,7 @@
             this.dgvPlayOne.ReadOnly = true;
             this.dgvPlayOne.RowTemplate.Height = 23;
             this.dgvPlayOne.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPlayOne.Size = new System.Drawing.Size(718, 373);
+            this.dgvPlayOne.Size = new System.Drawing.Size(718, 374);
             this.dgvPlayOne.TabIndex = 0;
             // 
             // Id
@@ -307,10 +307,10 @@
             this.tapPalyGroup.Controls.Add(this.panel2);
             this.tapPalyGroup.Controls.Add(this.dgvPlayGroup);
             this.tapPalyGroup.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tapPalyGroup.Location = new System.Drawing.Point(4, 30);
+            this.tapPalyGroup.Location = new System.Drawing.Point(4, 29);
             this.tapPalyGroup.Name = "tapPalyGroup";
             this.tapPalyGroup.Padding = new System.Windows.Forms.Padding(3);
-            this.tapPalyGroup.Size = new System.Drawing.Size(724, 379);
+            this.tapPalyGroup.Size = new System.Drawing.Size(724, 380);
             this.tapPalyGroup.TabIndex = 1;
             this.tapPalyGroup.Text = "        组 喊        ";
             this.tapPalyGroup.UseVisualStyleBackColor = true;
@@ -381,10 +381,10 @@
             // 
             this.tapPalyAll.Controls.Add(this.btLinkAll);
             this.tapPalyAll.Controls.Add(this.label1);
-            this.tapPalyAll.Location = new System.Drawing.Point(4, 30);
+            this.tapPalyAll.Location = new System.Drawing.Point(4, 29);
             this.tapPalyAll.Name = "tapPalyAll";
             this.tapPalyAll.Padding = new System.Windows.Forms.Padding(3);
-            this.tapPalyAll.Size = new System.Drawing.Size(724, 379);
+            this.tapPalyAll.Size = new System.Drawing.Size(724, 380);
             this.tapPalyAll.TabIndex = 2;
             this.tapPalyAll.Text = "        齐 喊        ";
             this.tapPalyAll.UseVisualStyleBackColor = true;
