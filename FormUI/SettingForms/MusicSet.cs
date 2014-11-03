@@ -36,7 +36,7 @@ namespace FormUI.SettingForms
         {
             foreach (var item in itmes)
             {
-                _order.PlayMusic(item.Text, item.ToolTipText, cbPlayStlye.Text, numericUpDown1.Value.ToString(),
+                _order.PlayMusic(item.Text, item.ToolTipText, cbPlayStlye.SelectedIndex.ToString(), numericUpDown1.Value.ToString(),
                     tbPlayTime.Text == string.Empty ? "3" : tbPlayTime.Text.PadLeft(2, Convert.ToChar("0")));
             }
             this.Close();
